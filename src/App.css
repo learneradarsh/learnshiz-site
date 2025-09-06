@@ -40,3 +40,14 @@
 .read-the-docs {
   color: #888;
 }
+
+@media screen and (max-width: 600px) {
+  .mobile-justfiy-ct {
+    margin-bottom: 2rem;
+    flex-direction: column !important;
+  }
+  .in-mobile-btn {
+    margin-top: 2rem;
+  }
+  
+}

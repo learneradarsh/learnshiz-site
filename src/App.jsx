@@ -286,6 +286,16 @@ function GCC(){
 }
 
 function Clients(){
+   // <-- declare data here, before the return
+  const clientsList = [
+    { id: 1, name: 'GT Consulting', icon: '/src/assets/clients/GT consulting.png' },
+    { id: 2, name: 'Upcred.ai', icon: '/src/assets/clients/upcred_blue_logo.c0b15965.svg' },
+    { id: 3, name: 'Third Eye IS', icon: '/src/assets/clients/thirdeye.jpg' },
+    { id: 4, name: 'Osmia', icon: '/src/assets/clients/osmia.jpg' },
+    { id: 5, name: 'Dental Bazar', icon: '/src/assets/clients/dental bazar.png' },
+    { id: 6, name: 'Global Ecommerce', icon: '/src/assets/clients/globlecommerce_logo177-e1549480340347.png' },
+  ];
+
   return (
     <section className="max-w-6xl mx-auto px-6 py-16">
       <div className="flex items-center justify-between">
@@ -301,18 +311,24 @@ function Clients(){
         </div>
       </div>
 
-      {/* logo grid */}
+     {/* logo grid */}
       <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center">
-        {['Client A','Client B','Client C','Client D','Client E','Client F'].map((c,i) => (
-          <div key={i} className="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm border">
-            {/* In production replace this with an <img src='/path/to/logo.png' alt={c} /> */}
-            <div className="w-20 h-12 bg-gray-100 rounded flex items-center justify-center text-[var(--primary)] font-semibold">
-              {c.split(' ')[1] || c.charAt(0)}
+        {clientsList.map((c) => (
+          <div key={c.id} className="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm border">
+            <div className="w-28 h-14 flex items-center justify-center bg-gray-50 rounded">
+              <img
+                src={c.icon}
+                alt={c.name}
+                className="max-h-full max-w-full object-contain"
+                loading="lazy"
+                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+              />
             </div>
-            <div className="mt-2 text-sm text-gray-700">{c}</div>
+            <div className="mt-2 text-sm text-gray-700 text-center">{c.name}</div>
           </div>
         ))}
       </div>
+
 
       {/* Industries & partnership models */}
       <div className="mt-12 grid md:grid-cols-2 gap-8">
@@ -490,10 +506,10 @@ function About(){
         </div>
       </div>
 
-      <div className="mt-10 p-6 bg-gray-50 rounded-md flex items-center justify-between">
+      <div className="mt-10 p-6 bg-gray-50 rounded-md flex items-center justify-between mobile-justfiy-ct">
         <div>
           <div className="font-semibold">Want to discuss a GCC or hiring program?</div>
-          <div className="text-sm text-gray-700 mt-1">Schedule a call with our GCC specialists for a free discovery session.</div>
+          <div className="text-sm text-gray-700 mt-1 in-mobile-btn">Schedule a call with our GCC specialists for a free discovery session.</div>
         </div>
         <div>
           <Link to="/contact" className="px-4 py-2 bg-[var(--primary)] text-white rounded-md">Schedule a call</Link>
@@ -525,7 +541,7 @@ function Contact(){
       <h2 className="text-3xl font-bold">Get in touch</h2>
       <p className="mt-3 text-gray-700">Tell us about your hiring or GCC plans and we'll get back within 24-48 hours.</p>
 
-      <form className="mt-6 grid grid-cols-1 gap-4" onSubmit={(e) => { e.preventDefault(); alert('Thanks — form submission simulated in demo.'); }}>
+      <form className="mt-6 grid grid-cols-1 gap-4" onSubmit={(e) => { e.preventDefault(); window.location = "mailto:hello@learnshiz.com" }}>
         <input required placeholder="Full name" className="border px-4 py-3 rounded" />
         <input required placeholder="Work email" type="email" className="border px-4 py-3 rounded" />
         <input placeholder="Company" className="border px-4 py-3 rounded" />
@@ -565,12 +581,13 @@ function Feature({title, desc}){
 }
 
 function Card({title, desc}){
+  const navigate = useNavigate();
   return (
     <div className="p-6 rounded-md shadow-sm border">
       <h4 className="font-semibold">{title}</h4>
       <p className="mt-2 text-gray-700">{desc}</p>
       <div className="mt-4">
-        <button className="px-4 py-2 rounded bg-[var(--primary)] text-white">Learn more</button>
+        <button className="px-4 py-2 rounded bg-[var(--primary)] text-white" onClick={() => navigate('/contact')}>Learn more</button>
       </div>
     </div>
   );
@@ -592,12 +609,12 @@ function Job({title, location}){
 
 function ClientsCarousel(){
   const clients = [
-    { id:1, name:'Client A' },
-    { id:2, name:'Client B' },
-    { id:3, name:'Client C' },
-    { id:4, name:'Client D' },
-    { id:5, name:'Client E' },
-    { id:6, name:'Client F' },
+    { id:1, name:'Dental Bazar', icon:'/src/assets/clients/dental bazar.png' },
+    { id:2, name:'Global Ecommerce', icon:'/src/assets/clients/globlecommerce_logo177-e1549480340347.png' },
+    { id:3, name:'GT Consulting', icon:'/src/assets/clients/GT consulting.png' },
+    { id:4, name:'Osmia', icon:'/src/assets/clients/osmia.jpg' },
+    { id:5, name:'Upcred.ai', icon:'/src/assets/clients/upcred_blue_logo.c0b15965.svg' },
+    { id:6, name:'Third Eye Intelligence Service', icon:'/src/assets/clients/thirdeye.jpg' },
   ];
   const [index, setIndex] = React.useState(0);
 
@@ -609,7 +626,6 @@ function ClientsCarousel(){
   const prev = ()=> setIndex(i => (i-1+clients.length) % clients.length);
   const next = ()=> setIndex(i => (i+1) % clients.length);
 
-  // Show 4 items visually — compute sliding window
   const visible = React.useMemo(()=>{
     const out = [];
     for(let i=0;i<4;i++){
@@ -621,11 +637,12 @@ function ClientsCarousel(){
   return (
     <div className="relative">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-        {visible.map((c, i)=> (
+      {visible.map((c) => (
           <div key={c.id} className="flex items-center justify-center p-6 bg-white rounded-xl shadow hover:shadow-lg border border-gray-100 transition transform hover:-translate-y-1">
-            {/* Replace name with <img src='logo.png' alt={c.name} /> in production */}
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 rounded-md bg-gray-100 flex items-center justify-center text-[var(--primary)] font-bold text-lg">{c.name.split(' ')[1] || c.name.charAt(0)}</div>
+              <div className="w-20 h-20 flex items-center justify-center">
+                <img src={c.icon} alt={c.name} className="max-h-full max-w-full object-contain" />
+              </div>
               <div className="mt-3 text-sm text-gray-700">{c.name}</div>
             </div>
           </div>
@@ -649,9 +666,9 @@ function ClientsCarousel(){
 
 function TestimonialsCarousel(){
   const items = [
-    {name: 'Emma R.', role: 'Head of Engineering', text: 'LearnShiz helped us hire a focused team in Bangalore within 6 weeks. Their screening process is top-notch.'},
-    {name: 'Liam S.', role: 'VP Product', text: 'They supported our GCC launch end-to-end — from legal to people ops. Highly recommended.'},
-    {name: 'Aisha K.', role: 'Talent Lead', text: 'Great partnership and fast turnaround on challenging roles.'},
+    {name: 'Dharampal Chaudhary, Upcred.ai', role: 'Founder', text: 'LearnShiz helped us hire a focused team in Bangalore within 6 weeks. Their screening process is top-notch.'},
+    {name: 'David Abady, Ira Net Spooz', role: 'Founder', text: 'They supported our GCC launch end-to-end — from legal to people ops. Highly recommended.'},
+    {name: 'Yossi D.', role: 'CEO', text: 'Great partnership and fast turnaround on challenging roles.'},
   ];
   const [idx, setIdx] = React.useState(0);
 
