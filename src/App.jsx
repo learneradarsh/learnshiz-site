@@ -6,6 +6,12 @@ Single-file demo (Vite/CRA). Requires react-router-dom + Tailwind CSS.
 
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, NavLink, useNavigate } from 'react-router-dom';
+import dentalBazar from './assets/dental_bazar.png';
+import globecommerce from './assets/globlecommerce_logo177-e1549480340347.png';
+import gtConsulting from './assets/GT_consulting.png';
+import osmia from './assets/osmia.jpg';
+import upcred from './assets/upcred_blue_logo.c0b15965.svg';
+import thirdEye from './assets/thirdeye.jpg';
 
 const activeClass = "border-b-2 border-[var(--primary)] text-[var(--primary)]";
 
@@ -609,12 +615,12 @@ function Job({title, location}){
 
 function ClientsCarousel(){
   const clients = [
-    { id:1, name:'Dental Bazar', icon:'/src/assets/clients/dental bazar.png' },
-    { id:2, name:'Global Ecommerce', icon:'/src/assets/clients/globlecommerce_logo177-e1549480340347.png' },
-    { id:3, name:'GT Consulting', icon:'/src/assets/clients/GT consulting.png' },
-    { id:4, name:'Osmia', icon:'/src/assets/clients/osmia.jpg' },
-    { id:5, name:'Upcred.ai', icon:'/src/assets/clients/upcred_blue_logo.c0b15965.svg' },
-    { id:6, name:'Third Eye Intelligence Service', icon:'/src/assets/clients/thirdeye.jpg' },
+    { id:1, name:'Dental Bazar', icon: dentalBazar },
+    { id:2, name:'Global Ecommerce', icon: globecommerce},
+    { id:3, name:'GT Consulting', icon: gtConsulting },
+    { id:4, name:'Osmia', icon: osmia},
+    { id:5, name:'Upcred.ai', icon: upcred },
+    { id:6, name:'Third Eye Intelligence Service', icon: thirdEye },
   ];
   const [index, setIndex] = React.useState(0);
 
