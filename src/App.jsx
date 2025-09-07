@@ -294,12 +294,12 @@ function GCC(){
 function Clients(){
    // <-- declare data here, before the return
   const clientsList = [
-    { id: 1, name: 'GT Consulting', icon: '/src/assets/clients/GT consulting.png' },
-    { id: 2, name: 'Upcred.ai', icon: '/src/assets/clients/upcred_blue_logo.c0b15965.svg' },
-    { id: 3, name: 'Third Eye IS', icon: '/src/assets/clients/thirdeye.jpg' },
-    { id: 4, name: 'Osmia', icon: '/src/assets/clients/osmia.jpg' },
-    { id: 5, name: 'Dental Bazar', icon: '/src/assets/clients/dental bazar.png' },
-    { id: 6, name: 'Global Ecommerce', icon: '/src/assets/clients/globlecommerce_logo177-e1549480340347.png' },
+    { id:1, name:'Dental Bazar', icon: dentalBazar },
+    { id:2, name:'Global Ecommerce', icon: globecommerce},
+    { id:3, name:'GT Consulting', icon: gtConsulting },
+    { id:4, name:'Osmia', icon: osmia},
+    { id:5, name:'Upcred.ai', icon: upcred },
+    { id:6, name:'Third Eye Intelligence Service', icon: thirdEye },
   ];
 
   return (
