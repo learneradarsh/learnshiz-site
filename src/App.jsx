@@ -2,6 +2,8 @@
 Final App.jsx - LearnShiz Techies
 Colors: Orange #f4511e, White, Black
 Single-file demo (Vite/CRA). Requires react-router-dom + Tailwind CSS.
+
+Updated: Added Team page and office locations in footer as requested.
 */
 
 import React from 'react';
@@ -34,6 +36,7 @@ function App() {
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/about" element={<About />} />
+            <Route path="/team" element={<Team />} />
             <Route path="/policies" element={<Policies />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
@@ -63,6 +66,7 @@ function Header() {
           <NavLink to="/services" className={({isActive}) => isActive ? activeClass : 'text-gray-700'}>Services</NavLink>
           <NavLink to="/gcc" className={({isActive}) => isActive ? activeClass : 'text-gray-700'}>GCC</NavLink>
           <NavLink to="/clients" className={({isActive}) => isActive ? activeClass : 'text-gray-700'}>Customers</NavLink>
+          <NavLink to="/team" className={({isActive}) => isActive ? activeClass : 'text-gray-700'}>Team</NavLink>
           <NavLink to="/careers" className={({isActive}) => isActive ? activeClass : 'text-gray-700'}>Careers</NavLink>
           <NavLink to="/about" className={({isActive}) => isActive ? activeClass : 'text-gray-700'}>About</NavLink>
           <NavLink to="/contact" className={({isActive}) => isActive ? activeClass : 'text-gray-700'}>Contact</NavLink>
@@ -90,6 +94,7 @@ function MobileMenu(){
           <Link className="block px-4 py-2 text-sm" to="/services" onClick={() => setOpen(false)}>Services</Link>
           <Link className="block px-4 py-2 text-sm" to="/gcc" onClick={() => setOpen(false)}>GCC</Link>
           <Link className="block px-4 py-2 text-sm" to="/clients" onClick={() => setOpen(false)}>Clients</Link>
+          <Link className="block px-4 py-2 text-sm" to="/team" onClick={() => setOpen(false)}>Team</Link>
           <Link className="block px-4 py-2 text-sm" to="/careers" onClick={() => setOpen(false)}>Careers</Link>
           <Link className="block px-4 py-2 text-sm" to="/about" onClick={() => setOpen(false)}>About</Link>
           <Link className="block px-4 py-2 text-sm" to="/contact" onClick={() => setOpen(false)}>Contact</Link>
@@ -525,6 +530,101 @@ function About(){
   );
 }
 
+/* ---------------- New Team page (added per request) ---------------- */
+/* ---------------- New Team page (added per request) ---------------- */
+function Team(){
+  return (
+    <section className="max-w-4xl mx-auto px-6 py-16">
+      <h2 className="text-3xl font-bold">Our Team</h2>
+      <p className="mt-3 text-gray-700">
+        We are a 100+ strong distributed team across India, Nepal, Myanmar, Bangladesh, UAE, Israel and more — 
+        engineers, product managers, recruiters and GCC specialists working together to deliver results.
+      </p>
+
+      <div className="mt-6 grid md:grid-cols-2 gap-6">
+        <div className="p-6 rounded-lg bg-white shadow-sm border">
+          <h4 className="font-semibold">Values & culture</h4>
+          <p className="mt-2 text-gray-700">
+            Our team values are rooted in collaboration, ownership and continuous learning. 
+            We hire for attitude and train for skills — prioritising engineers who care about clean code, accessibility and product thinking.
+          </p>
+
+          <div className="mt-4">
+            <h5 className="font-semibold">How we work</h5>
+            <ul className="mt-2 list-disc list-inside text-gray-700">
+              <li>Small cross-functional squads with clear ownership and measurable outcomes.</li>
+              <li>Bi-weekly OKRs and sprint-focused delivery to maintain cadence and predictability.</li>
+              <li>Peer code reviews, pair programming and design critiques to raise code quality.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="p-6 rounded-lg bg-white shadow-sm border">
+          <h4 className="font-semibold">Quality of our developers</h4>
+          <ul className="mt-2 list-disc list-inside text-gray-700">
+            <li>Strong fundamentals in JavaScript/TypeScript and modern frameworks (React, Angular, Node.js).</li>
+            <li>Emphasis on testing, accessibility and maintainable architecture.</li>
+            <li>Experience with cloud platforms, CI/CD and scalable systems.</li>
+            <li>Client-centric approach with clear communication and SLA-driven delivery.</li>
+          </ul>
+
+          <div className="mt-4">
+            <h5 className="font-semibold">Hiring signal</h5>
+            <p className="mt-2 text-gray-700">
+              We screen for problem solving, system design basics and hands-on coding. 
+              Hire-ready candidates typically complete our onboarding tech-path in 4–6 weeks.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-8 grid md:grid-cols-3 gap-6">
+        <div className="p-4 bg-white rounded shadow-sm text-center">
+          <div className="font-bold text-2xl">100+</div>
+          <div className="text-sm text-gray-600">Team size</div>
+        </div>
+        <div className="p-4 bg-white rounded shadow-sm text-center">
+          <div className="font-bold text-2xl">85%</div>
+          <div className="text-sm text-gray-600">Retention (12 months)</div>
+        </div>
+        <div className="p-4 bg-white rounded shadow-sm text-center">
+          <div className="font-bold text-2xl">4–6w</div>
+          <div className="text-sm text-gray-600">Avg ramp time</div>
+        </div>
+      </div>
+
+      <div className="mt-8">
+        <h4 className="font-semibold">Learning & growth</h4>
+        <p className="mt-2 text-gray-700">
+          We run regular L&D initiatives — internal tech talks, mentorship circles, and workshops on testing, cloud architecture, and product thinking. 
+          Every engineer has a growth plan with quarterly milestones.
+        </p>
+
+        <div className="mt-4">
+          <h5 className="font-semibold">Mentorship & quality gates</h5>
+          <ul className="mt-2 list-disc list-inside text-gray-700">
+            <li>Structured 1:1 mentorship for new hires during the first 3 months.</li>
+            <li>Quality gates including unit test coverage, accessibility checklist, and architecture review.</li>
+            <li>Monthly hack days to encourage experimentation and ownership.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="mt-8">
+        <h4 className="font-semibold">Diversity & distributed delivery</h4>
+        <p className="mt-2 text-gray-700">
+          Our distributed model gives us local presence and language strengths in multiple markets while keeping engineering standards consistent. 
+          We encourage inclusive hiring and flexible work arrangements for cross-border collaboration.
+        </p>
+      </div>
+
+      <div className="mt-8">
+        <Link to="/careers" className="px-4 py-2 rounded-md bg-[var(--primary)] text-white">View open roles</Link>
+      </div>
+    </section>
+  );
+}
+
 
 function Policies(){
   return (
@@ -719,10 +819,11 @@ function TestimonialsCarousel(){
 }
 
 /* ---------------- Footer ---------------- */
+/* ---------------- Footer ---------------- */
 function Footer(){
   return (
     <footer className="bg-black text-white mt-12">
-      <div className="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
+      <div className="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-4 gap-6">
         <div>
           <div className="font-semibold">LearnShiz Techies</div>
           <div className="text-sm mt-2">Staffing & GCC enablement for global companies building in India.</div>
@@ -739,13 +840,64 @@ function Footer(){
           </div>
         </div>
         <div>
-          <div className="font-semibold">Contact</div>
-          <div className="mt-2 text-sm">hello@learnshiz.com<br/>+91 95919 67760</div>
+          <div className="font-semibold">Team</div>
+          <div className="mt-2 text-sm">
+            100+ team members across India, Nepal, Myanmar, Bangladesh, UAE, Israel and more.
+          </div>
+          <div className="mt-3 text-sm text-gray-300">
+            Values: Transparency • Ownership • Continuous learning
+          </div>
+        </div>
+        <div>
+          <div className="font-semibold">Contact & Offices</div>
+          <div className="mt-2 text-sm">
+            <div>hello@learnshiz.com</div>
+            <div className="mt-2">Phone: +91 95919 67760</div>
+
+            <div className="mt-4">
+              <div className="font-semibold">Office locations</div>
+              <ul className="mt-2 list-inside text-sm">
+                <li>Bengaluru - BTM 1stage, Bengaluru, KA</li>
+                <li>Lucknow - Indira Nagar, Lucknow, UP</li>
+                <li>Indore - New Town Indore, MP</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="text-xs text-gray-400 text-center py-4">© {new Date().getFullYear()} LearnShiz Techies. All rights reserved.</div>
+
+      {/* Map embeds */}
+      <div className="max-w-6xl mx-auto px-6 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+          <div className="bg-white rounded overflow-hidden">
+            <iframe title="Bengaluru office"
+              src="https://www.google.com/maps?q=BTM%201st%20Stage%20Bengaluru&output=embed"
+              className="w-full h-40 border-0" />
+            <div className="p-3 text-black text-sm">Bengaluru — BTM 1st Stage, Bengaluru, KA</div>
+          </div>
+
+          <div className="bg-white rounded overflow-hidden">
+            <iframe title="Lucknow office"
+              src="https://www.google.com/maps?q=Indira%20Nagar%20Lucknow&output=embed"
+              className="w-full h-40 border-0" />
+            <div className="p-3 text-black text-sm">Lucknow — Indira Nagar, Lucknow, UP</div>
+          </div>
+
+          <div className="bg-white rounded overflow-hidden">
+            <iframe title="Indore office"
+              src="https://www.google.com/maps?q=New%20Town%20Indore&output=embed"
+              className="w-full h-40 border-0" />
+            <div className="p-3 text-black text-sm">Indore — New Town Indore, MP</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="text-xs text-gray-400 text-center py-4">
+        © {new Date().getFullYear()} LearnShiz Techies. All rights reserved.
+      </div>
     </footer>
   );
 }
+
 
 export default App;
