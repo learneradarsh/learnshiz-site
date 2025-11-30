@@ -1,5 +1,4 @@
 // App.jsx - LearnShiz Techies (Global Tech & AI Staffing)
-// Requires: react-router-dom + Tailwind CSS
 
 import React from "react";
 import {
@@ -9,7 +8,9 @@ import {
   Link,
   NavLink,
   useNavigate,
+  useLocation,
 } from "react-router-dom";
+
 import dentalBazar from "./assets/dental_bazar.png";
 import globecommerce from "./assets/globlecommerce_logo177-e1549480340347.png";
 import gtConsulting from "./assets/GT_consulting.png";
@@ -21,17 +22,21 @@ import thirdEye from "./assets/thirdeye.jpg";
 const activeClass =
   "border-b-2 border-indigo-600 text-indigo-700 font-medium";
 
+const DEV_FORM_URL = "https://forms.gle/dxaLoQkrhn7JcDiX8";
+
 function App() {
   return (
     <div
       className="min-h-screen flex flex-col"
-      style={{ fontFamily: "Inter, system-ui, -apple-system, BlinkMacSystemFont" }}
+      style={{
+        fontFamily: "Inter, system-ui, -apple-system, BlinkMacSystemFont",
+      }}
     >
       <style>{`
         :root {
-          --primary: #4f46e5;      /* indigo */
-          --accent: #06b6d4;       /* cyan */
-          --cta: #facc15;          /* warm yellow */
+          --primary: #4f46e5;
+          --accent: #06b6d4;
+          --cta: #facc15;
           --cta-700: #eab308;
           --bg: #f3f4fb;
           --surface: #ffffff;
@@ -136,6 +141,7 @@ function App() {
       `}</style>
 
       <Router>
+        <ScrollToTop />
         <Header />
         <main className="flex-1">
           <Routes>
@@ -156,6 +162,16 @@ function App() {
       </Router>
     </div>
   );
+}
+
+/* ---------- Scroll to top on route change ---------- */
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
+  return null;
 }
 
 /* ---------------- Header ---------------- */
@@ -203,7 +219,7 @@ function Header() {
               isActive ? activeClass : "text-gray-600 hover:text-gray-900"
             }
           >
-            Developers
+            Process
           </NavLink>
           <NavLink
             to="/clients"
@@ -211,7 +227,7 @@ function Header() {
               isActive ? activeClass : "text-gray-600 hover:text-gray-900"
             }
           >
-            Customers
+            Case studies
           </NavLink>
           <NavLink
             to="/about"
@@ -235,7 +251,7 @@ function Header() {
               isActive ? activeClass : "text-gray-600 hover:text-gray-900"
             }
           >
-            Careers
+            Join as dev
           </NavLink>
         </nav>
 
@@ -281,10 +297,10 @@ function MobileMenu() {
           {[
             ["Home", "/"],
             ["Services", "/services"],
-            ["Developers", "/developers"],
-            ["Clients", "/clients"],
+            ["Process", "/developers"],
+            ["Case studies", "/clients"],
             ["Team", "/team"],
-            ["Careers", "/careers"],
+            ["Join as dev", "/careers"],
             ["About", "/about"],
             ["Contact", "/contact"],
           ].map(([label, path]) => (
@@ -302,6 +318,119 @@ function MobileMenu() {
     </div>
   );
 }
+
+function PricingComparison() {
+  return (
+    <div className="card p-6 mt-12 rounded-xl bg-white shadow-md border border-gray-100">
+      <h3 className="text-xl font-semibold text-gray-900">
+        Pricing Comparison — How You Save
+      </h3>
+      <p className="text-sm text-gray-600 mt-2 max-w-xl">
+        Because we only charge a minimal management fee and 80–90% goes directly
+        to the developer, you get better talent AND lower total cost.
+      </p>
+
+      <div className="mt-6 space-y-6 text-sm">
+        {/* Total Monthly Cost */}
+        <div>
+          <div className="flex justify-between mb-1">
+            <span className="font-medium">Total Monthly Cost</span>
+            <span>LearnShiz vs Typical Vendor</span>
+          </div>
+
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="w-24 text-gray-600">LearnShiz</span>
+              <div className="flex-1 bg-gray-100 rounded-full h-3">
+                <div
+                  className="h-3 rounded-full bg-indigo-500"
+                  style={{ width: "55%" }}
+                ></div>
+              </div>
+              <span className="text-gray-700 text-xs">~55%</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="w-24 text-gray-600">Typical Vendor</span>
+              <div className="flex-1 bg-gray-100 rounded-full h-3">
+                <div
+                  className="h-3 rounded-full bg-gray-400"
+                  style={{ width: "85%" }}
+                ></div>
+              </div>
+              <span className="text-gray-700 text-xs">~85%</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Money reaching developer */}
+        <div>
+          <div className="flex justify-between mb-1">
+            <span className="font-medium">Money Reaching Developer</span>
+            <span>Retention / Happiness</span>
+          </div>
+
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="w-24 text-gray-600">LearnShiz</span>
+              <div className="flex-1 bg-gray-100 rounded-full h-3">
+                <div
+                  className="h-3 rounded-full bg-emerald-500"
+                  style={{ width: "90%" }}
+                ></div>
+              </div>
+              <span className="text-gray-700 text-xs">80–90%</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="w-24 text-gray-600">Typical Vendor</span>
+              <div className="flex-1 bg-gray-100 rounded-full h-3">
+                <div
+                  className="h-3 rounded-full bg-gray-400"
+                  style={{ width: "60%" }}
+                ></div>
+              </div>
+              <span className="text-gray-700 text-xs">50–60%</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Retention */}
+        <div>
+          <div className="flex justify-between mb-1">
+            <span className="font-medium">12-Month Retention</span>
+            <span>Stability / Delivery Rate</span>
+          </div>
+
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="w-24 text-gray-600">LearnShiz</span>
+              <div className="flex-1 bg-gray-100 rounded-full h-3">
+                <div
+                  className="h-3 rounded-full bg-blue-600"
+                  style={{ width: "88%" }}
+                ></div>
+              </div>
+              <span className="text-gray-700 text-xs">~88%</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="w-24 text-gray-600">Typical Vendor</span>
+              <div className="flex-1 bg-gray-100 rounded-full h-3">
+                <div
+                  className="h-3 rounded-full bg-gray-400"
+                  style={{ width: "65%" }}
+                ></div>
+              </div>
+              <span className="text-gray-700 text-xs">60–70%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 /* ---------------- Home ---------------- */
 
@@ -336,13 +465,28 @@ function Home() {
           </p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-            <Link to="/developers" className="btn-primary text-sm">
+            <Link to="/contact" className="btn-primary text-sm">
               Get 3 profiles in 48 hours
             </Link>
-            <Link to="/contact" className="btn-ghost text-xs">
-              Share your requirement
+            <Link to="/developers" className="btn-ghost text-xs">
+              See sample roles
             </Link>
           </div>
+
+          <div className="mt-4 inline-flex flex-wrap items-center gap-3 px-4 py-3 rounded-2xl bg-white shadow-sm border border-indigo-100 text-[11px] md:text-xs">
+  <span className="px-2 py-1 rounded-full bg-indigo-50 text-indigo-700 font-semibold">
+    For developers
+  </span>
+  <span className="text-gray-700">
+    Want to work with global product teams?
+  </span>
+  <Link
+    to="/careers"
+    className="ml-auto btn-ghost !px-3 !py-1.5 !text-[11px]"
+  >
+    Join as dev
+  </Link>
+</div>
 
           <div className="mt-6 grid grid-cols-3 gap-4 text-xs md:text-sm">
             <Metric label="Vetted developers" value="100+" />
@@ -496,6 +640,9 @@ function Home() {
         </div>
       </div>
 
+      <PricingComparison />
+
+
       {/* Impact + testimonials row */}
       <div className="mt-12 md:mt-14 grid md:grid-cols-[1.1fr,0.9fr] gap-10 items-start">
         <div>
@@ -523,6 +670,33 @@ function Home() {
           <div className="mt-4">
             <TestimonialsCarousel />
           </div>
+        </div>
+      </div>
+
+      {/* Dev CTA section */}
+      <div className="mt-12 glass-soft p-6 md:p-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <div className="text-xs font-semibold text-gray-900">
+            Are you a developer?
+          </div>
+          <div className="mt-1 text-sm text-gray-700 max-w-md">
+            Join our vetted pool to work with global product teams. Enjoy free
+            Udemy training, work-from-home support, global exposure and a guided
+            career path.
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          <Link to="/careers" className="btn-ghost text-xs">
+            See benefits
+          </Link>
+          <a
+            href={DEV_FORM_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-primary text-xs"
+          >
+            Register as developer
+          </a>
         </div>
       </div>
 
@@ -590,96 +764,272 @@ function AIStackBand() {
 /* ---------------- Services ---------------- */
 
 function Services() {
+  const roleGroups = [
+    {
+      title: "Fullstack developers",
+      desc: "Own end-to-end features across frontend, backend and data.",
+      items: ["React", "Angular", "Node.js", "Java", ".NET"],
+    },
+    {
+      title: "Frontend engineers",
+      desc: "Build fast, accessible SPAs and microfrontends.",
+      items: ["SPA architecture", "Microfrontends", "Performance tuning"],
+    },
+    {
+      title: "Backend & API developers",
+      desc: "Design secure, scalable APIs and services.",
+      items: ["REST & GraphQL", "Event-driven systems", "Microservices"],
+    },
+    {
+      title: "Mobile / app developers",
+      desc: "Native & cross-platform apps for iOS and Android.",
+      items: ["Kotlin / Swift", "React Native", "Flutter"],
+    },
+    {
+      title: "QA & automation specialists",
+      desc: "Ship with confidence through automated testing.",
+      items: ["Playwright", "Cypress", "API & integration tests"],
+    },
+    {
+      title: "DevOps, cloud & SRE",
+      desc: "Keep your stack reliable, observable and scalable.",
+      items: ["AWS / GCP / Azure", "CI/CD & Terraform", "Monitoring & SLOs"],
+    },
+    {
+      title: "Data engineers",
+      desc: "Build robust data pipelines and analytics foundations.",
+      items: ["Airflow & DBT", "Spark / Kafka", "ETL / ELT pipelines"],
+    },
+    {
+      title: "Data scientists, ML & LLM engineers",
+      desc: "Turn data and models into production AI features.",
+      items: ["ML models", "LLMs, RAG, LangChain", "MLOps & monitoring"],
+    },
+  ];
+
   return (
     <section className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14">
+      {/* Intro */}
       <SectionTitle
         title="Staffing services for modern engineering & AI teams"
-        subtitle="Flexible models to add high-quality developers to your product roadmap."
+        subtitle="Flexible engagement models to add high-quality developers to your roadmap — without building an entire local hiring function."
       />
 
+      {/* Engagement models */}
       <div className="mt-8 grid md:grid-cols-3 gap-6">
         <Card
           title="Dedicated developers"
-          desc="Full-time remote engineers embedded in your team, aligned with your sprints, codebase and stack."
+          desc="Full-time remote engineers embedded into your squad — same rituals, same tools, same codebase."
         />
         <Card
           title="Product pods"
-          desc="2–6 member pods — fullstack + QA + data — ideal for delivering specific modules or experiments."
+          desc="2–6 member pods (fullstack, QA, data) to own specific modules, features or experiments end-to-end."
         />
         <Card
           title="Specialist AI & data roles"
-          desc="Data engineers, data scientists, MLOps and LLM engineers to accelerate your AI initiatives."
+          desc="Data engineers, data scientists, ML & LLM engineers to accelerate analytics and AI initiatives."
         />
       </div>
 
-      <div className="mt-12 grid md:grid-cols-2 gap-10">
-        <div>
-          <h3 className="text-lg font-semibold text-gray-900">
-            Roles we provide
+      {/* Roles we provide – nicer UX */}
+      <div className="mt-14">
+        <h3 className="text-xl font-semibold text-gray-900">
+          Roles we provide
+        </h3>
+        <p className="mt-2 text-sm text-gray-600 max-w-2xl">
+          Every role goes through the same vetting process — hands-on technical
+          screening, architecture discussions for senior talent, and
+          communication checks for remote work.
+        </p>
+
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+          {roleGroups.map((role) => (
+            <div
+              key={role.title}
+              className="card p-5 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <div className="font-semibold text-gray-900">
+                    {role.title}
+                  </div>
+                  <p className="mt-1 text-sm text-gray-600">{role.desc}</p>
+                </div>
+              </div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {role.items.map((item) => (
+                  <span
+                    key={item}
+                    className="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[0.75rem] font-medium"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Pricing model / comparison */}
+      <div className="mt-14 grid md:grid-cols-[1.1fr,0.9fr] gap-8 items-start">
+        <div className="card p-6 text-sm">
+          <h3 className="font-semibold text-gray-900">
+            Engagement & pricing model
           </h3>
-          <ul className="mt-4 list-disc list-inside text-sm text-gray-700 grid md:grid-cols-2 gap-x-6 gap-y-1.5">
-            <li>Fullstack developers (React, Angular, Node.js, Java, .NET)</li>
-            <li>Frontend engineers (SPA, microfrontends, performance)</li>
-            <li>Backend &amp; API developers (REST, GraphQL, event-driven)</li>
-            <li>Mobile/app developers (native &amp; cross-platform)</li>
-            <li>QA engineers &amp; automation specialists</li>
-            <li>DevOps, cloud &amp; SRE</li>
-            <li>Data engineers &amp; analytics developers</li>
-            <li>Data scientists, ML &amp; LLM engineers</li>
+          <p className="mt-2 text-gray-700">
+            You pay a simple monthly fee per developer. We keep our management
+            fee lean and pass most of the value to the engineer — which attracts
+            stronger talent and keeps them invested in your product.
+          </p>
+
+          <ul className="mt-4 list-disc list-inside text-gray-700 space-y-1.5">
+            <li>Minimum 3–6 month engagements, extendable as needed.</li>
+            <li>
+              Developers follow your tools and rituals — Jira/Linear, GitHub,
+              your CI/CD and review process.
+            </li>
+            <li>
+              Time zone overlap aligned with your needs (US/EU-friendly
+              options).
+            </li>
+            <li>
+              We handle payroll, compliance and long-term career growth for the
+              developer.
+            </li>
           </ul>
         </div>
 
-        <div className="card p-6 text-sm">
+        <div className="card p-6 text-xs md:text-sm">
           <h4 className="font-semibold text-gray-900">
-            Pricing that favours the developer
+            How we compare to traditional vendors
           </h4>
-          <p className="mt-2 text-gray-700">
-            You pay a simple monthly fee per developer. We charge a lean
-            management fee; the majority goes directly to the engineer. This
-            attracts stronger talent and keeps them invested in your success.
-          </p>
 
-          <div className="mt-4 grid grid-cols-2 gap-4 text-xs">
-            <div className="glass-soft p-3 bg-gray-50">
-              <div className="font-semibold text-gray-900 mb-1">
-                Traditional agency
+          <div className="mt-4 space-y-4">
+            <div>
+              <div className="flex justify-between text-gray-600 mb-1">
+                <span>Markup / management fee</span>
+                <span>Lower is better</span>
               </div>
-              <ul className="list-disc list-inside text-gray-600 space-y-1">
-                <li>30–60% markups common.</li>
-                <li>Developer often receives a smaller share.</li>
-                <li>Higher churn risk due to pay dissatisfaction.</li>
-                <li>Opaque fee structure.</li>
-              </ul>
-            </div>
-            <div className="glass-soft p-3 border-indigo-200 bg-indigo-50/40">
-              <div className="font-semibold text-indigo-800 mb-1">
-                LearnShiz model
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <span className="w-24 text-[0.7rem] text-gray-500">
+                    LearnShiz
+                  </span>
+                  <div className="flex-1 bg-gray-100 rounded-full h-2">
+                    <div
+                      className="h-2 rounded-full bg-indigo-500"
+                      style={{ width: "20%" }}
+                    />
+                  </div>
+                  <span className="text-[0.7rem] text-gray-700">
+                    ~10–15%
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-24 text-[0.7rem] text-gray-500">
+                    Typical vendor
+                  </span>
+                  <div className="flex-1 bg-gray-100 rounded-full h-2">
+                    <div
+                      className="h-2 rounded-full bg-gray-400"
+                      style={{ width: "45%" }}
+                    />
+                  </div>
+                  <span className="text-[0.7rem] text-gray-700">
+                    30–50%+
+                  </span>
+                </div>
               </div>
-              <ul className="list-disc list-inside text-gray-700 space-y-1">
-                <li>Management fee usually under 10–15%.</li>
-                <li>Developer receives 80–90% of billing.</li>
-                <li>Higher retention &amp; ownership.</li>
-                <li>Simple, transparent invoices.</li>
-              </ul>
             </div>
+
+            <div>
+              <div className="flex justify-between text-gray-600 mb-1">
+                <span>Money reaching developer</span>
+                <span>Higher is better</span>
+              </div>
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <span className="w-24 text-[0.7rem] text-gray-500">
+                    LearnShiz
+                  </span>
+                  <div className="flex-1 bg-gray-100 rounded-full h-2">
+                    <div
+                      className="h-2 rounded-full bg-emerald-500"
+                      style={{ width: "90%" }}
+                    />
+                  </div>
+                  <span className="text-[0.7rem] text-gray-700">
+                    80–90%
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-24 text-[0.7rem] text-gray-500">
+                    Typical vendor
+                  </span>
+                  <div className="flex-1 bg-gray-100 rounded-full h-2">
+                    <div
+                      className="h-2 rounded-full bg-gray-400"
+                      style={{ width: "60%" }}
+                    />
+                  </div>
+                  <span className="text-[0.7rem] text-gray-700">
+                    50–60%
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-gray-600 mt-3">
+              Most of our clients tell us they get both{" "}
+              <strong>better interview hit-rates</strong> and{" "}
+              <strong>lower net cost</strong> compared to traditional staffing
+              arrangements.
+            </p>
           </div>
-
-          <p className="mt-4 text-gray-600">
-            Example: If the fair market cost is X, many agencies charge you
-            1.4–1.6X while paying the engineer ~0.8X. With LearnShiz, you might
-            pay ~1.1–1.15X while the engineer gets ~0.95–1.0X.
-          </p>
         </div>
       </div>
+
+      {/* Bottom CTA */}
+      <div className="mt-14 text-center">
+        <h3 className="text-xl font-semibold text-gray-900">
+          Need developers for your roadmap?
+        </h3>
+        <p className="mt-2 text-sm text-gray-600 max-w-xl mx-auto">
+          Share your roles, tech stack and timeline — we’ll send a curated
+          shortlist of vetted profiles, usually within 48 hours.
+        </p>
+        <Link to="/contact" className="btn-primary mt-5 inline-block text-sm">
+          Talk to us about roles
+        </Link>
+      </div>
     </section>
+  );
+}
+
+
+function RoleCard({ title, stack }) {
+  return (
+    <div className="p-4 card bg-white rounded-lg border shadow-sm hover:shadow-md transition">
+      <div className="font-semibold text-gray-900">{title}</div>
+      <div className="text-sm text-gray-600 mt-1">{stack}</div>
+    </div>
+  );
+}
+
+function VetCard({ step, title, desc }) {
+  return (
+    <div className="p-4 card bg-white rounded-lg border shadow-sm hover:shadow-md transition">
+      <div className="text-xs font-semibold text-indigo-600">STEP {step}</div>
+      <div className="font-semibold text-gray-900 mt-1">{title}</div>
+      <div className="text-sm text-gray-600 mt-1">{desc}</div>
+    </div>
   );
 }
 
 /* ---------------- Developers ---------------- */
 
 function Developers() {
-  const navigate = useNavigate();
-
   const sampleRoles = [
     {
       title: "Senior Fullstack Engineer",
@@ -692,12 +1042,12 @@ function Developers() {
       title: "Data & ML Engineer",
       stack: "Python • Spark • Airflow • DBT • MLflow",
       exp: "6+ years",
-      tags: ["ETL & pipelines", "Feature stores", "MLOps"],
+      tags: ["ETL pipelines", "Feature stores", "MLOps"],
       band: "Senior band",
     },
     {
       title: "LLM / GenAI Engineer",
-      stack: "Python • LangChain • RAG • Vector DBs",
+      stack: "Python • LangChain • Vector DB • RAG",
       exp: "5+ years",
       tags: ["RAG systems", "Prompt engineering", "Evaluation"],
       band: "Mid–senior band",
@@ -705,125 +1055,90 @@ function Developers() {
   ];
 
   return (
-    <section className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14">
-      <SectionTitle
-        title="Hire vetted remote developers"
-        subtitle="Fullstack, mobile, QA, data, AI/ML and LLM engineers who work as part of your team."
-      />
+    <section className="max-w-4xl mx-auto px-5 py-14">
+      {/* HERO */}
+      <div className="text-center">
+        <h1 className="text-3xl font-bold text-gray-900">
+          Hire vetted developers for your product team
+        </h1>
+        <p className="text-gray-600 mt-3 text-sm md:text-base max-w-2xl mx-auto">
+          Fullstack, mobile, QA, automation, cloud, data, AI/ML and LLM engineers —
+          screened for product experience, communication and ownership.
+        </p>
 
-      <div className="mt-8 grid md:grid-cols-[1.1fr,0.9fr] gap-10 items-start">
-        <div>
-          <h4 className="font-semibold text-gray-900 text-base">
-            Tech stacks &amp; roles
-          </h4>
-          <ul className="mt-4 list-disc list-inside text-sm text-gray-700 space-y-1.5">
-            <li>
-              Fullstack developers — React / Angular / Node.js / Java / .NET
-            </li>
-            <li>
-              Frontend SPA &amp; microfrontend engineers with performance focus
-            </li>
-            <li>
-              Backend &amp; API developers (REST, GraphQL, event-driven
-              architectures)
-            </li>
-            <li>
-              Mobile app developers (Kotlin, Swift, React Native, Flutter)
-            </li>
-            <li>
-              QA &amp; automation engineers (Playwright, Cypress, Selenium)
-            </li>
-            <li>DevOps, SRE &amp; cloud engineers (AWS, GCP, Azure)</li>
-            <li>
-              Data engineers &amp; analytics developers (Airflow, DBT, Spark)
-            </li>
-            <li>
-              Data scientists, ML &amp; LLM engineers (PyTorch, TensorFlow,
-              LangChain, RAG)
-            </li>
-          </ul>
+        {/* CTA → contact us */}
+        <Link to="/contact" className="btn-primary mt-6 inline-block">
+          Talk to our team
+        </Link>
+      </div>
 
-          <div className="mt-6">
-            <h5 className="font-semibold text-gray-900 text-sm">
-              How engagements work
-            </h5>
-            <p className="mt-2 text-sm text-gray-700">
-              Minimum 3–6 months, extendable based on your roadmap. Developers
-              follow your tools (Jira, Linear, GitHub, GitLab, etc.), your
-              review process and your rituals — while we handle payroll,
-              compliance and long-term career growth for them.
-            </p>
-          </div>
+      {/* ROLES & TECH STACKS */}
 
-          <div className="mt-6">
-            <h5 className="font-semibold text-gray-900 text-sm">
-              Vetting process
-            </h5>
-            <ol className="mt-2 list-decimal list-inside text-sm text-gray-700 space-y-1.5">
-              <li>
-                Profile screen for product-company experience and relevant
-                stack.
-              </li>
-              <li>Hands-on coding and debugging tasks for the target role.</li>
-              <li>Architecture and trade-off discussion for senior roles.</li>
-              <li>Communication, ownership and stakeholder handling checks.</li>
-              <li>Manager references before being added to our pool.</li>
-            </ol>
-          </div>
+        {/* VETTING PROCESS */}
+      <div className="mt-16">
+        <h2 className="text-xl font-semibold text-gray-900">Our hiring process</h2>
 
-          <div className="mt-7 flex flex-wrap gap-3">
-            <button
-              onClick={() => navigate("/contact")}
-              className="btn-primary text-sm"
-            >
-              Share a role &amp; get profiles
-            </button>
-            <Link to="/clients" className="btn-ghost text-xs">
-              See who we work with
-            </Link>
-          </div>
+        <div className="grid grid-cols-1 gap-4 mt-5">
+          <VetCard step="1" title="Discovery & role mapping" desc="Understand your product, stack, seniority & culture needs." />
+          <VetCard step="2" title="Profile Screening" desc="Deep review of experience, past products & domain fit." />
+          <VetCard step="3" title="Hands-on Technical Test" desc="Coding & debugging tasks aligned to target role." />
+          <VetCard step="4" title="Architecture / System Design" desc="Trade-off discussions & design skills for senior roles." />
+          <VetCard step="5" title="Communication & Ownership" desc="Client communication, async work, stakeholder handling." />
+          <VetCard step="6" title="Final shortlist" desc="We share 3–5 profiles with notes, rate bands & availability." />
         </div>
+      </div>
 
-        <div className="space-y-4">
-          <div className="text-[0.7rem] uppercase tracking-[0.18em] text-gray-500">
-            SAMPLE PROFILES
-          </div>
-          {sampleRoles.map((r, idx) => (
-            <div key={idx} className="card p-4 md:p-5 text-xs md:text-sm">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <div className="font-semibold text-gray-900">{r.title}</div>
-                  <div className="mt-1 text-[0.75rem] text-gray-600">
-                    {r.stack}
-                  </div>
-                </div>
-                <div className="text-right text-[0.75rem] text-gray-600">
-                  <div className="text-gray-900 font-medium">{r.exp}</div>
-                  <div>{r.band}</div>
-                </div>
-              </div>
+      {/* SAMPLE PROFILES */}
+      <div className="mt-16">
+        <h2 className="text-xl font-semibold text-gray-900">Sample profiles</h2>
+
+        <div className="grid grid-cols-1 gap-4 mt-5">
+          {sampleRoles.map((dev) => (
+            <div
+              key={dev.title}
+              className="p-5 card bg-white border rounded-lg shadow-sm hover:shadow-md transition"
+            >
+              <div className="font-semibold text-gray-900">{dev.title}</div>
+              <div className="text-sm text-gray-600 mt-1">{dev.stack}</div>
+
+              <div className="mt-2 text-xs text-gray-500">{dev.exp}</div>
+              <div className="text-xs text-gray-700">{dev.band}</div>
+
               <div className="mt-3 flex flex-wrap gap-2">
-                {r.tags.map((t) => (
-                  <span key={t} className="chip text-[0.7rem]">
+                {dev.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="px-2 py-1 bg-indigo-50 text-indigo-700 rounded text-[0.7rem] font-medium"
+                  >
                     {t}
                   </span>
                 ))}
               </div>
-              <div className="mt-3 text-[0.7rem] text-gray-500">
-                Exact rate depends on seniority, role complexity and your time
-                zone overlap requirements.
-              </div>
             </div>
           ))}
-          <div className="text-[0.7rem] text-gray-500">
-            These are representative examples — we’ll share real anonymised
-            profiles matching your stack and budget.
-          </div>
         </div>
+      </div>
+
+      
+      {/* CTA */}
+      <div className="mt-16 text-center">
+        <h2 className="text-xl font-semibold text-gray-900">
+          Want to see matching profiles?
+        </h2>
+        <p className="text-gray-600 mt-2 text-sm">
+          Share your tech stack & timeline — we’ll send 3 vetted profiles in 48 hours.
+        </p>
+
+        <Link to="/contact" className="btn-primary mt-5 inline-block">
+          Contact us
+        </Link>
       </div>
     </section>
   );
 }
+
+
+
 
 /* ---------------- Clients ---------------- */
 
@@ -976,30 +1291,89 @@ function Testimonials() {
   );
 }
 
-/* ---------------- Careers ---------------- */
+/* ---------------- Careers -> Join as dev ---------------- */
 
 function Careers() {
   return (
     <section className="max-w-4xl mx-auto px-4 md:px-6 py-10 md:py-14">
       <SectionTitle
-        title="Careers at LearnShiz Techies"
-        subtitle="Join a distributed team building engineering capacity for global products."
+        title="Join as a developer"
+        subtitle="Become part of the LearnShiz remote engineering pool and work with global product teams."
       />
 
-      <div className="mt-8 space-y-6">
-        <Job title="Senior Fullstack Engineer" location="Remote (India)" />
-        <Job title="QA Automation Engineer" location="Remote (India)" />
-        <Job title="Data / ML Engineer" location="Remote (India)" />
-        <Job title="Technical Recruiter" location="Hybrid • Bengaluru" />
+      <div className="mt-6 grid md:grid-cols-2 gap-6 text-sm">
+        <div className="card p-5">
+          <h4 className="font-semibold text-gray-900">
+            Why developers choose LearnShiz
+          </h4>
+          <p className="mt-2 text-gray-700">
+            We keep our model developer-first. You get transparent pay, strong
+            projects and long-term growth — while we handle client relations,
+            contracts and admin.
+          </p>
+
+          <ul className="mt-4 list-disc list-inside text-gray-700 space-y-1.5">
+            <li>Work with product-first teams across the globe.</li>
+            <li>Remote-first culture with clear expectations.</li>
+            <li>Support with interviews, onboarding and feedback.</li>
+            <li>Focused on long-term, stable engagements.</li>
+          </ul>
+        </div>
+
+        <div className="card p-5">
+          <h4 className="font-semibold text-gray-900">Benefits you get</h4>
+          <ul className="mt-3 space-y-2 text-gray-700">
+            <li>
+              <strong>Free Training Through Udemy:</strong> access to curated
+              Udemy courses to keep your skills sharp and up to date.
+            </li>
+            <li>
+              <strong>Work From Home Setup:</strong> guidance and support for a
+              solid remote setup so you can focus on delivery.
+            </li>
+            <li>
+              <strong>Global Exposure:</strong> work with clients across
+              geographies, stacks and industries.
+            </li>
+            <li>
+              <strong>Guided Career Path:</strong> regular check-ins, feedback
+              and support to move towards your next role or stack.
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <div className="mt-8 text-sm">
-        <h4 className="font-semibold text-gray-900">Why work with us</h4>
-        <p className="mt-2 text-gray-700">
-          Work closely with global clients, modern stacks and AI-driven
-          products. We keep our model developer-first, with transparent
-          compensation, growth tracks and meaningful ownership.
-        </p>
+      <div className="mt-8 card p-5 text-sm">
+        <h4 className="font-semibold text-gray-900">Who we’re looking for</h4>
+        <ul className="mt-3 list-disc list-inside text-gray-700 space-y-1.5">
+          <li>
+            Engineers with experience in product companies or high-ownership
+            teams.
+          </li>
+          <li>
+            Strong hands-on skills in one or more: React, Angular, Node, Java,
+            .NET, Python, mobile, QA automation, data or ML/LLM.
+          </li>
+          <li>Good written & spoken English, comfortable with async work.</li>
+          <li>
+            People who care about code quality, observability and business
+            outcomes — not just “finishing tickets”.
+          </li>
+        </ul>
+      </div>
+
+      <div className="mt-8 flex flex-wrap gap-3 items-center">
+        <a
+          href={DEV_FORM_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="btn-primary text-sm"
+        >
+          Register via Google Form
+        </a>
+        <Link to="/contact" className="btn-ghost text-xs">
+          Talk to us about roles
+        </Link>
       </div>
     </section>
   );
@@ -1071,7 +1445,9 @@ function About() {
       </div>
 
       <div className="mt-10">
-        <h3 className="text-lg font-semibold text-gray-900">Metrics &amp; reach</h3>
+        <h3 className="text-lg font-semibold text-gray-900">
+          Metrics &amp; reach
+        </h3>
         <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
           <StatCard value="100+" label="Active developers" accent />
           <StatCard value="20+" label="Global clients" />
@@ -1112,7 +1488,9 @@ function Team() {
 
       <div className="mt-6 grid md:grid-cols-2 gap-6 text-sm">
         <div className="card p-5">
-          <h4 className="font-semibold text-gray-900">Values &amp; culture</h4>
+          <h4 className="font-semibold text-gray-900">
+            Values &amp; culture
+          </h4>
           <p className="mt-2 text-gray-700">
             We value collaboration, ownership and continuous learning. We hire
             engineers who care about clean code, observability, accessibility
@@ -1158,21 +1536,6 @@ function Team() {
         <StatCard value="100+" label="Team size" />
         <StatCard value="85%" label="Retention (12 months)" />
         <StatCard value="4–6w" label="Average ramp time" />
-      </div>
-
-      <div className="mt-8 text-sm">
-        <h4 className="font-semibold text-gray-900">Learning &amp; growth</h4>
-        <p className="mt-2 text-gray-700">
-          We run regular tech talks, mentorship circles, and workshops on
-          testing, cloud architecture, data and AI. Every engineer has a growth
-          plan with quarterly milestones.
-        </p>
-      </div>
-
-      <div className="mt-8">
-        <Link to="/careers" className="btn-primary text-xs">
-          View open roles
-        </Link>
       </div>
     </section>
   );
@@ -1336,20 +1699,6 @@ function Card({ title, desc }) {
   );
 }
 
-function Job({ title, location }) {
-  return (
-    <div className="glass-soft p-4 flex items-center justify-between">
-      <div>
-        <div className="font-semibold text-gray-900 text-sm">{title}</div>
-        <div className="text-xs text-gray-600">{location}</div>
-      </div>
-      <Link to="/contact" className="btn-ghost text-xs">
-        Apply
-      </Link>
-    </div>
-  );
-}
-
 function StatCard({ value, label, accent = false }) {
   const valueClass = accent ? "text-indigo-700" : "text-gray-900";
   const labelClass = "text-gray-600";
@@ -1371,86 +1720,6 @@ function StatCard({ value, label, accent = false }) {
 }
 
 /* ---------------- Carousels ---------------- */
-
-function ClientsCarousel() {
-  const clients = [
-    { id: 1, name: "Dental Bazar", icon: dentalBazar },
-    { id: 2, name: "Global Ecommerce", icon: globecommerce },
-    { id: 3, name: "GT Consulting", icon: gtConsulting },
-    { id: 4, name: "Osmia", icon: osmia },
-    { id: 5, name: "Upcred.ai", icon: upcred },
-    { id: 6, name: "Third Eye Intelligence Service", icon: thirdEye },
-  ];
-  const [index, setIndex] = React.useState(0);
-
-  React.useEffect(() => {
-    const t = setInterval(
-      () => setIndex((i) => (i + 1) % clients.length),
-      3500
-    );
-    return () => clearInterval(t);
-  }, [clients.length]);
-
-  const prev = () => setIndex((i) => (i - 1 + clients.length) % clients.length);
-  const next = () => setIndex((i) => (i + 1) % clients.length);
-
-  const visible = React.useMemo(() => {
-    const out = [];
-    for (let i = 0; i < 4; i++) {
-      out.push(clients[(index + i) % clients.length]);
-    }
-    return out;
-  }, [index, clients]);
-
-  return (
-    <div className="relative mt-6">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-        {visible.map((c) => (
-          <div
-            key={c.id}
-            className="glass-soft p-4 flex items-center justify-center"
-          >
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-10 flex items-center justify-center bg-gray-50 rounded-md border border-gray-100">
-                <img
-                  src={c.icon}
-                  alt={c.name}
-                  className="max-h-full max-w-full object-contain"
-                  loading="lazy"
-                  onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                  }}
-                />
-              </div>
-              <div className="mt-2 text-[0.7rem] text-gray-600 text-center">
-                {c.name}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="absolute left-0 top-1/2 -translate-y-1/2">
-        <button
-          onClick={prev}
-          className="ml-2 p-2 rounded-full bg-white border border-gray-300 text-xs shadow-sm hover:bg-gray-50"
-          aria-label="Previous client"
-        >
-          ‹
-        </button>
-      </div>
-      <div className="absolute right-0 top-1/2 -translate-y-1/2">
-        <button
-          onClick={next}
-          className="mr-2 p-2 rounded-full bg-white border border-gray-300 text-xs shadow-sm hover:bg-gray-50"
-          aria-label="Next client"
-        >
-          ›
-        </button>
-      </div>
-    </div>
-  );
-}
 
 function TestimonialsCarousel() {
   const items = [
@@ -1555,11 +1824,11 @@ function Footer() {
           <div>
             <div className="font-semibold text-gray-900">Links</div>
             <div className="mt-2 flex flex-col gap-1 text-gray-700">
-              <Link to="/developers">Developers</Link>
+              <Link to="/developers">Process</Link>
               <Link to="/services">Staffing services</Link>
-              <Link to="/clients">Clients</Link>
+              <Link to="/clients">Case studies</Link>
               <Link to="/testimonials">Testimonials</Link>
-              <Link to="/careers">Careers</Link>
+              <Link to="/careers">Join as dev</Link>
               <Link to="/policies">Policies</Link>
             </div>
           </div>
@@ -1631,7 +1900,7 @@ function Footer() {
         </div>
 
         <div className="mt-6 text-[0.7rem] text-gray-500 text-center">
-          © {new Date().getFullYear()} LearnShiz Techies. All rights reserved.
+          © {new Date().getFullYear()} APSS Pvt Ltd. All rights reserved.
         </div>
       </div>
     </footer>
