@@ -1298,8 +1298,71 @@ function Careers() {
     <section className="max-w-4xl mx-auto px-4 md:px-6 py-10 md:py-14">
       <SectionTitle
         title="Join as a developer"
-        subtitle="Become part of the LearnShiz remote engineering pool and work with global product teams."
+        subtitle="Become part of the LearnShiz remote engineering pool and work with global product teams. Work with global product teams as a LearnShiz consultant — flexible options based on your availability and goals."
       />
+
+      {/* Consultant Paths */}
+<section className="mt-10">
+
+  <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+    {/* Part-time */}
+    <div className="card bg-white border rounded-xl p-6 shadow-sm hover:shadow-md transition">
+      <div className="text-sm font-semibold text-indigo-600">PART-TIME CONSULTANT</div>
+      <h3 className="text-lg font-semibold mt-1 text-gray-900">Evenings & Weekend Consulting</h3>
+
+      <p className="text-sm text-gray-600 mt-2">
+        Ideal for developers who want additional income and global exposure while
+        keeping their full-time job. You’ll work on specific modules, features or
+        problem statements with flexible hours.
+      </p>
+
+      <ul className="mt-4 space-y-1.5 text-sm text-gray-700">
+        <li>• 10–20 hours per week</li>
+        <li>• Work asynchronously with US / EU teams</li>
+        <li>• Paid hourly or per-module basis</li>
+        <li>• Perfect for specialists or senior ICs</li>
+      </ul>
+
+      <a
+        href="https://forms.gle/dxaLoQkrhn7JcDiX8"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-primary mt-5 inline-block text-sm"
+      >
+        Apply as part-time consultant
+      </a>
+    </div>
+
+    {/* Full-time */}
+    <div className="card bg-white border rounded-xl p-6 shadow-sm hover:shadow-md transition">
+      <div className="text-sm font-semibold text-indigo-600">FULL-TIME CONSULTANT</div>
+      <h3 className="text-lg font-semibold mt-1 text-gray-900">Dedicated Full-Time Consultant</h3>
+
+      <p className="text-sm text-gray-600 mt-2">
+        Join a product team full-time, working closely with their engineering
+        leads. You’ll be part of daily rituals while we manage payroll,
+        compliance and long-term growth planning.
+      </p>
+
+      <ul className="mt-4 space-y-1.5 text-sm text-gray-700">
+        <li>• Full 40 hours per week</li>
+        <li>• Embedded into client sprints & ceremonies</li>
+        <li>• Long-term stable contracts (6–24 months)</li>
+        <li>• Premium payouts — 80–90% goes to the developer</li>
+      </ul>
+
+      <a
+        href="https://forms.gle/dxaLoQkrhn7JcDiX8"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-primary mt-5 inline-block text-sm"
+      >
+        Apply as full-time consultant
+      </a>
+    </div>
+  </div>
+</section>
+
 
       <div className="mt-6 grid md:grid-cols-2 gap-6 text-sm">
         <div className="card p-5">
