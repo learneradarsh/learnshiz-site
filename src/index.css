@@ -49,3 +49,100 @@ button {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* --- Client Logos Carousel --- */
+.logo-cloud {
+  padding-top: 40px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+  overflow: hidden;
+  background-color: white;
+}
+.centered-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.trusted-label {
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: #9ca3af;
+  margin: 0;
+  font-weight: 600;
+}
+.carousel-mask {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.carousel-mask::before,
+.carousel-mask::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.carousel-mask::before {
+  left: 0;
+  background: linear-gradient(to right, white, transparent);
+}
+.carousel-mask::after {
+  right: 0;
+  background: linear-gradient(to left, white, transparent);
+}
+.carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 125px;
+  width: max-content;
+  animation: scroll-logos 44s linear infinite;
+}
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+.logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 800;
+  font-size: 1.55rem;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  transition: transform 0.3s ease;
+}
+
+.logo-item:hover {
+  transform: scale(1.05);
+}
+.logo-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.logo-name {
+  letter-spacing: -0.04em;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.wordmark-font {
+  letter-spacing: 0.05em;
+  font-weight: 800;
+}
+@keyframes scroll-logos {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+@media (max-width: 768px) {
+  .carousel-mask::before,
+  .carousel-mask::after {
+    width: 60px;
+  }
+  .carousel-track {
+    gap: 48px;
+  }
+}

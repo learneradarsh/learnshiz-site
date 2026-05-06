@@ -19,8 +19,9 @@ import logo from "./assets/logo.png";
 import upcred from "./assets/upcred_blue_logo.c0b15965.svg";
 import thirdEye from "./assets/thirdeye.jpg";
 
+
 const activeClass =
-  "border-b-2 border-indigo-600 text-indigo-700 font-medium";
+  "border-b-2 border-blue-600 text-blue-700 font-medium";
 
 const DEV_FORM_URL = "https://forms.gle/dxaLoQkrhn7JcDiX8";
 
@@ -34,17 +35,15 @@ function App() {
     >
       <style>{`
         :root {
-          --primary: #4f46e5;
-          --accent: #06b6d4;
-          --cta: #facc15;
-          --cta-700: #eab308;
-          --bg: #f3f4fb;
-          --surface: #ffffff;
+          --primary: #1f57e7;
+          --primary-hover: #1640b3;
+          --bg: #ffffff;
+          --surface: #f8fafc;
           --heading: #0f172a;
-          --muted: #6b7280;
-          --card-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-          --radius-md: 18px;
-          --radius-sm: 999px;
+          --muted: #64748b;
+          --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+          --radius-md: 12px;
+          --radius-sm: 6px;
         }
 
         html, body, #root {
@@ -60,49 +59,64 @@ function App() {
         }
 
         .btn-primary {
-          background: linear-gradient(135deg, var(--cta), var(--cta-700));
-          color: #111827;
+          background: var(--primary);
+          color: #ffffff;
           border-radius: var(--radius-sm);
           padding: 0.6rem 1.4rem;
-          box-shadow: 0 14px 30px rgba(250, 204, 21, 0.35);
-          transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+          transition: background-color .15s ease, transform .1s ease;
           display: inline-flex;
           align-items: center;
           justify-content: center;
           font-weight: 600;
         }
         .btn-primary:hover {
-          transform: translateY(-1px);
-          filter: brightness(1.03);
-          box-shadow: 0 18px 40px rgba(250, 204, 21, 0.45);
+          background: var(--primary-hover);
         }
 
         .btn-ghost {
           background: transparent;
-          border: 1px solid #d1d5db;
-          color: #111827;
-          padding: 0.55rem 1.2rem;
-          border-radius: 999px;
+          border: 1px solid #cbd5e1;
+          color: #0f172a;
+          padding: 0.6rem 1.4rem;
+          border-radius: var(--radius-sm);
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          font-size: 0.85rem;
+          font-weight: 600;
+          transition: background-color .15s ease, border-color .15s ease;
         }
         .btn-ghost:hover {
-          background: #e5e7eb;
+          background: #f1f5f9;
+          border-color: #94a3b8;
+        }
+        
+        .btn-ghost-dark {
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: #ffffff;
+          padding: 0.6rem 1.4rem;
+          border-radius: var(--radius-sm);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 600;
+          transition: background-color .15s ease;
+        }
+        .btn-ghost-dark:hover {
+          background: rgba(255, 255, 255, 0.1);
         }
 
         .card {
           background: var(--surface);
           border-radius: var(--radius-md);
           box-shadow: var(--card-shadow);
-          border: 1px solid #e5e7eb;
+          border: 1px solid #e2e8f0;
         }
 
         .glass-soft {
           background: #ffffff;
-          border-radius: 16px;
-          border: 1px solid #e5e7eb;
+          border-radius: 12px;
+          border: 1px solid #e2e8f0;
         }
 
         .muted {
@@ -112,10 +126,9 @@ function App() {
         .pill {
           padding: 6px 12px;
           border-radius: 999px;
-          background: rgba(79, 70, 229, 0.06);
-          border: 1px solid rgba(79, 70, 229, 0.3);
-          color: #312e81;
-          font-weight: 500;
+          background: rgba(31, 87, 231, 0.1);
+          color: var(--primary);
+          font-weight: 600;
           font-size: 0.72rem;
           display: inline-flex;
           align-items: center;
@@ -123,12 +136,13 @@ function App() {
         }
 
         .chip {
-          padding: 0.2rem 0.6rem;
+          padding: 0.3rem 0.8rem;
           border-radius: 999px;
-          border: 1px solid #e5e7eb;
-          font-size: 0.72rem;
-          color: #111827;
-          background: #f9fafb;
+          border: 1px solid #e2e8f0;
+          font-size: 0.75rem;
+          color: #334155;
+          background: #f8fafc;
+          font-weight: 500;
         }
 
         .no-scrollbar::-webkit-scrollbar {
@@ -148,12 +162,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
             <Route path="/developers" element={<Developers />} />
-            <Route path="/clients" element={<Clients />} />
-            <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/careers" element={<Careers />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/team" element={<Team />} />
-            <Route path="/policies" element={<Policies />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
@@ -184,10 +193,10 @@ function Header() {
           <img
             src={logo}
             alt="LearnShiz Techies"
-            className="w-10 h-10 rounded-2xl border border-indigo-100 bg-indigo-50 object-contain"
+            className="w-10 h-10 rounded-2xl border border-blue-100 bg-blue-50 object-contain"
           />
           <div>
-            <div className="font-semibold text-sm md:text-base text-gray-900 tracking-tight">
+            <div className="font-semibold text-sm md:text-base text-gray-900 tracking-tight flex items-center gap-2">
               LearnShiz Techies
             </div>
             <div className="text-[11px] md:text-xs text-gray-500">
@@ -222,30 +231,6 @@ function Header() {
             Process
           </NavLink>
           <NavLink
-            to="/clients"
-            className={({ isActive }) =>
-              isActive ? activeClass : "text-gray-600 hover:text-gray-900"
-            }
-          >
-            Case studies
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive ? activeClass : "text-gray-600 hover:text-gray-900"
-            }
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/team"
-            className={({ isActive }) =>
-              isActive ? activeClass : "text-gray-600 hover:text-gray-900"
-            }
-          >
-            Team
-          </NavLink>
-          <NavLink
             to="/careers"
             className={({ isActive }) =>
               isActive ? activeClass : "text-gray-600 hover:text-gray-900"
@@ -256,8 +241,16 @@ function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Link to="/contact" className="btn-ghost text-xs">
-            Talk to us
+          <a
+            href={DEV_FORM_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm font-medium text-gray-600 hover:text-gray-900 mr-2"
+          >
+            Apply for Jobs
+          </a>
+          <Link to="/contact" className="btn-primary text-sm">
+            Hire Developers
           </Link>
         </div>
 
@@ -298,10 +291,7 @@ function MobileMenu() {
             ["Home", "/"],
             ["Services", "/services"],
             ["Process", "/developers"],
-            ["Case studies", "/clients"],
-            ["Team", "/team"],
             ["Join as dev", "/careers"],
-            ["About", "/about"],
             ["Contact", "/contact"],
           ].map(([label, path]) => (
             <Link
@@ -343,7 +333,7 @@ function PricingComparison() {
               <span className="w-24 text-gray-600">LearnShiz</span>
               <div className="flex-1 bg-gray-100 rounded-full h-3">
                 <div
-                  className="h-3 rounded-full bg-indigo-500"
+                  className="h-3 rounded-full bg-blue-500"
                   style={{ width: "55%" }}
                 ></div>
               </div>
@@ -527,258 +517,156 @@ function HeroMiniPricing() {
 
 function Home() {
   return (
-    <section className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14">
-      {/* Hero */}
-      <div className="grid md:grid-cols-[1.1fr,0.9fr] gap-10 items-center">
-        <div>
-          <div className="flex flex-wrap items-center gap-3 text-xs">
-            <span className="pill">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              100+ vetted developers • 20+ global clients
-            </span>
-            <span className="chip hidden sm:inline-flex">
-              Fullstack • Mobile • QA • Data • AI
-            </span>
+    <div className="w-full">
+      {/* Dark Hero Section */}
+      <section className="w-full bg-[#0a0f1c] text-white pt-20 pb-24 md:pt-32 md:pb-40 px-4 md:px-6 relative overflow-hidden">
+        {/* Abstract background elements */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#1f57e7]/20 to-transparent pointer-events-none" />
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#1f57e7] rounded-full blur-[150px] opacity-30 pointer-events-none" />
+        
+        <div className="max-w-6xl mx-auto relative z-10 flex flex-col items-center text-center">
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs md:text-sm font-semibold border bg-blue-900/40 border-blue-500/30 text-blue-300">
+              <span className="w-2 h-2 rounded-full bg-blue-400 inline-block animate-pulse" />
+              AI-Powered Talent Matching
+            </div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs md:text-sm font-semibold border bg-slate-800/60 border-slate-600/50 text-slate-200">
+              🇺🇸 Presence in Miami, FL
+            </div>
           </div>
-
-          <h1 className="mt-5 text-3xl md:text-4xl lg:text-[2.5rem] font-semibold leading-tight text-gray-900">
-            Global developers for{" "}
-            <span className="text-indigo-700">software</span>, data &amp;{" "}
-            <span className="text-indigo-700">AI-native products.</span>
+          
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight max-w-4xl">
+            The most deeply vetted developers and teams, <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">matched by AI.</span>
           </h1>
-
-          <p className="mt-4 text-sm md:text-[0.95rem] leading-relaxed text-gray-700">
-            LearnShiz Techies connects you with vetted engineers across
-            fullstack development, mobile, QA, Data Engineering, Data Science
-            and AI/ML — including GenAI and LLM specialists. We charge a minimal
-            management fee; most of the billing goes to the developer so you
-            attract and retain better talent.
+          
+          <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
+            Join hundreds of companies that use LearnShiz's Intelligent Talent Cloud to source, vet, match, and manage the world's best software developers remotely.
           </p>
-
-          <div className="mt-6 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-            <Link to="/contact" className="btn-primary text-sm">
-              Get 3 profiles in 48 hours
+          
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 items-center">
+            <Link to="/contact" className="btn-primary text-base px-8 py-3.5">
+              Hire Developers
             </Link>
-            <Link to="/developers" className="btn-ghost text-xs">
-              See sample roles
-            </Link>
+            <a href={DEV_FORM_URL} target="_blank" rel="noreferrer" className="btn-ghost-dark text-base px-8 py-3.5">
+              Apply for Jobs
+            </a>
           </div>
-
-
-          <div className="mt-6 grid grid-cols-3 gap-4 text-xs md:text-sm">
-            <Metric label="Vetted developers" value="100+" />
-            <Metric label="Global clients" value="20+" />
-            <Metric label="Avg shortlist time" value="48–72h" />
+          
+          <div className="mt-12 pt-8 border-t border-white/10 flex flex-wrap justify-center gap-8 md:gap-16 text-sm text-gray-400">
+            <div className="flex flex-col items-center">
+              <span className="text-2xl font-bold text-white mb-1">100+</span>
+              Vetted Developers
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-2xl font-bold text-white mb-1">48h</span>
+              Average Match Time
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-2xl font-bold text-white mb-1">20+</span>
+              Global Clients
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="mt-5 flex flex-wrap gap-2 text-[11px] text-gray-600">
-            <span className="chip">US &amp; Europe time zones</span>
-            <span className="chip">Remote-first teams</span>
-            <span className="chip">Product &amp; platform experience</span>
+      {/* Client Logos Band */}
+      <ClientsCarouselBand />
+
+      {/* AI Vetting Process (Turing equivalent) */}
+      <section className="max-w-6xl mx-auto px-4 md:px-6 py-20">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            Why choose our Intelligent Talent Cloud?
+          </h2>
+          <p className="mt-4 text-lg text-gray-600">
+            We use AI-driven signals and rigorous technical assessments to find the top 1% of global engineering talent.
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100 transition-all hover:shadow-lg">
+            <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">Rigorous Vetting</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Our 4-step vetting process evaluates communication, technical depth, architectural design, and problem-solving skills.
+            </p>
+          </div>
+          
+          <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100 transition-all hover:shadow-lg">
+            <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">AI-Powered Matching</h3>
+            <p className="text-gray-600 leading-relaxed">
+              We match your exact stack, timezone, and project requirements using millions of data points to ensure the perfect fit.
+            </p>
+          </div>
+          
+          <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100 transition-all hover:shadow-lg">
+            <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">Time Zone Aligned</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Our developers work in your time zone with overlapping hours for seamless collaboration and daily standups.
+            </p>
           </div>
         </div>
-
-        {/* Right card with pictorial graph */}
-<div className="card p-6 md:p-7 relative overflow-hidden">
-  {/* subtle background blobs */}
-  <div className="absolute -top-16 -right-8 w-40 h-40 bg-indigo-100 rounded-full blur-3xl opacity-60" />
-  <div className="absolute -bottom-16 -left-8 w-40 h-40 bg-cyan-100 rounded-full blur-3xl opacity-60" />
-
-  <div className="relative flex flex-col gap-5">
-    <div className="flex justify-between items-start gap-4">
-      <div>
-        <div className="text-[0.65rem] uppercase tracking-[0.18em] text-gray-500">
-          GLOBAL DELIVERY
-        </div>
-        <div className="mt-1.5 text-lg font-semibold text-gray-900">
-          Distributed engineering pods
-        </div>
-      </div>
-      <div className="text-right text-[0.7rem] text-gray-500">
-        From Bengaluru
-        <br />
-        to Tel Aviv &amp; beyond
-      </div>
-    </div>
-
-    <div className="grid grid-cols-2 gap-3 text-xs">
-      <div className="glass-soft p-3">
-        <div className="text-[0.65rem] text-gray-500 uppercase tracking-[0.16em]">
-          AI &amp; DATA
-        </div>
-        <div className="mt-1 text-sm font-semibold text-gray-900">
-          LLM / GenAI talent
-        </div>
-        <p className="mt-1 text-[0.75rem] text-gray-600">
-          RAG, vector search, prompt engineering, MLOps and production LLM
-          pipelines.
-        </p>
-      </div>
-      <div className="glass-soft p-3">
-        <div className="text-[0.65rem] text-gray-500 uppercase tracking-[0.16em]">
-          PRODUCT
-        </div>
-        <div className="mt-1 text-sm font-semibold text-gray-900">
-          Fullstack squads
-        </div>
-        <p className="mt-1 text-[0.75rem] text-gray-600">
-          React / Angular / Node / Java / .NET engineers embedding into your
-          sprints.
-        </p>
-      </div>
-    </div>
-
-    {/* NEW pictorial graph widget */}
-    <HeroMiniPricing />
-  </div>
-</div>
-
-      </div>
+      </section>
 
       {/* AI stack band */}
-      <AIStackBand />
-
-      {/* How it works */}
-      <div className="mt-10 grid md:grid-cols-3 gap-4 text-xs md:text-sm">
-        <div className="glass-soft p-4 text-left">
-          <div className="text-[0.7rem] text-gray-500 uppercase tracking-[0.16em] mb-1">
-            STEP 1
-          </div>
-          <div className="font-semibold text-gray-900 text-sm">
-            Share your roles
-          </div>
-          <p className="mt-1 text-gray-600">
-            Tell us your stack, experience range, budget and time zone needs —
-            usually a 15–20 minute call.
-          </p>
+      <section className="bg-slate-50 border-y border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 pb-10">
+          <AIStackBand />
         </div>
-        <div className="glass-soft p-4 text-left">
-          <div className="text-[0.7rem] text-gray-500 uppercase tracking-[0.16em] mb-1">
-            STEP 2
-          </div>
-          <div className="font-semibold text-gray-900 text-sm">
-            Get vetted profiles
-          </div>
-          <p className="mt-1 text-gray-600">
-            We send a curated shortlist (typically 3–5 profiles) in 48–72 hours
-            with clear rate bands.
-          </p>
-        </div>
-        <div className="glass-soft p-4 text-left">
-          <div className="text-[0.7rem] text-gray-500 uppercase tracking-[0.16em] mb-1">
-            STEP 3
-          </div>
-          <div className="font-semibold text-gray-900 text-sm">
-            Start in weeks, not months
-          </div>
-          <p className="mt-1 text-gray-600">
-            You interview, select and onboard. We handle payroll, compliance and
-            ongoing engagement.
-          </p>
-        </div>
-      </div>
+      </section>
 
-      {/* Why companies choose us */}
-      <div className="mt-12 md:mt-14">
-        <SectionTitle
-          title="Why global teams choose LearnShiz"
-          subtitle="Lean, developer-first staffing with a strong focus on modern web, cloud, data & AI."
-        />
-        <div className="mt-6 grid md:grid-cols-3 gap-6">
-          <Feature
-            title="Deep tech & AI focus"
-            desc="We specialise only in technology roles — from SPA and microfrontends to data platforms, GenAI apps and ML engineering."
-          />
-          <Feature
-            title="Designed for remote-first"
-            desc="Engineers experienced in async communication, distributed teams, CI/CD and observability. They plug into your rituals and tools."
-          />
-          <Feature
-            title="Transparent economics"
-            desc="We charge a minimal management fee. Most of the value reaches the developer, which means better talent and lower churn for you."
-          />
-        </div>
-      </div>
-
-      <PricingComparison />
-
+      {/* Pricing Comparison */}
+      <section className="max-w-6xl mx-auto px-4 md:px-6 py-20">
+        <PricingComparison />
+      </section>
 
       {/* Impact + testimonials row */}
-      <div className="mt-12 md:mt-14 grid md:grid-cols-[1.1fr,0.9fr] gap-10 items-start">
-        <div>
-          <h3 className="text-lg font-semibold text-gray-900">
-            Impact in numbers
-          </h3>
-          <p className="mt-2 text-sm text-gray-600 max-w-md">
-            We help product and platform teams add high-ownership engineers
-            without building a local HR or payroll stack.
-          </p>
-          <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-            <StatCard value="100+" label="Active developers" accent />
-            <StatCard value="20+" label="Global clients" />
-            <StatCard value="30–60%" label="Time saved in hiring" />
-            <StatCard value="<15%" label="Typical management fee" />
+      <section className="max-w-6xl mx-auto px-4 md:px-6 py-10">
+        <div className="grid md:grid-cols-[1.1fr,0.9fr] gap-10 items-start">
+          <div>
+            <h3 className="text-2xl font-bold text-gray-900">
+              Impact in numbers
+            </h3>
+            <p className="mt-4 text-lg text-gray-600 max-w-md">
+              We help product and platform teams add high-ownership engineers
+              without building a local HR or payroll stack.
+            </p>
+            <div className="mt-8 grid grid-cols-2 md:grid-cols-2 gap-4">
+              <StatCard value="100+" label="Active developers" accent />
+              <StatCard value="20+" label="Global clients" />
+              <StatCard value="30–60%" label="Time saved in hiring" />
+              <StatCard value="<15%" label="Typical management fee" />
+            </div>
+          </div>
+          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 className="text-2xl font-bold text-gray-900">
+              What our customers say
+            </h3>
+            <p className="mt-2 text-gray-600">
+              From early-stage founders to enterprise engineering leaders.
+            </p>
+            <div className="mt-6">
+              <TestimonialsCarousel />
+            </div>
           </div>
         </div>
-        <div>
-          <h3 className="text-lg font-semibold text-gray-900">
-            What our customers say
-          </h3>
-          <p className="mt-2 text-sm text-gray-600">
-            From early-stage founders to enterprise engineering leaders.
-          </p>
-          <div className="mt-4">
-            <TestimonialsCarousel />
-          </div>
-        </div>
-      </div>
-
-      {/* Dev CTA section */}
-      <div className="mt-12 glass-soft p-6 md:p-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div>
-          <div className="text-xs font-semibold text-gray-900">
-            Are you a developer?
-          </div>
-          <div className="mt-1 text-sm text-gray-700 max-w-md">
-            Join our vetted pool to work with global product teams. Enjoy free
-            Udemy training, work-from-home support, global exposure and a guided
-            career path.
-          </div>
-        </div>
-        <div className="flex flex-wrap gap-3">
-          <Link to="/careers" className="btn-ghost text-xs">
-            See benefits
-          </Link>
-          <a
-            href={DEV_FORM_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="btn-primary text-xs"
-          >
-            Register as developer
-          </a>
-        </div>
-      </div>
+      </section>
 
       {/* CTA */}
-      <div className="mt-14 rounded-2xl p-7 md:p-9 text-center bg-white border border-indigo-100 shadow-lg">
-        <h3 className="text-2xl md:text-3xl font-semibold text-gray-900">
-          Planning to ship faster with a lean, AI-ready team?
-        </h3>
-        <p className="mt-3 text-sm md:text-[0.95rem] text-gray-700 max-w-2xl mx-auto">
-          Share your roadmap and tech stack. We’ll respond with vetted profiles,
-          rate bands and a simple engagement plan — usually within 48 hours.
-        </p>
-        <div className="mt-5 flex flex-wrap justify-center gap-3">
-          <Link to="/contact" className="btn-primary text-sm">
-            Tell us what you need
-          </Link>
-          <Link to="/developers" className="btn-ghost text-xs">
-            See roles we staff
-          </Link>
-        </div>
-      </div>
-    </section>
+      {/* CTA */}
+      <BottomCTA 
+        title="Ready to build your dream engineering team?"
+        subtitle="Hire the top 1% of global developers. Risk-free, fast, and matched precisely to your stack and culture."
+      />
+    </div>
   );
 }
 
@@ -797,11 +685,11 @@ function AIStackBand() {
     <div className="mt-10 glass-soft px-4 md:px-6 py-4">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-indigo-50 flex items-center justify-center border border-indigo-100">
-            <span className="text-indigo-600 text-lg">⚙️</span>
+          <div className="w-9 h-9 rounded-full bg-blue-50 flex items-center justify-center border border-blue-100">
+            <span className="text-blue-600 text-lg">⚙️</span>
           </div>
           <div>
-            <div className="text-xs font-semibold text-indigo-700 tracking-wide">
+            <div className="text-xs font-semibold text-blue-700 tracking-wide">
               AI &amp; DATA STACK
             </div>
             <div className="text-[11px] text-gray-600">
@@ -868,14 +756,15 @@ function Services() {
   ];
 
   return (
-    <section className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14">
-      {/* Intro */}
-      <SectionTitle
-        title="Staffing services for modern engineering & AI teams"
+    <div className="w-full">
+      <PageHero 
+        pillText="Services"
+        title="Staffing services for modern engineering"
+        titleHighlight="& AI teams"
         subtitle="Flexible engagement models to add high-quality developers to your roadmap — without building an entire local hiring function."
       />
-
-      {/* Engagement models */}
+      <section className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14">
+        {/* Engagement models */}
       <div className="mt-8 grid md:grid-cols-3 gap-6">
         <Card
           title="Dedicated developers"
@@ -920,7 +809,7 @@ function Services() {
                 {role.items.map((item) => (
                   <span
                     key={item}
-                    className="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[0.75rem] font-medium"
+                    className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-[0.75rem] font-medium"
                   >
                     {item}
                   </span>
@@ -978,7 +867,7 @@ function Services() {
                   </span>
                   <div className="flex-1 bg-gray-100 rounded-full h-2">
                     <div
-                      className="h-2 rounded-full bg-indigo-500"
+                      className="h-2 rounded-full bg-blue-500"
                       style={{ width: "20%" }}
                     />
                   </div>
@@ -1050,20 +939,13 @@ function Services() {
         </div>
       </div>
 
-      {/* Bottom CTA */}
-      <div className="mt-14 text-center">
-        <h3 className="text-xl font-semibold text-gray-900">
-          Need developers for your roadmap?
-        </h3>
-        <p className="mt-2 text-sm text-gray-600 max-w-xl mx-auto">
-          Share your roles, tech stack and timeline — we’ll send a curated
-          shortlist of vetted profiles, usually within 48 hours.
-        </p>
-        <Link to="/contact" className="btn-primary mt-5 inline-block text-sm">
-          Talk to us about roles
-        </Link>
-      </div>
-    </section>
+      </section>
+
+      <BottomCTA 
+        title="Need developers for your roadmap?"
+        subtitle="Share your roles, tech stack and timeline — we’ll send a curated shortlist of vetted profiles, usually within 48 hours."
+      />
+    </div>
   );
 }
 
@@ -1114,14 +996,14 @@ function ProcessTimeline() {
 
       <div className="relative mt-10 pl-6 md:pl-10">
         {/* Vertical Line */}
-        <div className="absolute left-3 md:left-5 top-0 bottom-0 w-[3px] bg-indigo-200 rounded-full"></div>
+        <div className="absolute left-3 md:left-5 top-0 bottom-0 w-[3px] bg-blue-200 rounded-full"></div>
 
         <div className="flex flex-col gap-10">
           {steps.map((s, index) => (
             <div key={index} className="relative">
               {/* Step Circle */}
               <div
-                className="absolute -left-[6px] md:-left-[10px] top-1 w-6 h-6 md:w-7 md:h-7 rounded-full bg-indigo-600 flex items-center justify-center text-[0.75rem] md:text-xs text-white shadow-md"
+                className="absolute -left-[6px] md:-left-[10px] top-1 w-6 h-6 md:w-7 md:h-7 rounded-full bg-blue-600 flex items-center justify-center text-[0.75rem] md:text-xs text-white shadow-md"
               >
                 {s.step}
               </div>
@@ -1170,25 +1052,14 @@ function Developers() {
   ];
 
   return (
-    <section className="max-w-4xl mx-auto px-5 py-14">
-      {/* HERO */}
-      <div className="text-center">
-        <h1 className="text-3xl font-bold text-gray-900">
-          Hire vetted developers for your product team
-        </h1>
-        <p className="text-gray-600 mt-3 text-sm md:text-base max-w-2xl mx-auto">
-          Fullstack, mobile, QA, automation, cloud, data, AI/ML and LLM engineers —
-          screened for product experience, communication and ownership.
-        </p>
-
-        {/* CTA → contact us */}
-        <Link to="/contact" className="btn-primary mt-6 inline-block">
-          Talk to our team
-        </Link>
-      </div>
-
-      {/* ROLES & TECH STACKS */}
-
+    <div className="w-full">
+      <PageHero 
+        pillText="For Companies"
+        title="Hire vetted developers for your"
+        titleHighlight="product team"
+        subtitle="Fullstack, mobile, QA, automation, cloud, data, AI/ML and LLM engineers — screened for product experience, communication and ownership."
+      />
+      <section className="max-w-6xl mx-auto px-5 py-16">
         {/* VETTING PROCESS */}
      <ProcessTimeline />
 
@@ -1196,7 +1067,7 @@ function Developers() {
       <div className="mt-16">
         <h2 className="text-xl font-semibold text-gray-900">Sample profiles</h2>
 
-        <div className="grid grid-cols-1 gap-4 mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-5">
           {sampleRoles.map((dev) => (
             <div
               key={dev.title}
@@ -1212,7 +1083,7 @@ function Developers() {
                 {dev.tags.map((t) => (
                   <span
                     key={t}
-                    className="px-2 py-1 bg-indigo-50 text-indigo-700 rounded text-[0.7rem] font-medium"
+                    className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-[0.7rem] font-medium"
                   >
                     {t}
                   </span>
@@ -1223,21 +1094,13 @@ function Developers() {
         </div>
       </div>
 
-      
-      {/* CTA */}
-      <div className="mt-16 text-center">
-        <h2 className="text-xl font-semibold text-gray-900">
-          Want to see matching profiles?
-        </h2>
-        <p className="text-gray-600 mt-2 text-sm">
-          Share your tech stack & timeline — we’ll send 3 vetted profiles in 48 hours.
-        </p>
+      </section>
 
-        <Link to="/contact" className="btn-primary mt-5 inline-block">
-          Contact us
-        </Link>
-      </div>
-    </section>
+      <BottomCTA 
+        title="Want to see matching profiles?"
+        subtitle="Share your tech stack & timeline — we’ll send 3 vetted profiles in 48 hours."
+      />
+    </div>
   );
 }
 
@@ -1264,7 +1127,7 @@ function CaseStudyCard({ company, title, bullets, metrics }) {
             key={m.label}
             className="rounded-xl border bg-gray-50 px-3 py-3 flex flex-col"
           >
-            <div className="text-xl font-semibold text-indigo-700">
+            <div className="text-xl font-semibold text-blue-700">
               {m.value}
             </div>
             <div className="text-[0.7rem] text-gray-600">{m.label}</div>
@@ -1502,14 +1365,14 @@ function PaySplitChart() {
 
       {/* Stability row */}
       <div className="mt-4 grid grid-cols-2 gap-3 text-[0.7rem]">
-        <div className="rounded-xl border border-indigo-100 bg-indigo-50 px-3 py-2">
-          <div className="text-[0.65rem] text-indigo-700 uppercase tracking-[0.14em]">
+        <div className="rounded-xl border border-blue-100 bg-blue-50 px-3 py-2">
+          <div className="text-[0.65rem] text-blue-700 uppercase tracking-[0.14em]">
             Stability
           </div>
-          <div className="mt-1 text-base font-semibold text-indigo-800">
+          <div className="mt-1 text-base font-semibold text-blue-800">
             6–24 months
           </div>
-          <div className="text-[0.68rem] text-indigo-800/80">
+          <div className="text-[0.68rem] text-blue-800/80">
             typical engagement length
           </div>
         </div>
@@ -1532,7 +1395,7 @@ function PaySplitChart() {
 function BenefitCard({ tag, title, desc }) {
   return (
     <div className="card p-4 flex flex-col gap-2 text-sm">
-      <div className="text-[0.65rem] font-semibold tracking-[0.16em] uppercase text-indigo-600">
+      <div className="text-[0.65rem] font-semibold tracking-[0.16em] uppercase text-blue-600">
         {tag}
       </div>
       <div className="font-semibold text-gray-900">{title}</div>
@@ -1593,16 +1456,18 @@ function BenefitsGrid() {
 
 function Careers() {
   return (
-    <section className="max-w-4xl mx-auto px-4 md:px-6 py-10 md:py-14">
-      <SectionTitle
-        title="Join as a developer"
+    <div className="w-full">
+      <PageHero 
+        pillText="For Talent"
+        title="Join as a"
+        titleHighlight="developer"
         subtitle="Work with global product teams as a LearnShiz consultant — with transparent payouts, remote-first culture and clear growth paths."
       />
-
-      {/* Top: quick split + benefit chart */}
+      <section className="max-w-6xl mx-auto px-4 md:px-6 py-16">
+        {/* Top: quick split + benefit chart */}
       <div className="mt-6 grid grid-cols-1 md:grid-cols-[1.1fr,0.9fr] gap-6">
         <div className="card bg-white border rounded-xl p-6 shadow-sm">
-          <div className="text-xs font-semibold text-indigo-600">
+          <div className="text-xs font-semibold text-blue-600">
             Two ways to work with us
           </div>
           <h3 className="text-lg font-semibold mt-1 text-gray-900">
@@ -1615,11 +1480,11 @@ function Careers() {
           </p>
 
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-            <div className="rounded-xl border border-indigo-100 bg-indigo-50 px-3 py-3">
-              <div className="text-[0.7rem] text-indigo-700 font-semibold">
+            <div className="rounded-xl border border-blue-100 bg-blue-50 px-3 py-3">
+              <div className="text-[0.7rem] text-blue-700 font-semibold">
                 Part-time consultant
               </div>
-              <div className="mt-1 text-[0.8rem] text-indigo-900">
+              <div className="mt-1 text-[0.8rem] text-blue-900">
                 10–20 hours / week • Ideal if you want extra income and
                 exposure alongside your current role.
               </div>
@@ -1652,7 +1517,7 @@ function Careers() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Part-time */}
           <div className="card bg-white border rounded-xl p-6 shadow-sm hover:shadow-md transition">
-            <div className="text-sm font-semibold text-indigo-600">
+            <div className="text-sm font-semibold text-blue-600">
               PART-TIME CONSULTANT
             </div>
             <h3 className="text-lg font-semibold mt-1 text-gray-900">
@@ -1684,7 +1549,7 @@ function Careers() {
 
           {/* Full-time */}
           <div className="card bg-white border rounded-xl p-6 shadow-sm hover:shadow-md transition">
-            <div className="text-sm font-semibold text-indigo-600">
+            <div className="text-sm font-semibold text-blue-600">
               FULL-TIME CONSULTANT
             </div>
             <h3 className="text-lg font-semibold mt-1 text-gray-900">
@@ -1739,20 +1604,13 @@ function Careers() {
         </ul>
       </div>
 
-      <div className="mt-8 flex flex-wrap gap-3 items-center">
-        <a
-          href={DEV_FORM_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="btn-primary text-sm"
-        >
-          Register via Google Form
-        </a>
-        <Link to="/contact" className="btn-ghost text-xs">
-          Talk to us about roles
-        </Link>
-      </div>
-    </section>
+      </section>
+
+      <BottomCTA 
+        title="Ready to accelerate your career?"
+        subtitle="Join our talent network today. We match you with high-growth global teams where you can make a real impact."
+      />
+    </div>
   );
 }
 
@@ -1764,8 +1622,8 @@ function About() {
     <section className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16">
 
       {/* HERO BAND */}
-      <div className="rounded-2xl bg-white border border-indigo-100 shadow-sm p-8 md:p-10">
-        <div className="text-xs font-semibold text-indigo-700 uppercase tracking-[0.16em]">
+      <div className="rounded-2xl bg-white border border-blue-100 shadow-sm p-8 md:p-10">
+        <div className="text-xs font-semibold text-blue-700 uppercase tracking-[0.16em]">
           ABOUT LEARNSHIZ TECHIES
         </div>
         <h1 className="mt-3 text-2xl md:text-3xl font-semibold text-gray-900">
@@ -1790,7 +1648,7 @@ function About() {
       {/* 3-PILLAR GRID */}
       <div className="mt-14 grid md:grid-cols-3 gap-6 text-sm">
         <div className="card p-6 shadow-sm border rounded-xl">
-          <div className="text-xs font-semibold text-indigo-600 uppercase tracking-wide">
+          <div className="text-xs font-semibold text-blue-600 uppercase tracking-wide">
             Our mission
           </div>
           <p className="mt-2 text-gray-700">
@@ -1800,7 +1658,7 @@ function About() {
         </div>
 
         <div className="card p-6 shadow-sm border rounded-xl">
-          <div className="text-xs font-semibold text-indigo-600 uppercase tracking-wide">
+          <div className="text-xs font-semibold text-blue-600 uppercase tracking-wide">
             Our vision
           </div>
           <p className="mt-2 text-gray-700">
@@ -1810,7 +1668,7 @@ function About() {
         </div>
 
         <div className="card p-6 shadow-sm border rounded-xl">
-          <div className="text-xs font-semibold text-indigo-600 uppercase tracking-wide">
+          <div className="text-xs font-semibold text-blue-600 uppercase tracking-wide">
             Our values
           </div>
           <ul className="mt-2 text-gray-700 space-y-1.5">
@@ -1903,7 +1761,7 @@ function About() {
       </div>
 
       {/* CTA */}
-      <div className="mt-12 rounded-2xl p-7 text-center bg-white border border-indigo-100 shadow-lg">
+      <div className="mt-12 rounded-2xl p-7 text-center bg-white border border-blue-100 shadow-lg">
         <h3 className="text-xl md:text-2xl font-semibold text-gray-900">
           Want to explore a hiring partnership?
         </h3>
@@ -1926,8 +1784,8 @@ function Team() {
     <section className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16">
 
       {/* HERO */}
-      <div className="rounded-2xl bg-white border border-indigo-100 shadow-sm p-8 md:p-10">
-        <div className="text-xs font-semibold text-indigo-700 uppercase tracking-wider">
+      <div className="rounded-2xl bg-white border border-blue-100 shadow-sm p-8 md:p-10">
+        <div className="text-xs font-semibold text-blue-700 uppercase tracking-wider">
           OUR TEAM
         </div>
         <h1 className="mt-3 text-2xl md:text-3xl font-semibold text-gray-900">
@@ -1960,7 +1818,7 @@ function Team() {
           <div className="card p-5 border rounded-xl shadow-sm">
             <div className="font-semibold text-gray-900">Product-first mindset</div>
             <ul className="mt-2 text-gray-700 space-y-1.5">
-              <li>• Engineers think beyond tasks (impact > output)</li>
+              <li>• Engineers think beyond tasks (impact &gt; output)</li>
               <li>• Experience working with US/EU product teams</li>
               <li>• Strong understanding of business KPIs</li>
             </ul>
@@ -1992,15 +1850,15 @@ function Team() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm mt-6">
           <div className="p-5 border rounded-xl bg-gray-50">
-            <div className="font-semibold text-indigo-700 text-xl">35%</div>
+            <div className="font-semibold text-blue-700 text-xl">35%</div>
             <div className="text-gray-700 mt-1">Faster sprint delivery after ramp-up</div>
           </div>
           <div className="p-5 border rounded-xl bg-gray-50">
-            <div className="font-semibold text-indigo-700 text-xl">40–70%</div>
+            <div className="font-semibold text-blue-700 text-xl">40–70%</div>
             <div className="text-gray-700 mt-1">Cost savings vs US/UK hiring</div>
           </div>
           <div className="p-5 border rounded-xl bg-gray-50">
-            <div className="font-semibold text-indigo-700 text-xl">4–6 weeks</div>
+            <div className="font-semibold text-blue-700 text-xl">4–6 weeks</div>
             <div className="text-gray-700 mt-1">Average engineer ramp time</div>
           </div>
         </div>
@@ -2012,7 +1870,7 @@ function Team() {
       </div>
 
       {/* LEADERSHIP BAND */}
-      <div className="mt-16 rounded-2xl bg-indigo-50 border border-indigo-200 p-7 shadow-sm">
+      <div className="mt-16 rounded-2xl bg-blue-50 border border-blue-200 p-7 shadow-sm">
         <h2 className="text-lg font-semibold text-gray-900">Leadership & mentoring</h2>
 
         <p className="text-gray-700 mt-2 text-sm max-w-3xl">
@@ -2040,7 +1898,7 @@ function Team() {
       </div>
 
       {/* CTA */}
-      <div className="mt-16 rounded-2xl p-7 text-center bg-white border border-indigo-100 shadow-lg">
+      <div className="mt-16 rounded-2xl p-7 text-center bg-white border border-blue-100 shadow-lg">
         <h3 className="text-xl md:text-2xl font-semibold text-gray-900">
           Want to work with a mature engineering team?
         </h3>
@@ -2093,11 +1951,16 @@ function Policies() {
 
 function Contact() {
   return (
-    <section className="max-w-3xl mx-auto px-4 md:px-6 py-10 md:py-14">
-      <SectionTitle
-        title="Tell us what you’re building"
+    <div className="w-full">
+      <PageHero 
+        pillText="Contact Us"
+        title="Tell us what you're"
+        titleHighlight="building"
         subtitle="Share your roles, tech stack, experience range and budget. We’ll respond with a shortlist and next steps."
+        ctaText="See sample profiles"
+        ctaLink="/developers"
       />
+      <section className="max-w-3xl mx-auto px-4 md:px-6 py-16">
 
       <form
         className="mt-6 grid grid-cols-1 gap-4 text-sm"
@@ -2135,11 +1998,12 @@ function Contact() {
         </div>
       </form>
 
-      <div className="mt-8 text-xs md:text-sm text-gray-700">
-        <div>Phone: +91 95919 67760</div>
-        <div>Email: hello@learnshiz.com</div>
-      </div>
-    </section>
+        <div className="mt-8 text-xs md:text-sm text-gray-700">
+          <div>Phone: +91 95919 67760</div>
+          <div>Email: hello@learnshiz.com</div>
+        </div>
+      </section>
+    </div>
   );
 }
 
@@ -2163,6 +2027,73 @@ function NotFound() {
 
 /* ---------------- Reusable UI ---------------- */
 
+function PageHero({ pillText, title, titleHighlight, subtitle, ctaText = "Hire Developers", ctaLink = "/contact" }) {
+  return (
+    <section className="w-full bg-[#0a0f1c] text-white pt-20 pb-24 md:pt-32 md:pb-40 px-4 md:px-6 relative overflow-hidden">
+      {/* Abstract background elements */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#1f57e7]/20 to-transparent pointer-events-none" />
+      <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#1f57e7] rounded-full blur-[150px] opacity-30 pointer-events-none" />
+      
+      <div className="max-w-6xl mx-auto relative z-10 flex flex-col items-center text-center">
+        {pillText && (
+          <div className="pill mb-8 bg-blue-900/40 border border-blue-500/30 text-blue-300">
+            <span className="w-2 h-2 rounded-full bg-blue-400 mr-2 inline-block" />
+            {pillText}
+          </div>
+        )}
+        
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight max-w-4xl">
+          {title}{" "}
+          {titleHighlight && (
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+              {titleHighlight}
+            </span>
+          )}
+        </h1>
+        
+        {subtitle && (
+          <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed mx-auto">
+            {subtitle}
+          </p>
+        )}
+        
+        <div className="mt-10 flex flex-col sm:flex-row gap-4 items-center justify-center">
+          <Link to={ctaLink} className="btn-primary text-base px-8 py-3.5">
+            {ctaText}
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BottomCTA({ 
+  title = "Ready to build your dream engineering team?", 
+  subtitle = "Hire the top 1% of global developers. Risk-free, fast, and matched precisely to your stack and culture." 
+}) {
+  return (
+    <section className="max-w-4xl mx-auto px-4 md:px-6 py-20">
+      <div className="rounded-3xl p-10 md:p-14 text-center bg-blue-600 text-white shadow-xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+        <h3 className="text-3xl md:text-4xl font-bold relative z-10">
+          {title}
+        </h3>
+        <p className="mt-4 text-lg text-blue-100 max-w-2xl mx-auto relative z-10">
+          {subtitle}
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-4 relative z-10">
+          <Link to="/contact" className="btn-primary bg-white text-blue-600 hover:bg-blue-50 px-8 py-3.5 shadow-lg">
+            Hire Developers
+          </Link>
+          <a href={DEV_FORM_URL} target="_blank" rel="noreferrer" className="btn-ghost-dark px-8 py-3.5 border-blue-400 hover:bg-blue-500">
+            Apply for Jobs
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function SectionTitle({ title, subtitle, noMargin = false }) {
   return (
     <div className={noMargin ? "" : "mb-2"}>
@@ -2181,7 +2112,7 @@ function SectionTitle({ title, subtitle, noMargin = false }) {
 function Metric({ value, label }) {
   return (
     <div>
-      <div className="text-xl md:text-2xl font-semibold text-indigo-700">
+      <div className="text-xl md:text-2xl font-semibold text-blue-700">
         {value}
       </div>
       <div className="mt-1 text-[0.8rem] text-gray-600">{label}</div>
@@ -2217,14 +2148,14 @@ function Card({ title, desc }) {
 }
 
 function StatCard({ value, label, accent = false }) {
-  const valueClass = accent ? "text-indigo-700" : "text-gray-900";
+  const valueClass = accent ? "text-blue-700" : "text-gray-900";
   const labelClass = "text-gray-600";
 
   return (
     <div
       className={`relative overflow-hidden rounded-2xl p-4 md:p-5 text-center border ${
         accent
-          ? "bg-indigo-50 border-indigo-200"
+          ? "bg-blue-50 border-blue-200"
           : "bg-white border-gray-200"
       }`}
     >
@@ -2309,7 +2240,7 @@ function TestimonialsCarousel() {
             key={i}
             onClick={() => setIdx(i)}
             className={`w-2 h-2 rounded-full transition ${
-              i === idx ? "bg-indigo-600" : "bg-gray-300"
+              i === idx ? "bg-blue-600" : "bg-gray-300"
             }`}
             aria-label={`Go to testimonial ${i + 1}`}
           />
@@ -2374,6 +2305,7 @@ function Footer() {
                   <li>Bengaluru - BTM 1st Stage, KA</li>
                   <li>Lucknow - Indira Nagar, UP</li>
                   <li>Indore - New Town, MP</li>
+                  <li>Florida - Miami, FL</li>
                 </ul>
               </div>
             </div>
@@ -2381,7 +2313,7 @@ function Footer() {
         </div>
 
         {/* Maps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-7">
           <div className="card overflow-hidden">
             <iframe
               title="Bengaluru office"
@@ -2414,6 +2346,17 @@ function Footer() {
               Indore — New Town
             </div>
           </div>
+
+          <div className="card overflow-hidden">
+            <iframe
+              title="Florida office"
+              src="https://www.google.com/maps?q=Miami%20Florida&output=embed"
+              className="w-full h-40 border-0"
+            />
+            <div className="p-3 text-[0.75rem] text-gray-800">
+              Florida — Miami, FL
+            </div>
+          </div>
         </div>
 
         <div className="mt-6 text-[0.7rem] text-gray-500 text-center">
@@ -2421,6 +2364,115 @@ function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function ClientsCarouselBand() {
+  return (
+    <section className="logo-cloud">
+      <div className="centered-header">
+        <p className="trusted-label">TRUSTED BY INNOVATIVE COMPANIES</p>
+      </div>
+      <div className="carousel-mask">
+        <div className="carousel-track">
+          {/* Render the list 3 times for smooth infinite scroll */}
+          {[1, 2, 3].map((group) => (
+            <div key={group} className="flex gap-[125px] shrink-0 items-center">
+              {/* 1. neuraFlow */}
+              <div className="logo-item flex items-center gap-3" style={{ color: "#8046FD", opacity: 1 }}>
+                <span className="logo-icon">
+                  <svg width="40" height="28" viewBox="0 0 40 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" clipRule="evenodd" d="M1.04165 8.6424C0.0059185 11.2006 -0.265077 14.0155 0.262973 16.7313C0.790959 19.447 2.09428 21.9416 4.00802 23.8995C5.92176 25.8574 8.36009 27.1908 11.0145 27.731C13.6691 28.2712 16.4205 27.9939 18.921 26.9343C21.4214 25.8747 23.5586 24.0802 25.0622 21.778C25.1023 21.7166 25.1419 21.6549 25.181 21.5929C25.2086 21.5492 25.236 21.5052 25.2632 21.4611V28H26.3158C29.0223 28 31.668 27.1789 33.9183 25.6405C36.1687 24.1023 37.9226 21.9157 38.9583 19.3575C39.9941 16.7994 40.2651 13.9845 39.737 11.2687C39.209 8.55301 37.9058 6.05842 35.992 4.10052C34.0782 2.14255 31.6399 0.809212 28.9855 0.269041C26.3309 -0.271195 23.5795 0.00605512 21.079 1.06569C18.5786 2.12533 16.4414 3.91976 14.9378 6.22202C14.8694 6.3268 14.8024 6.43249 14.7368 6.53891V7.99449e-06H13.6842C10.9777 7.99449e-06 8.33201 0.821109 6.08168 2.35946C3.83134 3.89774 2.07739 6.08425 1.04165 8.6424ZM12.6316 14V2.20289C10.713 2.38207 8.86244 3.04897 7.2513 4.15027C5.34714 5.45193 3.86308 7.3021 2.98668 9.46666C2.11028 11.6313 1.88098 14.0131 2.32776 16.3111C2.77454 18.609 3.87735 20.7198 5.49664 22.3765C7.116 24.0332 9.17918 25.1614 11.4253 25.6185C13.6714 26.0756 15.9995 25.841 18.1153 24.9444C20.1461 24.0838 21.8937 22.6504 23.1559 20.814C22.1993 21.2786 21.1293 21.5385 20 21.5385C15.9306 21.5385 12.6316 18.1633 12.6316 14ZM27.3684 25.7971V14C27.3684 9.83665 24.0694 6.46154 20 6.46154C18.8707 6.46154 17.8007 6.72144 16.8441 7.18602C18.1063 5.34959 19.8539 3.91614 21.8847 3.0556C24.0005 2.15898 26.3286 1.92439 28.5747 2.38148C30.8208 2.83856 32.884 3.96682 34.5034 5.62348C36.1227 7.28021 37.2255 9.391 37.6722 11.6889C38.119 13.9869 37.8897 16.3687 37.0133 18.5333C36.137 20.6979 34.6529 22.5481 32.7487 23.8497C31.1376 24.951 29.287 25.6179 27.3684 25.7971ZM19.8947 19.3836C17.0715 19.3269 14.7933 16.996 14.7379 14.1077H16.7291C18.2999 14.474 19.5365 15.739 19.8947 17.3461V19.3836ZM20.1052 19.3836C22.9284 19.3269 25.2067 16.996 25.2621 14.1077H23.2709C21.6999 14.474 20.4633 15.7392 20.1052 17.3465V19.3836ZM25.2621 13.8923C25.2067 11.004 22.9284 8.6731 20.1052 8.61644V10.6535C20.4633 12.2607 21.6998 13.5259 23.2706 13.8923H25.2621ZM19.8947 8.61644C17.0716 8.6731 14.7933 11.004 14.7379 13.8923H16.7294C18.3001 13.5259 19.5366 12.2609 19.8947 10.6539V8.61644Z" fill="#8046FD"></path>
+                  </svg>
+                </span>
+                <span className="logo-name">neuraFlow</span>
+              </div>
+
+              {/* 2. QUANTIX */}
+              <div className="logo-item flex items-center gap-3" style={{ color: "#2563EB", opacity: 1 }}>
+                <span className="logo-name wordmark-font">QUANTIX</span>
+              </div>
+
+              {/* 3. stratos */}
+              <div className="logo-item flex items-center gap-3" style={{ color: "black", opacity: 1 }}>
+                <span className="logo-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" opacity="0.2"></circle>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    <path d="M2 12h20"></path>
+                    <circle cx="12" cy="12" r="3" fill="black"></circle>
+                  </svg>
+                </span>
+                <span className="logo-name">stratos</span>
+              </div>
+
+              {/* 4. LUMINA */}
+              <div className="logo-item flex items-center gap-3" style={{ color: "inherit", opacity: 1 }}>
+                <span className="logo-icon">
+                  <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 0C9.50659 0 1 8.50659 1 19V20.1719L4 23.1719V19C4 10.1634 11.1634 3 20 3C28.8366 3 36 10.1634 36 19V23.1719L39 20.1719V19C39 8.50659 30.4934 0 20 0ZM20 10C15.0294 10 11 14.0294 11 19V31.0498C11 31.5743 10.5743 32 10.0498 32C9.7981 31.9999 9.55691 31.8997 9.37891 31.7217L0 22.3428V26.585L7.25781 33.8428C7.99842 34.5834 9.00245 34.9999 10.0498 35C12.2312 35 14 33.2312 14 31.0498V19C14 15.6863 16.6863 13 20 13C23.3137 13 26 15.6863 26 19V31.0498C26 33.2312 27.7688 35 29.9502 35C30.9976 34.9999 32.0016 34.5834 32.7422 33.8428L34.7066 31.8785L37.7066 28.8785L40 26.585V22.3428L37.8789 24.4639L35.5854 26.7574L32.5854 29.7574L30.6211 31.7217C30.4431 31.8997 30.2019 31.9999 29.9502 32C29.4257 32 29 31.5743 29 31.0498V19C29 14.0294 24.9706 10 20 10ZM20 15C17.7909 15 16 16.7909 16 19V31.0498C16 34.3358 13.3358 37 10.0498 37C8.47201 36.9999 6.95846 36.3735 5.84277 35.2578L0 29.4141V33.6562L3.72168 37.3789C5.39997 39.0572 7.67636 39.9999 10.0498 40C14.9926 40 19 35.9926 19 31.0498V19C19 18.4477 19.4477 18 20 18C20.5523 18 21 18.4477 21 19V31.0498C21 35.9926 25.0074 40 29.9502 40C32.3236 39.9999 34.6 39.0572 36.2783 37.3789L40 33.6562V29.4141L34.1572 35.2578C33.0415 36.3735 31.528 36.9999 29.9502 37C26.6642 37 24 34.3358 24 31.0498V19C24 16.7909 22.2091 15 20 15ZM20 5C12.268 5 6 11.268 6 19V25.1719L9 28.1719V19C9 12.9249 13.9249 8 20 8C26.0751 8 31 12.9249 31 19V28.1719L34 25.1719V19C34 11.268 27.732 5 20 5Z" fill="#ff4d00"></path>
+                  </svg>
+                </span>
+                <span className="logo-name" style={{ background: "linear-gradient(135deg, #ff4c00 0%, #ff8300 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontWeight: 800 }}>LUMINA</span>
+              </div>
+
+              {/* 5. VERTEX */}
+              <div className="logo-item flex items-center gap-3" style={{ color: "#2563EB", opacity: 1 }}>
+                <span className="logo-name flex items-center">
+                  <span style={{ color: "black", marginRight: "4px" }}>[</span>
+                  <span style={{ color: "#2563EB" }}>VERTEX</span>
+                  <span style={{ color: "black", marginLeft: "4px" }}>]</span>
+                </span>
+              </div>
+
+              {/* 6. apex.ai */}
+              <div className="logo-item flex items-center gap-3" style={{ color: "#777777", opacity: 1 }}>
+                <span className="logo-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-layers" aria-hidden="true">
+                    <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path>
+                    <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path>
+                    <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path>
+                  </svg>
+                </span>
+                <span className="logo-name">apex.ai</span>
+              </div>
+
+              {/* 7. DATEWELL */}
+              <div className="logo-item flex items-center gap-3" style={{ color: "inherit", opacity: 1 }}>
+                <span className="logo-icon">
+                  <svg width="42" height="32" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="35" cy="40" r="32" stroke="#fdbb4b" strokeWidth="6"></circle>
+                    <circle cx="28" cy="22" r="6" fill="#f05423"></circle>
+                    <path d="M12 45C12 35 28 35 28 45V72" stroke="#f05423" strokeWidth="5" strokeLinecap="round"></path>
+                    <circle cx="45" cy="20" r="6" fill="#58b0bc"></circle>
+                    <path d="M60 45C60 35 44 35 44 45V71" stroke="#58b0bc" strokeWidth="5" strokeLinecap="round"></path>
+                  </svg>
+                </span>
+                <span className="logo-name flex items-baseline gap-1.5 wordmark-font" style={{ fontWeight: 900 }}>
+                  <span style={{ color: "#58b0bc" }}>DATE</span>
+                  <span style={{ color: "#f05423" }}>WELL</span>
+                </span>
+              </div>
+
+              {/* 8. upcred.ai */}
+              <div className="logo-item flex items-center gap-3" style={{ color: "#34495e", opacity: 1 }}>
+                <span className="logo-icon">
+                  <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+                    <rect width="42" height="42" rx="10" fill="#22439c"></rect>
+                    <path d="M12 16V22C12 26.4183 15.5817 30 20 30C24.4183 30 28 26.4183 28 22V15" stroke="white" strokeWidth="5.5" strokeLinecap="round"></path>
+                    <circle cx="12.5" cy="15.5" r="3.5" fill="white" stroke="#22439c" strokeWidth="1"></circle>
+                    <path d="M16 13C17 11.5 18.5 11.5 19.5 13" stroke="white" strokeWidth="1.8" strokeLinecap="round" opacity="0.6"></path>
+                    <path d="M15 10C17.5 7 21 7 23.5 10" stroke="white" strokeWidth="1.8" strokeLinecap="round" opacity="0.4"></path>
+                    <path d="M14 7C18 3 24 3 28 7" stroke="white" strokeWidth="1.8" strokeLinecap="round" opacity="0.2"></path>
+                  </svg>
+                </span>
+                <span className="logo-name">upcred.ai</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
