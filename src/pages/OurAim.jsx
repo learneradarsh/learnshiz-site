@@ -1,9 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 export default function OurAim() {
   return (
     <main className="bg-slate-950 min-h-screen pt-24 pb-20">
+      <SEO 
+        title="Our Mission & The LearnShiz Difference" 
+        description="We don't just write code; we solve complex problems. Discover how LearnShiz is building the world's largest elite engineering community for the AI era." 
+      />
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 w-full h-full opacity-20 pointer-events-none flex items-center justify-center">
