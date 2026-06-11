@@ -6,6 +6,7 @@ import WhyChooseUs from "../components/WhyChooseUs";
 import HowItWorks from "../components/HowItWorks";
 import AimWidget from "../components/AimWidget";
 import ServicesWidget from "../components/ServicesWidget";
+import GrowthAndTech from "../components/GrowthAndTech";
 import SEO from "../components/SEO";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       />
       <HeroSection />
       <ServicesWidget />
+      <GrowthAndTech />
       <AimWidget />
       <ClientsCarouselBand />
       <WhyChooseUs />

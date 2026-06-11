@@ -40,6 +40,25 @@ export default function ServicesSection() {
     }
   ];
 
+  const devValues = [
+    {
+      title: "Day 1 Impact",
+      desc: "No long ramp-up times. Our devs jump right into your codebase and start shipping features from the very first day.",
+    },
+    {
+      title: "Extreme Ownership",
+      desc: "We don't just clear Jira tickets; we take full ownership of the product lifecycle, from architecture to deployment.",
+    },
+    {
+      title: "Elevated Code Quality",
+      desc: "By enforcing clean code, rigorous testing, and robust CI/CD practices, we elevate the engineering standards of your entire team.",
+    },
+    {
+      title: "Seamless Integration",
+      desc: "We embed directly into your Slack, daily standups, and agile workflows, operating exactly like your own in-house employees.",
+    }
+  ];
+
   return (
     <section id="services" className="pt-32 pb-24 bg-slate-950 relative">
       <div className="max-w-7xl mx-auto px-6">
@@ -50,7 +69,7 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
           {services.map((s, i) => (
             <div key={i} className="bg-slate-900/50 backdrop-blur-md border border-slate-800 p-8 rounded-2xl hover:border-blue-500/30 transition-colors group">
               <div className="w-14 h-14 rounded-xl bg-slate-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-inner border border-slate-700/50">
@@ -62,6 +81,29 @@ export default function ServicesSection() {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="border-t border-slate-800/50 pt-16 relative">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 bg-slate-950">
+            <span className="text-blue-500 font-semibold tracking-wider uppercase text-sm">The LearnShiz Advantage</span>
+          </div>
+          
+          <div className="text-center mb-12">
+            <h3 className="text-2xl md:text-4xl font-bold text-white mb-4">What Our Devs Add to Your Team</h3>
+            <p className="text-slate-400 max-w-2xl mx-auto">
+              When you hire from us, you're not just getting temporary hands on a keyboard. You are injecting high-velocity, senior engineering talent directly into your company's DNA.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {devValues.map((val, idx) => (
+              <div key={idx} className="relative pl-6 border-l-2 border-slate-800 hover:border-blue-500 transition-colors duration-300">
+                <div className="absolute top-0 -left-[9px] w-4 h-4 rounded-full bg-slate-900 border-2 border-slate-800 group-hover:border-blue-500"></div>
+                <h4 className="text-lg font-bold text-slate-200 mb-2">{val.title}</h4>
+                <p className="text-slate-500 text-sm leading-relaxed">{val.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
