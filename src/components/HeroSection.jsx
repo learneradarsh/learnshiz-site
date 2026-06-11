@@ -28,7 +28,7 @@ export default function HeroSection() {
         </h1>
         
         <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-8 md:mb-12 px-2 sm:px-0">
-          We provide elite Forward Deployed Engineers, Product Development Teams, and Technical Consultants. Get vetted developers onboarded in 48 hours, matched perfectly to your requirements.
+          We provide elite Forward Deployed Engineers, Product Development Teams, and Technical Consultants. Get vetted developers onboarded in 48 hours, matched perfectly to your requirements. Our difference is also by using AI Enabled Engineers our engineers deliver 4x faster than normal team or technical consultancy.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4 sm:px-0">

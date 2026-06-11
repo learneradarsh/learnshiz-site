@@ -121,3 +121,13 @@
   0% { transform: translateY(0); }
   100% { transform: translateY(4rem); }
 }
+
+@keyframes flow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes flow-mobile {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}

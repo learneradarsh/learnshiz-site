@@ -7,6 +7,7 @@ import HowItWorks from "../components/HowItWorks";
 import AimWidget from "../components/AimWidget";
 import ServicesWidget from "../components/ServicesWidget";
 import GrowthAndTech from "../components/GrowthAndTech";
+import AIPipelineAnimation from "../components/AIPipelineAnimation";
 import SEO from "../components/SEO";
 
 export default function Home() {
@@ -17,13 +18,14 @@ export default function Home() {
         description="LearnShiz provides top 1% vetted developers and AI engineers to SMEs, startups, and enterprises within 48 hours. Scale your tech velocity today." 
       />
       <HeroSection />
-      <ServicesWidget />
-      <GrowthAndTech />
-      <AimWidget />
       <ClientsCarouselBand />
       <WhyChooseUs />
-      <HowItWorks />
+      <ServicesWidget />
+      <AIPipelineAnimation />
       <ComparisonSection />
+      <HowItWorks />
+      <GrowthAndTech />
+      <AimWidget />
     </main>
   );
 }
