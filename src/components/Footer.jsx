@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../assets/logo.png";
 
 const DEV_FORM_URL = "https://forms.gle/dxaLoQkrhn7JcDiX8";
 
@@ -11,11 +12,7 @@ export default function Footer() {
           
           <div className="lg:w-1/3">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-md bg-blue-600 p-[1px]">
-                <div className="w-full h-full bg-slate-900 rounded-md flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">L</span>
-                </div>
-              </div>
+              <img src={logo} alt="LearnShiz Logo" className="w-8 h-8 rounded-md object-contain" />
               <span className="text-white font-bold text-xl tracking-tight">LearnShiz</span>
             </div>
             <p className="text-slate-400 text-sm mb-8 leading-relaxed max-w-sm">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const DEV_FORM_URL = "https://forms.gle/dxaLoQkrhn7JcDiX8";
 const WHATSAPP_URL = "https://wa.me/919591967760";
@@ -32,11 +33,7 @@ export default function Header() {
         
         {/* Logo and Trust Marker */}
         <Link to="/" className="flex items-center gap-3 group relative z-50">
-          <div className="w-10 h-10 rounded-lg bg-blue-600 p-[1px] group-hover:bg-blue-500 transition-colors">
-            <div className="w-full h-full bg-slate-900 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">L</span>
-            </div>
-          </div>
+          <img src={logo} alt="LearnShiz Logo" className="w-10 h-10 rounded-lg object-contain" />
           <div className="flex flex-col">
             <span className="text-white font-bold text-xl tracking-tight leading-none">LearnShiz</span>
             <span className="text-slate-400 text-[10px] uppercase tracking-widest mt-1 font-semibold">Global Partner</span>
@@ -56,6 +53,12 @@ export default function Header() {
             className={({ isActive }) => `text-sm font-medium transition-colors ${isActive ? "text-blue-400" : "text-slate-300 hover:text-white"}`}
           >
             Services
+          </NavLink>
+          <NavLink 
+            to="/how-it-works" 
+            className={({ isActive }) => `text-sm font-medium transition-colors ${isActive ? "text-blue-400" : "text-slate-300 hover:text-white"}`}
+          >
+            How It Works
           </NavLink>
           <NavLink 
             to="/our-aim" 
@@ -118,6 +121,12 @@ export default function Header() {
             className={({ isActive }) => `block transition-colors ${isActive ? "text-blue-400" : "text-slate-300 hover:text-white"}`}
           >
             Services
+          </NavLink>
+          <NavLink 
+            to="/how-it-works" 
+            className={({ isActive }) => `block transition-colors ${isActive ? "text-blue-400" : "text-slate-300 hover:text-white"}`}
+          >
+            How It Works
           </NavLink>
           <NavLink 
             to="/our-aim" 

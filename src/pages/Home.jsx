@@ -3,7 +3,6 @@ import HeroSection from "../components/HeroSection";
 import ClientsCarouselBand from "../components/ClientsCarouselBand";
 import ComparisonSection from "../components/ComparisonSection";
 import WhyChooseUs from "../components/WhyChooseUs";
-import HowItWorks from "../components/HowItWorks";
 import AimWidget from "../components/AimWidget";
 import ServicesWidget from "../components/ServicesWidget";
 import GrowthAndTech from "../components/GrowthAndTech";
@@ -23,7 +22,6 @@ export default function Home() {
       <ServicesWidget />
       <AIPipelineAnimation />
       <ComparisonSection />
-      <HowItWorks />
       <GrowthAndTech />
       <AimWidget />
     </main>
