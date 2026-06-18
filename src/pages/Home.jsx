@@ -7,6 +7,9 @@ import AimWidget from "../components/AimWidget";
 import ServicesWidget from "../components/ServicesWidget";
 import GrowthAndTech from "../components/GrowthAndTech";
 import AIPipelineAnimation from "../components/AIPipelineAnimation";
+import HowItWorks from "../components/HowItWorks";
+import TrustAndSecurity from "../components/TrustAndSecurity";
+import FAQSection from "../components/FAQSection";
 import SEO from "../components/SEO";
 
 export default function Home() {
@@ -19,11 +22,14 @@ export default function Home() {
       <HeroSection />
       <ClientsCarouselBand />
       <WhyChooseUs />
+      <HowItWorks />
       <ServicesWidget />
       <AIPipelineAnimation />
       <ComparisonSection />
+      <TrustAndSecurity />
       <GrowthAndTech />
       <AimWidget />
+      <FAQSection />
     </main>
   );
 }

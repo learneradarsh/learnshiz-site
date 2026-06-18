@@ -87,6 +87,16 @@ export default function ComparisonSection() {
                   <div className="text-slate-500 text-sm leading-relaxed">Poor developer compensation leads to low morale and frequent project abandonment.</div>
                 </div>
               </li>
+              <li className="flex items-start gap-4 p-4 -m-4 rounded-xl bg-red-950/30 border border-red-500/20 mt-2 relative">
+                <div className="absolute -top-3 right-4 bg-red-900/80 text-red-200 text-[10px] font-bold px-2 py-0.5 rounded shadow border border-red-500/30 uppercase tracking-wide">
+                  Common Issue
+                </div>
+                <div className="mt-1 shrink-0"><span className="text-red-400 text-lg">✕</span></div>
+                <div>
+                  <div className="text-slate-200 font-semibold mb-1">Rigid Working Hours</div>
+                  <div className="text-slate-500 text-sm leading-relaxed">Limited 1-2 hour overlap windows that cause bottlenecks and delay feedback cycles.</div>
+                </div>
+              </li>
             </ul>
           </div>
 
@@ -133,6 +143,16 @@ export default function ComparisonSection() {
                 <div>
                   <div className="text-white font-semibold mb-1">98% Long-term Stability</div>
                   <div className="text-slate-400 text-sm leading-relaxed">High payouts and great culture ensure your engineers stay committed for the long haul.</div>
+                </div>
+              </li>
+              <li className="flex items-start gap-4 group p-4 -m-4 rounded-xl bg-blue-900/20 border border-blue-400/40 mt-2 relative shadow-[0_0_20px_rgba(37,99,235,0.1)]">
+                <div className="absolute -top-3 right-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-lg border border-blue-400/50 uppercase tracking-wide">
+                  Game Changer
+                </div>
+                <div className="mt-1 shrink-0 w-6 h-6 rounded-full bg-blue-500/30 flex items-center justify-center group-hover:bg-blue-500/50 transition-colors"><span className="text-blue-300 text-sm font-bold">✓</span></div>
+                <div>
+                  <div className="text-white font-semibold mb-1">Complete Time Zone Alignment</div>
+                  <div className="text-blue-100/70 text-sm leading-relaxed">Our remote engineers work fully in your exact time zone for seamless, real-time collaboration.</div>
                 </div>
               </li>
             </ul>

@@ -7,6 +7,7 @@ import Services from "./pages/Services";
 import HowItWorksPage from "./pages/HowItWorksPage";
 import Careers from "./pages/Careers";
 import OurAim from "./pages/OurAim";
+import FloatingCTA from "./components/FloatingCTA";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -29,6 +30,7 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/our-aim" element={<OurAim />} />
         </Routes>
+        <FloatingCTA />
         <Footer />
       </Router>
     </div>

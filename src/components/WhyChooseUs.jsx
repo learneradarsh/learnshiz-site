@@ -28,6 +28,16 @@ export default function WhyChooseUs() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       )
+    },
+    {
+      title: "Time Zone Alignment",
+      desc: "Forget limited 1-2 hour handover windows. Our remote developers work seamlessly in your exact time zone, functioning as true extensions of your team.",
+      icon: (
+        <svg className="w-8 h-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+      highlight: "Major Pain Point Solved"
     }
   ];
 
@@ -43,10 +53,15 @@ export default function WhyChooseUs() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {reasons.map((reason, index) => (
-            <div key={index} className="flex flex-col items-center text-center group">
-              <div className="w-20 h-20 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-900/5">
+            <div key={index} className={`flex flex-col items-center text-center group ${reason.highlight ? 'bg-blue-900/10 border border-blue-500/30 rounded-3xl p-6 relative shadow-[0_0_30px_rgba(37,99,235,0.1)] lg:-mt-4 lg:scale-105' : ''}`}>
+              {reason.highlight && (
+                <div className="absolute -top-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-full shadow-lg shadow-blue-500/30 border border-blue-400/50 uppercase tracking-wider">
+                  {reason.highlight}
+                </div>
+              )}
+              <div className={`w-20 h-20 rounded-2xl bg-slate-900 border flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg ${reason.highlight ? 'border-blue-500/50 shadow-blue-500/20' : 'border-slate-800 shadow-blue-900/5'}`}>
                 {reason.icon}
               </div>
               <h3 className="text-xl font-bold text-slate-200 mb-4">{reason.title}</h3>
