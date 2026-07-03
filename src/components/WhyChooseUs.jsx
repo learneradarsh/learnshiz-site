@@ -1,61 +1,69 @@
 import React from "react";
+import {
+  HiMiniBolt,
+  HiMiniShieldCheck,
+  HiMiniCpuChip,
+  HiMiniUserGroup,
+  HiMiniCurrencyDollar,
+  HiMiniLightBulb,
+} from "react-icons/hi2";
 
 const reasons = [
   {
-    icon: "⚡",
+    Icon: HiMiniBolt,
     title: "Startup Speed",
-    desc: "Ship features every week. We operate with the urgency of a startup and the discipline of an enterprise.",
+    desc: "Weekly feature releases. We move with urgency and ship consistently.",
     highlight: false,
   },
   {
-    icon: "🏛️",
+    Icon: HiMiniShieldCheck,
     title: "Enterprise Quality",
-    desc: "Architected for scale from Day One. Every system we build is production-grade, tested, and monitored.",
+    desc: "Production-grade systems, tested and monitored from Day One.",
     highlight: false,
   },
   {
-    icon: "🧠",
+    Icon: HiMiniCpuChip,
     title: "AI Native",
-    desc: "Every engineer is AI-enabled. We use AI tools to deliver 4× faster than traditional development teams.",
+    desc: "Every engineer uses AI tools to deliver 3–4× faster than traditional teams.",
     highlight: true,
     badge: "Key Differentiator",
   },
   {
-    icon: "🎯",
+    Icon: HiMiniUserGroup,
     title: "Dedicated Team",
-    desc: "Your engineers stay with your product. No rotating contractors — a committed team that knows your codebase.",
+    desc: "Your engineers stay with your product — no rotating contractors.",
     highlight: false,
   },
   {
-    icon: "💰",
+    Icon: HiMiniCurrencyDollar,
     title: "Predictable Pricing",
-    desc: "No hourly billing. No surprise invoices. One flat monthly subscription that covers your entire engineering team.",
+    desc: "Flat monthly subscription. No hourly billing, no surprises.",
     highlight: false,
   },
   {
-    icon: "💡",
+    Icon: HiMiniLightBulb,
     title: "Product Thinking",
-    desc: "We think like founders, not contractors. We challenge assumptions and recommend better solutions.",
+    desc: "We challenge assumptions and recommend better solutions — not just execute.",
     highlight: false,
   },
 ];
 
-export default function WhyLearnshiz() {
+export default function WhyChooseUs() {
   return (
-    <section id="why-learnshiz" className="py-20 md:py-32 bg-slate-950 border-t border-slate-800/50 relative">
+    <section id="why-learnshiz" className="py-20 md:py-32 bg-slate-950 border-t border-slate-800/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-slate-800/60 border border-slate-700/50 text-slate-400 text-xs font-semibold px-4 py-2 rounded-full mb-6">
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 bg-slate-800/60 border border-slate-700/50 text-slate-400 text-xs font-semibold px-4 py-2 rounded-full mb-5">
             Why Learnshiz Engineering
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
             Built Different.{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
               Engineered Better.
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            We're not a staffing agency. We're not an outsourcing company. We're your product engineering partner.
+          <p className="text-slate-400 max-w-xl mx-auto">
+            Not a staffing agency. Not outsourcing. Your product engineering partner.
           </p>
         </div>
 
@@ -70,12 +78,14 @@ export default function WhyLearnshiz() {
               }`}
             >
               {r.badge && (
-                <div className="absolute -top-3 left-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg border border-blue-400/30 uppercase tracking-wider">
+                <div className="absolute -top-3 left-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wider">
                   {r.badge}
                 </div>
               )}
-              <div className="text-3xl mb-4">{r.icon}</div>
-              <h3 className="text-lg font-bold text-white mb-3">{r.title}</h3>
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-5 ${r.highlight ? "bg-blue-500/15 border border-blue-500/30" : "bg-slate-800 border border-slate-700/60"}`}>
+                <r.Icon className={`w-5 h-5 ${r.highlight ? "text-blue-400" : "text-slate-400"}`} />
+              </div>
+              <h3 className="text-base font-bold text-white mb-2">{r.title}</h3>
               <p className={`text-sm leading-relaxed ${r.highlight ? "text-slate-300" : "text-slate-500"}`}>
                 {r.desc}
               </p>

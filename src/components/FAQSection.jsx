@@ -1,37 +1,34 @@
 import React, { useState } from "react";
+import { HiMiniChevronDown } from "react-icons/hi2";
 
 const faqs = [
   {
-    q: "What is Engineering-as-a-Service (EaaS)?",
-    a: "EaaS is a subscription model where you get a complete, dedicated engineering team — software engineers, cloud architects, AI engineers, DevOps, QA, and technical leadership — all under one predictable monthly fee. Instead of hiring, managing, and retaining individual developers, you subscribe to a full engineering capability.",
+    q: "What exactly is Engineering-as-a-Service (EaaS)?",
+    a: "EaaS is a subscription model where you get a complete dedicated engineering team — engineers, DevOps, QA, AI specialists, and tech leadership — under one flat monthly fee. No hiring, no management overhead.",
   },
   {
-    q: "How is Learnshiz Engineering different from outsourcing?",
-    a: "Traditional outsourcing gives you anonymous developers executing tasks. We provide a dedicated team that deeply understands your product, works in your time zone, participates in planning, and thinks like founders. Our engineers stay long-term and become a true extension of your company.",
+    q: "How is this different from outsourcing?",
+    a: "Outsourcing gives you anonymous developers. We give you a dedicated team embedded in your product, working in your time zone, attending your standups, and thinking like founders — not contractors.",
   },
   {
-    q: "How quickly can the team start?",
-    a: "After an initial Discovery Call and Technical Assessment, your engineering team can be operational within 1–2 weeks. Sprint planning typically begins in the first week, and development starts immediately after.",
+    q: "How fast can the team start?",
+    a: "After your Discovery Call and a brief Technical Assessment, your team is operational in 1–2 weeks. Sprint planning starts in week one.",
   },
   {
-    q: "Which plan should I choose?",
-    a: "Builder is perfect if you're validating an MVP. Growth is ideal for Seed or Series A startups that need a full team with QA and DevOps. Scale is for companies that want an entire dedicated engineering organization including AI engineers, architects, and a delivery manager.",
+    q: "Which plan is right for me?",
+    a: "Builder if you're validating an MVP. Growth for Seed/Series A startups needing a full squad. Scale for companies wanting a complete engineering organization with architects and delivery management.",
   },
   {
-    q: "Do engineers work exclusively on my product?",
-    a: "Yes. In all plans, your engineers are dedicated to your product. They don't split time across multiple clients. This ensures deep context, faster velocity, and better product outcomes.",
+    q: "Are engineers dedicated exclusively to my product?",
+    a: "Yes. In every plan, your engineers focus solely on your product — no context-switching, no split time across clients.",
   },
   {
-    q: "What does 'AI Native' mean?",
-    a: "Every engineer on our team uses AI-powered development tools — from code generation to automated testing to intelligent code review. This lets us deliver 3–4× faster than traditional development without sacrificing quality.",
+    q: "What does AI Native mean in practice?",
+    a: "Every engineer uses AI-powered tools for code generation, testing, and review — enabling 3–4× delivery velocity without compromising quality.",
   },
   {
     q: "Can I scale the team up or down?",
-    a: "Yes. You can adjust your plan monthly based on your product needs. Moving from Builder to Growth or adding specialists is seamless — no hiring cycles, no delays.",
-  },
-  {
-    q: "What industries do you specialize in?",
-    a: "We have deep experience in AI Startups, SaaS, FinTech, HealthTech, EdTech, Logistics, HRTech, and Enterprise platforms. Our Forward Deployment Engineers learn your domain quickly and build with industry-specific context.",
+    a: "Yes, monthly. Moving from Builder to Growth or adding specialists takes days, not months.",
   },
 ];
 
@@ -39,21 +36,19 @@ export default function FAQSection() {
   const [openIdx, setOpenIdx] = useState(null);
 
   return (
-    <section id="faq" className="py-20 md:py-32 bg-slate-950 border-t border-slate-800/50 relative">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 bg-slate-800/60 border border-slate-700/50 text-slate-400 text-xs font-semibold px-4 py-2 rounded-full mb-6">
-            Frequently Asked Questions
+    <section id="faq" className="py-20 md:py-32 bg-slate-950 border-t border-slate-800/50">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-slate-800/60 border border-slate-700/50 text-slate-400 text-xs font-semibold px-4 py-2 rounded-full mb-5">
+            FAQ
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 tracking-tight">
             Got Questions?
           </h2>
-          <p className="text-slate-400 leading-relaxed">
-            Everything you need to know about working with Learnshiz Engineering.
-          </p>
+          <p className="text-slate-400 text-sm">Everything you need to know about working with us.</p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2">
           {faqs.map((faq, i) => (
             <div
               key={i}
@@ -65,23 +60,16 @@ export default function FAQSection() {
             >
               <button
                 id={`faq-${i}`}
-                className="w-full flex items-center justify-between px-6 py-5 text-left"
+                className="w-full flex items-center justify-between px-5 py-4 text-left gap-4"
                 onClick={() => setOpenIdx(openIdx === i ? null : i)}
               >
-                <span className={`font-semibold text-sm sm:text-base pr-4 ${openIdx === i ? "text-white" : "text-slate-200"}`}>
+                <span className={`font-semibold text-sm pr-2 ${openIdx === i ? "text-white" : "text-slate-200"}`}>
                   {faq.q}
                 </span>
-                <svg
-                  className={`w-5 h-5 shrink-0 transition-transform duration-300 ${
-                    openIdx === i ? "rotate-180 text-blue-400" : "text-slate-500"
-                  }`}
-                  fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+                <HiMiniChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${openIdx === i ? "rotate-180 text-blue-400" : "text-slate-500"}`} />
               </button>
               {openIdx === i && (
-                <div className="px-6 pb-5">
+                <div className="px-5 pb-4">
                   <p className="text-sm text-slate-400 leading-relaxed">{faq.a}</p>
                 </div>
               )}
@@ -89,13 +77,13 @@ export default function FAQSection() {
           ))}
         </div>
 
-        <div className="mt-10 text-center bg-slate-900/40 border border-slate-800/60 rounded-2xl p-6">
-          <p className="text-slate-400 mb-3 text-sm">Still have questions?</p>
+        <div className="mt-8 text-center bg-slate-900/40 border border-slate-800/60 rounded-2xl p-5">
+          <p className="text-slate-500 text-sm mb-2">Still have questions?</p>
           <a
             href="https://wa.me/919591967760"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold text-sm transition-colors"
+            className="text-blue-400 hover:text-blue-300 font-semibold text-sm transition-colors"
           >
             Chat with our team on WhatsApp →
           </a>

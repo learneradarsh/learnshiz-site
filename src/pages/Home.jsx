@@ -15,8 +15,9 @@ export default function Home() {
   return (
     <main>
       <SEO
-        title="Learnshiz Engineering | Engineering-as-a-Service (EaaS)"
-        description="Get a dedicated engineering team — software engineers, cloud architects, AI engineers, DevOps, QA — all under one predictable monthly subscription. Ship faster, reduce hiring costs."
+        title="Learnshiz Engineering | Dedicated Engineering Teams on Subscription"
+        description="Get a complete dedicated engineering team — software engineers, AI engineers, cloud architects, DevOps, and QA — under one predictable monthly subscription. Ship faster without hiring overhead."
+        path="/"
       />
       <HeroSection />
       <ClientsCarouselBand />
