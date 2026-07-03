@@ -1,41 +1,28 @@
 import React, { useState, useEffect } from "react";
 
 export default function FloatingCTA() {
-  const [isVisible, setIsVisible] = useState(false);
-  const WHATSAPP_URL = "https://wa.me/919591967760";
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 400) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    const onScroll = () => setVisible(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  if (!visible) return null;
+
   return (
-    <div 
-      className={`fixed bottom-6 right-6 z-50 transition-all duration-500 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none'}`}
+    <a
+      href="https://wa.me/919591967760"
+      target="_blank"
+      rel="noreferrer"
+      id="floating-discovery-call-cta"
+      className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-2xl shadow-blue-600/40 transition-all duration-300 hover:scale-105 hover:shadow-blue-600/60"
     >
-      <a 
-        href={WHATSAPP_URL} 
-        target="_blank" 
-        rel="noreferrer"
-        className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-5 py-3.5 rounded-full shadow-[0_10px_25px_rgba(37,99,235,0.4)] hover:shadow-[0_10px_30px_rgba(37,99,235,0.6)] hover:-translate-y-1 transition-all duration-300 group border border-blue-400/30"
-      >
-        <span className="relative flex h-3 w-3 mr-1">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-300 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
-        </span>
-        <span className="font-semibold text-sm">Hire Engineers</span>
-        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </a>
-    </div>
+      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+      </svg>
+      Book a Discovery Call
+    </a>
   );
 }

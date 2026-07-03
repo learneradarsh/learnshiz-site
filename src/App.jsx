@@ -7,6 +7,10 @@ import Services from "./pages/Services";
 import HowItWorksPage from "./pages/HowItWorksPage";
 import Careers from "./pages/Careers";
 import OurAim from "./pages/OurAim";
+import Pricing from "./pages/Pricing";
+import ForwardDeployment from "./pages/ForwardDeployment";
+import Industries from "./pages/Industries";
+import EngineeringSubscription from "./pages/EngineeringSubscription";
 import FloatingCTA from "./components/FloatingCTA";
 
 function ScrollToTop() {
@@ -26,6 +30,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/engineering-subscription" element={<EngineeringSubscription />} />
+          <Route path="/forward-deployment" element={<ForwardDeployment />} />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="/how-it-works" element={<HowItWorksPage />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/our-aim" element={<OurAim />} />

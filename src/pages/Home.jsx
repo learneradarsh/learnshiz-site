@@ -1,34 +1,32 @@
 import React from "react";
 import HeroSection from "../components/HeroSection";
 import ClientsCarouselBand from "../components/ClientsCarouselBand";
-import ComparisonSection from "../components/ComparisonSection";
+import EngineeringPlans from "../components/EngineeringPlans";
+import CapabilitiesGrid from "../components/CapabilitiesGrid";
+import ForwardDeploymentSection from "../components/ForwardDeploymentSection";
+import IndustriesSection from "../components/IndustriesSection";
+import TechStackSection from "../components/TechStackSection";
+import EngagementModel from "../components/EngagementModel";
 import WhyChooseUs from "../components/WhyChooseUs";
-import AimWidget from "../components/AimWidget";
-import ServicesWidget from "../components/ServicesWidget";
-import GrowthAndTech from "../components/GrowthAndTech";
-import AIPipelineAnimation from "../components/AIPipelineAnimation";
-import HowItWorks from "../components/HowItWorks";
-import TrustAndSecurity from "../components/TrustAndSecurity";
 import FAQSection from "../components/FAQSection";
 import SEO from "../components/SEO";
 
 export default function Home() {
   return (
     <main>
-      <SEO 
-        title="LearnShiz | Elite Forward Deployed Engineers & AI Talent" 
-        description="LearnShiz provides top 1% vetted developers and AI engineers to SMEs, startups, and enterprises within 48 hours. Scale your tech velocity today." 
+      <SEO
+        title="Learnshiz Engineering | Engineering-as-a-Service (EaaS)"
+        description="Get a dedicated engineering team — software engineers, cloud architects, AI engineers, DevOps, QA — all under one predictable monthly subscription. Ship faster, reduce hiring costs."
       />
       <HeroSection />
       <ClientsCarouselBand />
+      <EngineeringPlans />
+      <CapabilitiesGrid />
+      <ForwardDeploymentSection />
+      <IndustriesSection />
+      <TechStackSection />
+      <EngagementModel />
       <WhyChooseUs />
-      <HowItWorks />
-      <ServicesWidget />
-      <AIPipelineAnimation />
-      <ComparisonSection />
-      <TrustAndSecurity />
-      <GrowthAndTech />
-      <AimWidget />
       <FAQSection />
     </main>
   );

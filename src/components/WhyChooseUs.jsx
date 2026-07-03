@@ -1,72 +1,83 @@
 import React from "react";
 
-export default function WhyChooseUs() {
-  const reasons = [
-    {
-      title: "Vetted Top 1% Talent",
-      desc: "Our rigorous AI-assisted vetting process ensures you only work with elite engineers who have a proven track record of shipping production-ready code.",
-      icon: (
-        <svg className="w-8 h-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-        </svg>
-      )
-    },
-    {
-      title: "Speed to Execution",
-      desc: "We completely eliminate sourcing and interview delays. Our Forward Deployed Engineers are ready to integrate into your operations within 48 hours.",
-      icon: (
-        <svg className="w-8 h-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      )
-    },
-    {
-      title: "Aligned Incentives",
-      desc: "By giving developers 85%+ of the fee, we retain the absolute best. You get a highly motivated engineer who operates like an internal team member.",
-      icon: (
-        <svg className="w-8 h-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      )
-    },
-    {
-      title: "Time Zone Alignment",
-      desc: "Forget limited 1-2 hour handover windows. Our remote developers work seamlessly in your exact time zone, functioning as true extensions of your team.",
-      icon: (
-        <svg className="w-8 h-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-      highlight: "Major Pain Point Solved"
-    }
-  ];
+const reasons = [
+  {
+    icon: "⚡",
+    title: "Startup Speed",
+    desc: "Ship features every week. We operate with the urgency of a startup and the discipline of an enterprise.",
+    highlight: false,
+  },
+  {
+    icon: "🏛️",
+    title: "Enterprise Quality",
+    desc: "Architected for scale from Day One. Every system we build is production-grade, tested, and monitored.",
+    highlight: false,
+  },
+  {
+    icon: "🧠",
+    title: "AI Native",
+    desc: "Every engineer is AI-enabled. We use AI tools to deliver 4× faster than traditional development teams.",
+    highlight: true,
+    badge: "Key Differentiator",
+  },
+  {
+    icon: "🎯",
+    title: "Dedicated Team",
+    desc: "Your engineers stay with your product. No rotating contractors — a committed team that knows your codebase.",
+    highlight: false,
+  },
+  {
+    icon: "💰",
+    title: "Predictable Pricing",
+    desc: "No hourly billing. No surprise invoices. One flat monthly subscription that covers your entire engineering team.",
+    highlight: false,
+  },
+  {
+    icon: "💡",
+    title: "Product Thinking",
+    desc: "We think like founders, not contractors. We challenge assumptions and recommend better solutions.",
+    highlight: false,
+  },
+];
 
+export default function WhyLearnshiz() {
   return (
-    <section className="py-20 md:py-32 bg-slate-950 relative border-t border-slate-800/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-            Why Choose LearnShiz?
+    <section id="why-learnshiz" className="py-20 md:py-32 bg-slate-950 border-t border-slate-800/50 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-slate-800/60 border border-slate-700/50 text-slate-400 text-xs font-semibold px-4 py-2 rounded-full mb-6">
+            Why Learnshiz Engineering
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5 tracking-tight">
+            Built Different.{" "}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+              Engineered Better.
+            </span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed px-2">
-            Since 2015, we've partnered with innovative companies globally, offering unparalleled speed, quality, and transparency in engineering staffing.
+          <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            We're not a staffing agency. We're not an outsourcing company. We're your product engineering partner.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {reasons.map((reason, index) => (
-            <div key={index} className={`flex flex-col items-center text-center group ${reason.highlight ? 'bg-blue-900/10 border border-blue-500/30 rounded-3xl p-6 relative shadow-[0_0_30px_rgba(37,99,235,0.1)] lg:-mt-4 lg:scale-105' : ''}`}>
-              {reason.highlight && (
-                <div className="absolute -top-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-full shadow-lg shadow-blue-500/30 border border-blue-400/50 uppercase tracking-wider">
-                  {reason.highlight}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {reasons.map((r) => (
+            <div
+              key={r.title}
+              className={`relative rounded-2xl p-6 md:p-7 transition-all duration-300 hover:-translate-y-1 ${
+                r.highlight
+                  ? "bg-gradient-to-b from-blue-950/40 to-slate-900/60 border border-blue-500/40 shadow-[0_0_40px_rgba(37,99,235,0.1)]"
+                  : "bg-slate-900/40 border border-slate-800/70 hover:border-slate-700"
+              }`}
+            >
+              {r.badge && (
+                <div className="absolute -top-3 left-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg border border-blue-400/30 uppercase tracking-wider">
+                  {r.badge}
                 </div>
               )}
-              <div className={`w-20 h-20 rounded-2xl bg-slate-900 border flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg ${reason.highlight ? 'border-blue-500/50 shadow-blue-500/20' : 'border-slate-800 shadow-blue-900/5'}`}>
-                {reason.icon}
-              </div>
-              <h3 className="text-xl font-bold text-slate-200 mb-4">{reason.title}</h3>
-              <p className="text-slate-500 leading-relaxed text-sm md:text-base">
-                {reason.desc}
+              <div className="text-3xl mb-4">{r.icon}</div>
+              <h3 className="text-lg font-bold text-white mb-3">{r.title}</h3>
+              <p className={`text-sm leading-relaxed ${r.highlight ? "text-slate-300" : "text-slate-500"}`}>
+                {r.desc}
               </p>
             </div>
           ))}

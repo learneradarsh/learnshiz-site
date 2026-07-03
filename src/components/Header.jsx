@@ -2,8 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 
-const DEV_FORM_URL = "https://forms.gle/dxaLoQkrhn7JcDiX8";
-const WHATSAPP_URL = "https://wa.me/919591967760";
+const BOOK_CALL_URL = "https://wa.me/919591967760";
+
+const navLinks = [
+  { to: "/", label: "Home", exact: true },
+  { to: "/engineering-subscription", label: "Subscription" },
+  { to: "/forward-deployment", label: "Forward Deployment" },
+  { to: "/services", label: "Capabilities" },
+  { to: "/industries", label: "Industries" },
+  { to: "/pricing", label: "Pricing" },
+];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -16,7 +24,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
@@ -25,76 +32,64 @@ export default function Header() {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${
         scrolled
-          ? "bg-slate-900/95 backdrop-blur-md border-slate-800 py-3 shadow-sm"
-          : "bg-slate-950 border-transparent py-5"
+          ? "bg-slate-900/95 backdrop-blur-md border-slate-800 py-3 shadow-lg"
+          : "bg-transparent border-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        
-        {/* Logo and Trust Marker */}
+
+        {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group relative z-50">
-          <img src={logo} alt="LearnShiz Logo" className="w-10 h-10 rounded-lg object-contain" />
+          <img src={logo} alt="Learnshiz Engineering Logo" className="w-10 h-10 rounded-lg object-contain" />
           <div className="flex flex-col">
-            <span className="text-white font-bold text-xl tracking-tight leading-none">LearnShiz</span>
-            <span className="text-slate-400 text-[10px] uppercase tracking-widest mt-1 font-semibold">Global Partner</span>
+            <span className="text-white font-bold text-lg tracking-tight leading-none">Learnshiz</span>
+            <span className="text-blue-400 text-[10px] uppercase tracking-widest mt-0.5 font-bold">Engineering · EaaS</span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          <NavLink 
-            to="/" 
-            className={({ isActive }) => `text-sm font-medium transition-colors ${isActive ? "text-blue-400" : "text-slate-300 hover:text-white"}`}
-          >
-            Home
-          </NavLink>
-          <NavLink 
-            to="/services" 
-            className={({ isActive }) => `text-sm font-medium transition-colors ${isActive ? "text-blue-400" : "text-slate-300 hover:text-white"}`}
-          >
-            Services
-          </NavLink>
-          <NavLink 
-            to="/how-it-works" 
-            className={({ isActive }) => `text-sm font-medium transition-colors ${isActive ? "text-blue-400" : "text-slate-300 hover:text-white"}`}
-          >
-            How It Works
-          </NavLink>
-          <NavLink 
-            to="/our-aim" 
-            className={({ isActive }) => `text-sm font-medium transition-colors ${isActive ? "text-blue-400" : "text-slate-300 hover:text-white"}`}
-          >
-            Our Aim
-          </NavLink>
-          <NavLink 
-            to="/careers" 
-            className={({ isActive }) => `text-sm font-medium transition-colors ${isActive ? "text-blue-400" : "text-slate-300 hover:text-white"}`}
-          >
-            Careers
-          </NavLink>
+        <nav className="hidden lg:flex items-center gap-7">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              end={link.exact}
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors whitespace-nowrap ${
+                  isActive ? "text-blue-400" : "text-slate-300 hover:text-white"
+                }`
+              }
+            >
+              {link.label}
+            </NavLink>
+          ))}
         </nav>
 
         {/* Desktop CTAs */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-3">
+          <Link
+            to="/pricing"
+            className="text-sm font-medium text-slate-300 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-slate-800"
+          >
+            View Plans
+          </Link>
           <a
-            href={DEV_FORM_URL}
+            href={BOOK_CALL_URL}
             target="_blank"
             rel="noreferrer"
-            className="text-sm font-medium text-slate-300 hover:text-white transition-colors"
+            className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-blue-500 shadow-lg shadow-blue-600/20"
           >
-            Join Network
-          </a>
-          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-500 shadow-sm">
-            Hire Engineers
+            Book a Discovery Call
           </a>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button 
-          className="md:hidden relative z-50 p-2 text-slate-300 hover:text-white focus:outline-none"
+        <button
+          id="mobile-menu-toggle"
+          className="lg:hidden relative z-50 p-2 text-slate-300 hover:text-white focus:outline-none"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle Menu"
         >
-          <span className="sr-only">Toggle Menu</span>
           {mobileMenuOpen ? (
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -107,51 +102,44 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      <div className={`md:hidden fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 transition-all duration-300 flex flex-col pt-24 px-6 ${mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
-        <nav className="flex flex-col gap-6 text-xl font-medium mb-12">
-          <NavLink 
-            to="/" 
-            className={({ isActive }) => `block transition-colors ${isActive ? "text-blue-400" : "text-slate-300 hover:text-white"}`}
-          >
-            Home
-          </NavLink>
-          <NavLink 
-            to="/services" 
-            className={({ isActive }) => `block transition-colors ${isActive ? "text-blue-400" : "text-slate-300 hover:text-white"}`}
-          >
-            Services
-          </NavLink>
-          <NavLink 
-            to="/how-it-works" 
-            className={({ isActive }) => `block transition-colors ${isActive ? "text-blue-400" : "text-slate-300 hover:text-white"}`}
-          >
-            How It Works
-          </NavLink>
-          <NavLink 
-            to="/our-aim" 
-            className={({ isActive }) => `block transition-colors ${isActive ? "text-blue-400" : "text-slate-300 hover:text-white"}`}
-          >
-            Our Aim
-          </NavLink>
-          <NavLink 
-            to="/careers" 
-            className={({ isActive }) => `block transition-colors ${isActive ? "text-blue-400" : "text-slate-300 hover:text-white"}`}
-          >
-            Careers
-          </NavLink>
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden fixed inset-0 bg-slate-950/97 backdrop-blur-xl z-40 transition-all duration-300 flex flex-col pt-24 px-6 ${
+          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <nav className="flex flex-col gap-2 mb-8">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              end={link.exact}
+              className={({ isActive }) =>
+                `block px-4 py-3 rounded-xl text-lg font-medium transition-colors ${
+                  isActive
+                    ? "bg-blue-600/20 text-blue-400 border border-blue-500/30"
+                    : "text-slate-300 hover:text-white hover:bg-slate-800/60"
+                }`
+              }
+            >
+              {link.label}
+            </NavLink>
+          ))}
         </nav>
-        <div className="flex flex-col gap-4 mt-auto mb-10">
+        <div className="flex flex-col gap-3 mt-auto mb-10 border-t border-slate-800 pt-8">
+          <Link
+            to="/pricing"
+            className="inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900 px-6 py-4 text-base font-semibold text-slate-300 w-full"
+          >
+            View Engineering Plans
+          </Link>
           <a
-            href={DEV_FORM_URL}
+            href={BOOK_CALL_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-md border border-slate-700 bg-slate-900 px-6 py-4 text-base font-semibold text-slate-300 w-full"
+            className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-4 text-base font-semibold text-white w-full shadow-lg shadow-blue-600/25"
           >
-            Join Network
-          </a>
-          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-4 text-base font-semibold text-white w-full">
-            Hire Engineers
+            Book a Discovery Call
           </a>
         </div>
       </div>

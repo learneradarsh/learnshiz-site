@@ -1,74 +1,104 @@
 import React, { useState } from "react";
 
+const faqs = [
+  {
+    q: "What is Engineering-as-a-Service (EaaS)?",
+    a: "EaaS is a subscription model where you get a complete, dedicated engineering team — software engineers, cloud architects, AI engineers, DevOps, QA, and technical leadership — all under one predictable monthly fee. Instead of hiring, managing, and retaining individual developers, you subscribe to a full engineering capability.",
+  },
+  {
+    q: "How is Learnshiz Engineering different from outsourcing?",
+    a: "Traditional outsourcing gives you anonymous developers executing tasks. We provide a dedicated team that deeply understands your product, works in your time zone, participates in planning, and thinks like founders. Our engineers stay long-term and become a true extension of your company.",
+  },
+  {
+    q: "How quickly can the team start?",
+    a: "After an initial Discovery Call and Technical Assessment, your engineering team can be operational within 1–2 weeks. Sprint planning typically begins in the first week, and development starts immediately after.",
+  },
+  {
+    q: "Which plan should I choose?",
+    a: "Builder is perfect if you're validating an MVP. Growth is ideal for Seed or Series A startups that need a full team with QA and DevOps. Scale is for companies that want an entire dedicated engineering organization including AI engineers, architects, and a delivery manager.",
+  },
+  {
+    q: "Do engineers work exclusively on my product?",
+    a: "Yes. In all plans, your engineers are dedicated to your product. They don't split time across multiple clients. This ensures deep context, faster velocity, and better product outcomes.",
+  },
+  {
+    q: "What does 'AI Native' mean?",
+    a: "Every engineer on our team uses AI-powered development tools — from code generation to automated testing to intelligent code review. This lets us deliver 3–4× faster than traditional development without sacrificing quality.",
+  },
+  {
+    q: "Can I scale the team up or down?",
+    a: "Yes. You can adjust your plan monthly based on your product needs. Moving from Builder to Growth or adding specialists is seamless — no hiring cycles, no delays.",
+  },
+  {
+    q: "What industries do you specialize in?",
+    a: "We have deep experience in AI Startups, SaaS, FinTech, HealthTech, EdTech, Logistics, HRTech, and Enterprise platforms. Our Forward Deployment Engineers learn your domain quickly and build with industry-specific context.",
+  },
+];
+
 export default function FAQSection() {
-  const faqs = [
-    {
-      question: "What if the developer isn't a good fit?",
-      answer: "We offer a 2-week risk-free trial. If the engineer doesn't meet your expectations for any reason within the first 14 days, we will replace them immediately at no cost, or refund your money."
-    },
-    {
-      question: "How does pricing work?",
-      answer: "We charge a transparent, flat monthly fee based on the engineer's seniority level. Unlike typical agencies that take a 40-60% cut, we ensure the developer receives 85%+ of the fee. This guarantees you're working with highly motivated talent."
-    },
-    {
-      question: "Who owns the Intellectual Property (IP)?",
-      answer: "You do. 100%. All of our client contracts include strict IP assignment and non-disclosure clauses ensuring that your code, ideas, and data remain securely yours."
-    },
-    {
-      question: "How does time zone alignment actually work?",
-      answer: "Instead of just offering a 1-2 hour overlap window, our remote engineers fully align with your time zone. They attend your standups, collaborate in real-time, and act as a seamless extension of your core team."
-    },
-    {
-      question: "Can I scale the team up or down?",
-      answer: "Yes. Our flexible model allows you to scale your engineering team dynamically based on your product roadmap and funding cycle, giving you agility without the overhead of full-time hiring."
-    }
-  ];
-
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const toggleFaq = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const [openIdx, setOpenIdx] = useState(null);
 
   return (
-    <section className="py-24 bg-slate-950 relative border-t border-slate-800/50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">
+    <section id="faq" className="py-20 md:py-32 bg-slate-950 border-t border-slate-800/50 relative">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 bg-slate-800/60 border border-slate-700/50 text-slate-400 text-xs font-semibold px-4 py-2 rounded-full mb-6">
             Frequently Asked Questions
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">
+            Got Questions?
           </h2>
-          <p className="text-slate-400">Everything you need to know about partnering with LearnShiz.</p>
+          <p className="text-slate-400 leading-relaxed">
+            Everything you need to know about working with Learnshiz Engineering.
+          </p>
         </div>
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div 
-              key={index} 
-              className={`border border-slate-800 rounded-xl overflow-hidden transition-all duration-300 ${openIndex === index ? 'bg-slate-900/60 shadow-[0_0_15px_rgba(37,99,235,0.05)]' : 'bg-slate-900/20 hover:bg-slate-900/40'}`}
+        <div className="space-y-3">
+          {faqs.map((faq, i) => (
+            <div
+              key={i}
+              className={`border rounded-2xl overflow-hidden transition-all duration-300 ${
+                openIdx === i
+                  ? "border-blue-500/40 bg-blue-950/10"
+                  : "border-slate-800/70 bg-slate-900/30 hover:border-slate-700"
+              }`}
             >
               <button
-                className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
-                onClick={() => toggleFaq(index)}
+                id={`faq-${i}`}
+                className="w-full flex items-center justify-between px-6 py-5 text-left"
+                onClick={() => setOpenIdx(openIdx === i ? null : i)}
               >
-                <span className={`font-semibold pr-8 ${openIndex === index ? 'text-white' : 'text-slate-300'}`}>
-                  {faq.question}
+                <span className={`font-semibold text-sm sm:text-base pr-4 ${openIdx === i ? "text-white" : "text-slate-200"}`}>
+                  {faq.q}
                 </span>
-                <span className={`flex-shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-blue-400' : 'text-slate-500'}`}>
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </span>
+                <svg
+                  className={`w-5 h-5 shrink-0 transition-transform duration-300 ${
+                    openIdx === i ? "rotate-180 text-blue-400" : "text-slate-500"
+                  }`}
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
-              
-              <div 
-                className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-48 pb-5 opacity-100' : 'max-h-0 opacity-0'}`}
-              >
-                <p className="text-slate-400 text-sm md:text-base leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
+              {openIdx === i && (
+                <div className="px-6 pb-5">
+                  <p className="text-sm text-slate-400 leading-relaxed">{faq.a}</p>
+                </div>
+              )}
             </div>
           ))}
+        </div>
+
+        <div className="mt-10 text-center bg-slate-900/40 border border-slate-800/60 rounded-2xl p-6">
+          <p className="text-slate-400 mb-3 text-sm">Still have questions?</p>
+          <a
+            href="https://wa.me/919591967760"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold text-sm transition-colors"
+          >
+            Chat with our team on WhatsApp →
+          </a>
         </div>
       </div>
     </section>

@@ -1,64 +1,97 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
-const WHATSAPP_URL = "https://wa.me/919591967760";
+const BOOK_CALL_URL = "https://wa.me/919591967760";
+
+const brandPromises = [
+  "Ship Faster",
+  "Reduce Hiring Costs",
+  "Dedicated Engineers",
+  "Enterprise Quality",
+  "AI Accelerated Development",
+  "Continuous Delivery",
+];
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-slate-950">
-      
-      {/* Professional Enterprise Aurora/Mesh Background */}
-      <div className="absolute inset-0 w-full h-full bg-slate-950 overflow-hidden pointer-events-none flex items-center justify-center">
-        {/* Subtle grid base */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30"></div>
-        
-        {/* Animated Aurora Orbs - Centered and scaled for mobile */}
-        <div className="absolute w-[400px] h-[400px] md:w-[50vw] md:h-[50vw] rounded-full bg-blue-600/20 blur-[100px] md:blur-[120px] mix-blend-screen animate-[pulse-glow_10s_ease-in-out_infinite_alternate] transform -translate-x-1/4 -translate-y-1/4"></div>
-        <div className="absolute w-[350px] h-[350px] md:w-[40vw] md:h-[40vw] rounded-full bg-indigo-600/20 blur-[90px] md:blur-[100px] mix-blend-screen animate-[pulse-glow_12s_ease-in-out_infinite_alternate_reverse] transform translate-x-1/4 translate-y-1/8"></div>
-        <div className="absolute w-[450px] h-[300px] md:w-[60vw] md:h-[40vw] rounded-full bg-purple-600/10 blur-[110px] md:blur-[130px] mix-blend-screen animate-[pulse-glow_15s_ease-in-out_infinite_alternate] transform -translate-y-1/3"></div>
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-28 pb-16 overflow-hidden bg-slate-950">
+
+      {/* Background mesh */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,#000_60%,transparent_100%)] opacity-25" />
+        <div className="absolute w-[600px] h-[600px] rounded-full bg-blue-600/15 blur-[130px] mix-blend-screen animate-[pulse-glow_12s_ease-in-out_infinite_alternate] -top-1/4 left-1/4" />
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-indigo-600/15 blur-[120px] mix-blend-screen animate-[pulse-glow_14s_ease-in-out_infinite_alternate_reverse] top-1/4 right-1/4" />
+        <div className="absolute w-[400px] h-[400px] rounded-full bg-purple-600/10 blur-[100px] mix-blend-screen animate-[pulse-glow_18s_ease-in-out_infinite_alternate] bottom-0 left-1/3" />
       </div>
-      
-      <div className="absolute top-0 w-full h-full bg-gradient-to-b from-transparent via-slate-950/40 to-slate-950 z-0 pointer-events-none"></div>
+      <div className="absolute top-0 w-full h-full bg-gradient-to-b from-transparent via-slate-950/30 to-slate-950 z-0 pointer-events-none" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center mt-10 md:mt-16">
-      
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
 
-        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-white tracking-tight leading-[1.15] md:leading-[1.1] mb-6 md:mb-8 px-2">
-          Expedite your <span className="block sm:inline bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-600 pb-2">product delivery.</span>
+        {/* Category pill */}
+        <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/25 text-blue-400 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full mb-8 backdrop-blur-sm">
+          <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+          Engineering-as-a-Service · EaaS
+        </div>
+
+        {/* Main Headline */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 px-2">
+          Your Dedicated{" "}
+          <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-500 animate-gradient-x pb-2">
+            Engineering Team.
+          </span>
         </h1>
-        
-        <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-8 md:mb-12 px-2 sm:px-0">
-          We provide elite Forward Deployed Engineers, Product Development Teams, and Technical Consultants. Get vetted developers onboarded in 48 hours, matched perfectly to your requirements. Our difference is also by using AI Enabled Engineers our engineers deliver 4x faster than normal team or technical consultancy.
+
+        {/* Subheadline */}
+        <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-300 mb-5">
+          Build, Scale and Ship Products Faster.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4 sm:px-0">
-          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 sm:px-8 py-3.5 text-sm sm:text-base font-semibold text-white transition-all hover:bg-blue-500 shadow-sm w-full sm:w-auto">
-            Hire Engineers
+        {/* Body */}
+        <p className="text-base sm:text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10 px-2 sm:px-0">
+          Stop spending months hiring developers. Get a dedicated engineering team including software engineers,
+          cloud architects, DevOps specialists, AI engineers, QA engineers, and technical leadership —
+          all under one predictable monthly subscription.
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
+          <a
+            id="hero-book-call-cta"
+            href={BOOK_CALL_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-8 py-4 text-base font-semibold text-white transition-all hover:bg-blue-500 shadow-xl shadow-blue-600/30 w-full sm:w-auto group"
+          >
+            Book a Discovery Call
+            <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </a>
-          <Link to="/services" className="inline-flex items-center justify-center rounded-md border border-slate-700 bg-slate-900 px-6 sm:px-8 py-3.5 text-sm sm:text-base font-semibold text-slate-300 transition-all hover:bg-slate-800 hover:text-white w-full sm:w-auto">
-            Explore Services
+          <Link
+            id="hero-view-plans-cta"
+            to="/pricing"
+            className="inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900/60 backdrop-blur-sm px-8 py-4 text-base font-semibold text-slate-300 transition-all hover:bg-slate-800 hover:text-white w-full sm:w-auto"
+          >
+            View Engineering Plans
           </Link>
         </div>
-        
-        <div className="mt-12 md:mt-20 grid grid-cols-2 md:flex md:flex-wrap justify-center gap-3 sm:gap-4 md:gap-16 border-t border-slate-800/50 pt-8 md:pt-10 px-2 sm:px-4">
-          <div className="flex flex-col items-center justify-center gap-1 bg-slate-900/50 backdrop-blur-sm border border-slate-800/80 rounded-2xl p-4 md:bg-transparent md:border-none md:p-0 md:rounded-none">
-            <span className="text-2xl sm:text-3xl font-bold text-slate-200">2015</span>
-            <span className="text-center text-slate-500 text-xs sm:text-sm font-medium">Operating Since</span>
-          </div>
-          <div className="flex flex-col items-center justify-center gap-1 bg-slate-900/50 backdrop-blur-sm border border-slate-800/80 rounded-2xl p-4 md:bg-transparent md:border-none md:p-0 md:rounded-none">
-            <span className="text-2xl sm:text-3xl font-bold text-slate-200">48h</span>
-            <span className="text-center text-slate-500 text-xs sm:text-sm font-medium">Avg. Onboarding</span>
-          </div>
-          <div className="flex flex-col items-center justify-center gap-1 bg-slate-900/50 backdrop-blur-sm border border-slate-800/80 rounded-2xl p-4 md:bg-transparent md:border-none md:p-0 md:rounded-none">
-            <span className="text-2xl sm:text-3xl font-bold text-slate-200">100+</span>
-            <span className="text-center text-slate-500 text-xs sm:text-sm font-medium">Vetted Developers</span>
-          </div>
-          <div className="flex flex-col items-center justify-center gap-1 bg-slate-900/50 backdrop-blur-sm border border-slate-800/80 rounded-2xl p-4 md:bg-transparent md:border-none md:p-0 md:rounded-none">
-            <span className="text-2xl sm:text-3xl font-bold text-slate-200">98%</span>
-            <span className="text-center text-slate-500 text-xs sm:text-sm font-medium">Retention Rate</span>
+
+        {/* Brand Promise Strip */}
+        <div className="border-t border-slate-800/60 pt-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {brandPromises.map((promise, i) => (
+              <div
+                key={i}
+                className="flex items-center justify-center gap-2 bg-slate-900/40 border border-slate-800/60 rounded-xl px-3 py-3 backdrop-blur-sm"
+              >
+                <svg className="w-4 h-4 text-blue-400 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                  <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clipRule="evenodd" />
+                </svg>
+                <span className="text-xs sm:text-sm text-slate-300 font-medium text-center leading-tight">{promise}</span>
+              </div>
+            ))}
           </div>
         </div>
-
       </div>
     </section>
   );
