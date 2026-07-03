@@ -7,12 +7,12 @@ import {
 const BOOK_CALL_URL = "https://wa.me/919591967760";
 
 const brandPromises = [
+  "100% Time-Zone Aligned",
+  "Zero Offshore Delays",
   "Ship Faster",
-  "Reduce Hiring Costs",
   "Dedicated Engineers",
   "Enterprise Quality",
   "AI-Accelerated",
-  "Continuous Delivery",
 ];
 
 export default function HeroSection() {
@@ -49,8 +49,7 @@ export default function HeroSection() {
         </p>
 
         <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10 px-2">
-          Stop spending months hiring. Get a complete engineering team — software engineers, cloud architects,
-          AI engineers, DevOps, and QA — under one predictable monthly subscription.
+          Stop spending months hiring or battling rigid offshore time lags. Get a complete engineering team that works during your exact working hours — fully aligned under one predictable monthly subscription.
         </p>
 
         {/* CTAs */}

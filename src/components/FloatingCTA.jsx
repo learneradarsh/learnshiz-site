@@ -2,14 +2,26 @@ import React, { useState, useEffect } from "react";
 
 export default function FloatingCTA() {
   const [visible, setVisible] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 400);
+    const onMenuToggle = (e) => {
+      setMenuOpen(Boolean(e.detail?.open || document.body.classList.contains("mobile-menu-open")));
+    };
+
+    // Check initial state
+    setMenuOpen(document.body.classList.contains("mobile-menu-open"));
+
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("mobileMenuToggle", onMenuToggle);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("mobileMenuToggle", onMenuToggle);
+    };
   }, []);
 
-  if (!visible) return null;
+  if (!visible || menuOpen) return null;
 
   return (
     <a

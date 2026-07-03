@@ -1,6 +1,7 @@
 import React from "react";
 import HeroSection from "../components/HeroSection";
 import ClientsCarouselBand from "../components/ClientsCarouselBand";
+import TimeZoneHighlightSection from "../components/TimeZoneHighlightSection";
 import EngineeringPlans from "../components/EngineeringPlans";
 import CapabilitiesGrid from "../components/CapabilitiesGrid";
 import ForwardDeploymentSection from "../components/ForwardDeploymentSection";
@@ -21,6 +22,7 @@ export default function Home() {
       />
       <HeroSection />
       <ClientsCarouselBand />
+      <TimeZoneHighlightSection />
       <EngineeringPlans />
       <CapabilitiesGrid />
       <ForwardDeploymentSection />

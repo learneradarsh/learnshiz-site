@@ -3,7 +3,7 @@ import {
   HiMiniBolt,
   HiMiniShieldCheck,
   HiMiniCpuChip,
-  HiMiniUserGroup,
+  HiMiniClock,
   HiMiniCurrencyDollar,
   HiMiniLightBulb,
 } from "react-icons/hi2";
@@ -29,10 +29,11 @@ const reasons = [
     badge: "Key Differentiator",
   },
   {
-    Icon: HiMiniUserGroup,
-    title: "Dedicated Team",
-    desc: "Your engineers stay with your product — no rotating contractors.",
-    highlight: false,
+    Icon: HiMiniClock,
+    title: "100% Time-Zone Aligned",
+    desc: "Dedicated engineers who work in your exact business hours — zero offshore communication lags.",
+    highlight: true,
+    badge: "Works In Your Time",
   },
   {
     Icon: HiMiniCurrencyDollar,

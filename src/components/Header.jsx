@@ -28,10 +28,25 @@ export default function Header() {
     setMobileMenuOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.classList.add("mobile-menu-open");
+    } else {
+      document.body.style.overflow = "";
+      document.body.classList.remove("mobile-menu-open");
+    }
+    window.dispatchEvent(new CustomEvent("mobileMenuToggle", { detail: { open: mobileMenuOpen } }));
+    return () => {
+      document.body.style.overflow = "";
+      document.body.classList.remove("mobile-menu-open");
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${
-        scrolled
+        scrolled || mobileMenuOpen
           ? "bg-slate-900/95 backdrop-blur-md border-slate-800 py-3 shadow-lg"
           : "bg-transparent border-transparent py-5"
       }`}
@@ -39,7 +54,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 group relative z-50">
+        <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-3 group relative z-50">
           <img src={logo} alt="Learnshiz Engineering Logo" className="w-10 h-10 rounded-lg object-contain" />
           <div className="flex flex-col">
             <span className="text-white font-bold text-lg tracking-tight leading-none">Learnshiz</span>
@@ -104,18 +119,19 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed inset-0 bg-slate-950/97 backdrop-blur-xl z-40 transition-all duration-300 flex flex-col pt-24 px-6 ${
+        className={`lg:hidden fixed inset-0 bg-slate-950 z-40 transition-all duration-300 flex flex-col justify-between pt-24 pb-8 px-6 overflow-y-auto h-[100dvh] w-screen ${
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <nav className="flex flex-col gap-2 mb-8">
+        <nav className="flex flex-col gap-2 my-auto py-4">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               end={link.exact}
+              onClick={() => setMobileMenuOpen(false)}
               className={({ isActive }) =>
-                `block px-4 py-3 rounded-xl text-lg font-medium transition-colors ${
+                `block px-5 py-3.5 rounded-xl text-lg font-semibold transition-colors ${
                   isActive
                     ? "bg-blue-600/20 text-blue-400 border border-blue-500/30"
                     : "text-slate-300 hover:text-white hover:bg-slate-800/60"
@@ -126,10 +142,11 @@ export default function Header() {
             </NavLink>
           ))}
         </nav>
-        <div className="flex flex-col gap-3 mt-auto mb-10 border-t border-slate-800 pt-8">
+        <div className="flex flex-col gap-3 mt-auto border-t border-slate-800/80 pt-6">
           <Link
             to="/pricing"
-            className="inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900 px-6 py-4 text-base font-semibold text-slate-300 w-full"
+            onClick={() => setMobileMenuOpen(false)}
+            className="inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900/80 px-6 py-3.5 text-base font-semibold text-slate-200 w-full hover:bg-slate-800 transition-colors"
           >
             View Engineering Plans
           </Link>
@@ -137,9 +154,10 @@ export default function Header() {
             href={BOOK_CALL_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-4 text-base font-semibold text-white w-full shadow-lg shadow-blue-600/25"
+            onClick={() => setMobileMenuOpen(false)}
+            className="inline-flex items-center justify-center rounded-xl bg-blue-600 hover:bg-blue-500 px-6 py-4 text-base font-bold text-white w-full shadow-lg shadow-blue-600/30 transition-all"
           >
-            Book a Discovery Call
+            Book a Discovery Call →
           </a>
         </div>
       </div>

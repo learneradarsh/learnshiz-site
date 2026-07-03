@@ -178,3 +178,7 @@
 .animate-marquee {
   animation: marquee 30s linear infinite;
 }
+
+body.mobile-menu-open #floating-discovery-call-cta {
+  display: none !important;
+}
