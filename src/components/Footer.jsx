@@ -21,6 +21,7 @@ const navGroups = [
       { label: "Industries", to: "/industries" },
       { label: "Pricing", to: "/pricing" },
       { label: "Resources & Guides", to: "/resources" },
+      { label: "Security & Compliance", to: "/security" },
       { label: "How It Works", to: "/how-it-works" },
       { label: "Careers", to: "/careers" },
     ],
@@ -122,8 +123,9 @@ export default function Footer() {
             © {new Date().getFullYear()} Learnshiz Engineering (APSS Pvt Ltd). All rights reserved.
           </div>
           <div className="flex gap-5">
-            <a href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-slate-300 transition-colors">Terms of Service</a>
+            <Link to="/privacy-policy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
+            <Link to="/security" className="hover:text-slate-300 transition-colors">Security & Compliance</Link>
           </div>
         </div>
       </div>

@@ -12,6 +12,9 @@ import ForwardDeployment from "./pages/ForwardDeployment";
 import Industries from "./pages/Industries";
 import EngineeringSubscription from "./pages/EngineeringSubscription";
 import Resources from "./pages/Resources";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import SecurityCompliance from "./pages/SecurityCompliance";
 import FloatingCTA from "./components/FloatingCTA";
 import TechnicalAssessmentModal from "./components/TechnicalAssessmentModal";
 
@@ -40,6 +43,9 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/our-aim" element={<OurAim />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/security" element={<SecurityCompliance />} />
         </Routes>
         <FloatingCTA />
         <TechnicalAssessmentModal />
