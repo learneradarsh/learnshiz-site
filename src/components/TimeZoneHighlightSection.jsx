@@ -9,7 +9,7 @@ import {
 
 export default function TimeZoneHighlightSection() {
   const [mobileTab, setMobileTab] = useState("learnshiz"); // "learnshiz" | "offshore"
-  const BOOK_CALL_URL = "https://wa.me/919591967760";
+  const BOOK_CALL_URL = "https://cal.com/learnshiz-techies-ll1gn1/30min";
 
   return (
     <section className="py-16 sm:py-20 md:py-28 bg-slate-950 relative border-t border-slate-800/60 overflow-hidden">

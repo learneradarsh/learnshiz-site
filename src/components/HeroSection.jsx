@@ -4,14 +4,14 @@ import {
   HiCheckCircle,
 } from "react-icons/hi2";
 
-const BOOK_CALL_URL = "https://wa.me/919591967760";
+const BOOK_CALL_URL = "https://cal.com/learnshiz-techies-ll1gn1/30min";
 
 const brandPromises = [
   "100% Time-Zone Aligned",
   "Zero Offshore Delays",
   "Ship Faster",
   "Dedicated Engineers",
-  "Enterprise Quality",
+  "10+ Years Proven Legacy",
   "AI-Accelerated",
 ];
 
@@ -45,7 +45,7 @@ export default function HeroSection() {
         </h1>
 
         <p className="text-xl sm:text-2xl font-semibold text-slate-300 mb-4">
-          Build, Scale and Ship Products Faster.
+          Build, Scale and Ship Products Faster <span className="text-blue-400">— Backed by 10+ Years of Proven Legacy.</span>
         </p>
 
         <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10 px-2">

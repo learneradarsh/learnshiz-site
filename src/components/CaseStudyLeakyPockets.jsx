@@ -9,7 +9,7 @@ import {
 } from "react-icons/hi2";
 
 export default function CaseStudyLeakyPockets() {
-  const BOOK_CALL_URL = "https://wa.me/919591967760";
+  const BOOK_CALL_URL = "https://cal.com/learnshiz-techies-ll1gn1/30min";
 
   return (
     <section className="py-16 md:py-24 bg-slate-950 relative overflow-hidden border-t border-slate-800/60">

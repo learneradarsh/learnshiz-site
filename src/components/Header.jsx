@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 
-const BOOK_CALL_URL = "https://wa.me/919591967760";
+const BOOK_CALL_URL = "https://cal.com/learnshiz-techies-ll1gn1/30min";
 
 const navLinks = [
   { to: "/", label: "Home", exact: true },

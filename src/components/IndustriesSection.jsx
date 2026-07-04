@@ -76,7 +76,7 @@ export default function IndustriesSection() {
         <div className="mt-8 text-center">
           <p className="text-slate-500 text-sm">
             Don't see your industry?{" "}
-            <a href="https://wa.me/919591967760" target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300">
+            <a href="https://cal.com/learnshiz-techies-ll1gn1/30min" target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300">
               Let's talk →
             </a>
           </p>

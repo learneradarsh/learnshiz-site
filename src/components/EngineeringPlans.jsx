@@ -4,7 +4,7 @@ import {
   HiMiniArrowRight,
 } from "react-icons/hi2";
 
-const BOOK_CALL_URL = "https://wa.me/919591967760";
+const BOOK_CALL_URL = "https://cal.com/learnshiz-techies-ll1gn1/30min";
 
 const plans = [
   {

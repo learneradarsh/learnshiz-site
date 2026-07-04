@@ -23,7 +23,7 @@ export default function ConsultingSection() {
                 </li>
               ))}
             </ul>
-            <a href="https://wa.me/919591967760" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-md bg-blue-600 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-blue-500 shadow-sm">Start Subscription</a>
+            <a href="https://cal.com/learnshiz-techies-ll1gn1/30min" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-md bg-blue-600 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-blue-500 shadow-sm">Start Subscription</a>
           </div>
           
           <div className="relative">
@@ -51,7 +51,7 @@ export default function ConsultingSection() {
                 </div>
               </div>
               <div className="mt-8 pt-6 border-t border-slate-800">
-                <a href="https://wa.me/919591967760" target="_blank" rel="noreferrer" className="w-full inline-flex items-center justify-center rounded-md border border-slate-700 bg-slate-900 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-slate-800 hover:text-blue-400 text-center block">Inquire Pricing</a>
+                <a href="https://cal.com/learnshiz-techies-ll1gn1/30min" target="_blank" rel="noreferrer" className="w-full inline-flex items-center justify-center rounded-md border border-slate-700 bg-slate-900 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-slate-800 hover:text-blue-400 text-center block">Inquire Pricing</a>
               </div>
             </div>
           </div>

@@ -25,7 +25,7 @@ export default function FloatingCTA() {
 
   return (
     <a
-      href="https://wa.me/919591967760"
+      href="https://cal.com/learnshiz-techies-ll1gn1/30min"
       target="_blank"
       rel="noreferrer"
       id="floating-discovery-call-cta"

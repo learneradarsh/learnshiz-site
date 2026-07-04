@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { HiEnvelope, HiPhone } from "react-icons/hi2";
 import logo from "../assets/logo.png";
 
-const BOOK_CALL_URL = "https://wa.me/919591967760";
+const BOOK_CALL_URL = "https://cal.com/learnshiz-techies-ll1gn1/30min";
 
 const navGroups = [
   {
@@ -53,7 +53,7 @@ export default function Footer() {
               </a>
               <a href={BOOK_CALL_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors w-fit">
                 <HiPhone className="w-4 h-4 text-emerald-400 shrink-0" />
-                +91 95919 67760 (WhatsApp)
+                Book a 30-Min Call
               </a>
             </div>
 

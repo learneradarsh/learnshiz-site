@@ -80,12 +80,12 @@ export default function FAQSection() {
         <div className="mt-8 text-center bg-slate-900/40 border border-slate-800/60 rounded-2xl p-5">
           <p className="text-slate-500 text-sm mb-2">Still have questions?</p>
           <a
-            href="https://wa.me/919591967760"
+            href="https://cal.com/learnshiz-techies-ll1gn1/30min"
             target="_blank"
             rel="noreferrer"
             className="text-blue-400 hover:text-blue-300 font-semibold text-sm transition-colors"
           >
-            Chat with our team on WhatsApp →
+            Book a 30-Min Call with Our Team →
           </a>
         </div>
       </div>

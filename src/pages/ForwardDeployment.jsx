@@ -3,7 +3,7 @@ import ForwardDeploymentSection from "../components/ForwardDeploymentSection";
 import EngagementModel from "../components/EngagementModel";
 import SEO from "../components/SEO";
 
-const BOOK_CALL_URL = "https://wa.me/919591967760";
+const BOOK_CALL_URL = "https://cal.com/learnshiz-techies-ll1gn1/30min";
 
 const futureServices = [
   "Fractional CTO", "AI Transformation Consulting", "Platform Engineering",

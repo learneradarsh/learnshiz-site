@@ -89,7 +89,7 @@ export default function OurAim() {
             <p className="text-slate-300 mb-8 max-w-xl mx-auto relative z-10">
               Stop settling for average talent. Let us match you with a top 1% engineer within the next 48 hours.
             </p>
-            <a href="https://wa.me/919591967760" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-md bg-blue-600 px-10 py-4 text-base font-bold text-white transition-all hover:bg-blue-500 shadow-lg relative z-10">
+            <a href="https://cal.com/learnshiz-techies-ll1gn1/30min" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-md bg-blue-600 px-10 py-4 text-base font-bold text-white transition-all hover:bg-blue-500 shadow-lg relative z-10">
               Start Building Now
             </a>
           </div>
