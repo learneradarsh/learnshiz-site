@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   HiCheckCircle,
 } from "react-icons/hi2";
+import { getScarcityData } from "../utils/scarcity";
 
 const BOOK_CALL_URL = "https://cal.com/learnshiz-techies-ll1gn1/30min";
 
@@ -16,6 +17,8 @@ const brandPromises = [
 ];
 
 export default function HeroSection() {
+  const { quarter, nextStartDate } = getScarcityData();
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-28 pb-16 overflow-hidden bg-slate-950">
 
@@ -52,6 +55,12 @@ export default function HeroSection() {
           Stop spending months hiring or battling rigid offshore time lags. Get a complete engineering team that works during your exact working hours — fully aligned under one predictable monthly subscription.
         </p>
 
+        {/* Urgency Pill */}
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/15 via-orange-500/15 to-amber-500/15 border border-amber-500/30 text-amber-300 text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full mb-8 shadow-lg shadow-amber-500/5">
+          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse shrink-0" />
+          <span>⚡ {quarter} Capacity: Currently onboarding only <strong className="text-white">3 new dedicated teams</strong> · <span className="text-amber-200 underline underline-offset-2">Next start date: {nextStartDate}</span></span>
+        </div>
+
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
           <a
@@ -66,12 +75,20 @@ export default function HeroSection() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
+          <button
+            id="hero-free-assessment-cta"
+            onClick={() => window.dispatchEvent(new CustomEvent("openTechnicalAssessment", { detail: { source: "HeroSection" } }))}
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600/90 to-purple-600/90 hover:from-indigo-600 hover:to-purple-600 border border-indigo-500/40 px-8 py-4 text-base font-bold text-white transition-all shadow-xl shadow-indigo-600/20 w-full sm:w-auto group"
+          >
+            Get Free Assessment
+            <span className="text-[10px] bg-white/20 px-2 py-0.5 rounded-full font-extrabold uppercase tracking-wider group-hover:bg-white/30 transition-colors">24h Blueprint</span>
+          </button>
           <Link
             id="hero-view-plans-cta"
             to="/pricing"
-            className="inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900/60 backdrop-blur-sm px-8 py-4 text-base font-semibold text-slate-300 transition-all hover:bg-slate-800 hover:text-white w-full sm:w-auto"
+            className="inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900/60 backdrop-blur-sm px-7 py-4 text-base font-semibold text-slate-300 transition-all hover:bg-slate-800 hover:text-white w-full sm:w-auto"
           >
-            View Engineering Plans
+            View Plans
           </Link>
         </div>
 

@@ -2,6 +2,7 @@ import React from "react";
 import EngineeringPlans from "../components/EngineeringPlans";
 import SEO from "../components/SEO";
 import { HiMiniCheckCircle } from "react-icons/hi2";
+import { getCurrentQuarter } from "../utils/scarcity";
 
 const BOOK_CALL_URL = "https://cal.com/learnshiz-techies-ll1gn1/30min";
 
@@ -17,6 +18,8 @@ const idealClients = [
 ];
 
 export default function Pricing() {
+  const quarter = getCurrentQuarter();
+
   return (
     <main className="pt-24">
       <SEO
@@ -29,8 +32,9 @@ export default function Pricing() {
       <section className="py-14 md:py-20 bg-slate-950 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(37,99,235,0.05)_0%,transparent_60%)] pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="inline-flex items-center gap-2 bg-slate-800/60 border border-slate-700/50 text-slate-400 text-xs font-semibold px-4 py-2 rounded-full mb-5">
-            Engineering Subscription Plans
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/15 via-orange-500/15 to-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-semibold px-4 py-2 rounded-full mb-5 shadow-lg">
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+            ⚡ {quarter} Onboarding Capacity: Only 3 New Teams This Quarter
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
             Simple,{" "}

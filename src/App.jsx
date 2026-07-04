@@ -11,7 +11,9 @@ import Pricing from "./pages/Pricing";
 import ForwardDeployment from "./pages/ForwardDeployment";
 import Industries from "./pages/Industries";
 import EngineeringSubscription from "./pages/EngineeringSubscription";
+import Resources from "./pages/Resources";
 import FloatingCTA from "./components/FloatingCTA";
+import TechnicalAssessmentModal from "./components/TechnicalAssessmentModal";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -37,8 +39,10 @@ function App() {
           <Route path="/how-it-works" element={<HowItWorksPage />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/our-aim" element={<OurAim />} />
+          <Route path="/resources" element={<Resources />} />
         </Routes>
         <FloatingCTA />
+        <TechnicalAssessmentModal />
         <Footer />
       </Router>
     </div>

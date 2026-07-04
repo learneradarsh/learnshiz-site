@@ -11,6 +11,18 @@ const faqs = [
     a: "Outsourcing gives you anonymous developers. We give you a dedicated team embedded in your product, working in your time zone, attending your standups, and thinking like founders — not contractors.",
   },
   {
+    q: "What happens if an engineer doesn't work out?",
+    a: "We offer an unconditional 2-Week Free Replacement Guarantee. If an engineer isn't the perfect technical or cultural fit for your squad, we replace them within 10 business days at zero cost and zero billing disruption.",
+  },
+  {
+    q: "How do you handle IP and code ownership?",
+    a: "You own 100% of your intellectual property and codebase from line one. We execute comprehensive legal NDAs and IP assignment agreements before any onboarding. Our framework is designed specifically to pass strict technical and legal due diligence for VC-backed startups.",
+  },
+  {
+    q: "What if we need to pause or cancel our subscription?",
+    a: "We operate on flexible monthly rolling contracts with zero multi-year vendor lock-in. If your product roadmap changes or you need to pause engineering velocity, you can scale down or cancel with a simple 30-day notice.",
+  },
+  {
     q: "How fast can the team start?",
     a: "After your Discovery Call and a brief Technical Assessment, your team is operational in 1–2 weeks. Sprint planning starts in week one.",
   },

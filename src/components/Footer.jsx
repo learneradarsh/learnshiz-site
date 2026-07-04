@@ -20,6 +20,7 @@ const navGroups = [
     links: [
       { label: "Industries", to: "/industries" },
       { label: "Pricing", to: "/pricing" },
+      { label: "Resources & Guides", to: "/resources" },
       { label: "How It Works", to: "/how-it-works" },
       { label: "Careers", to: "/careers" },
     ],
@@ -57,14 +58,22 @@ export default function Footer() {
               </a>
             </div>
 
-            <a
-              href={BOOK_CALL_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-blue-600/20"
-            >
-              Book a Discovery Call →
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href={BOOK_CALL_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-blue-600/20"
+              >
+                Book Discovery Call →
+              </a>
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent("openTechnicalAssessment", { detail: { source: "Footer" } }))}
+                className="inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-sm font-semibold px-5 py-2.5 rounded-xl transition-all"
+              >
+                Free Assessment
+              </button>
+            </div>
           </div>
 
           {/* Nav Groups */}

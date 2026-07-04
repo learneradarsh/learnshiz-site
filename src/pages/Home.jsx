@@ -1,7 +1,9 @@
 import React from "react";
 import HeroSection from "../components/HeroSection";
+import SocialProofBadges from "../components/SocialProofBadges";
 import ClientsCarouselBand from "../components/ClientsCarouselBand";
 import TimeZoneHighlightSection from "../components/TimeZoneHighlightSection";
+import WhoThisIsNotFor from "../components/WhoThisIsNotFor";
 import EngineeringPlans from "../components/EngineeringPlans";
 import CapabilitiesGrid from "../components/CapabilitiesGrid";
 import ForwardDeploymentSection from "../components/ForwardDeploymentSection";
@@ -9,7 +11,9 @@ import IndustriesSection from "../components/IndustriesSection";
 import TechStackSection from "../components/TechStackSection";
 import EngagementModel from "../components/EngagementModel";
 import WhyChooseUs from "../components/WhyChooseUs";
+import ResourcesSection from "../components/ResourcesSection";
 import FAQSection from "../components/FAQSection";
+import NewsletterBanner from "../components/NewsletterBanner";
 import SEO from "../components/SEO";
 
 export default function Home() {
@@ -21,8 +25,10 @@ export default function Home() {
         path="/"
       />
       <HeroSection />
+      <SocialProofBadges />
       <ClientsCarouselBand />
       <TimeZoneHighlightSection />
+      <WhoThisIsNotFor />
       <EngineeringPlans />
       <CapabilitiesGrid />
       <ForwardDeploymentSection />
@@ -30,7 +36,9 @@ export default function Home() {
       <TechStackSection />
       <EngagementModel />
       <WhyChooseUs />
+      <ResourcesSection />
       <FAQSection />
+      <NewsletterBanner />
     </main>
   );
 }

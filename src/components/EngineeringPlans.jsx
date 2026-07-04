@@ -3,13 +3,16 @@ import {
   HiMiniCheckCircle,
   HiMiniArrowRight,
 } from "react-icons/hi2";
+import { getCurrentQuarter } from "../utils/scarcity";
 
 const BOOK_CALL_URL = "https://cal.com/learnshiz-techies-ll1gn1/30min";
 
-const plans = [
+const getPlans = (quarter) => [
   {
     name: "Builder",
     badge: null,
+    scarcity: `⚡ 2 onboarding slots left for ${quarter}`,
+    scarcityColor: "text-amber-400 bg-amber-500/10 border-amber-500/20",
     tagline: "Perfect for MVPs",
     description: "Everything you need to launch your first product.",
     color: "slate",
@@ -26,6 +29,8 @@ const plans = [
   {
     name: "Growth",
     badge: "Most Popular",
+    scarcity: "🔥 1 squad slot remaining",
+    scarcityColor: "text-rose-400 bg-rose-500/10 border-rose-500/20",
     tagline: "Ideal for Seed & Series A",
     description: "A full engineering squad to scale your product fast.",
     color: "blue",
@@ -42,6 +47,8 @@ const plans = [
   {
     name: "Scale",
     badge: null,
+    scarcity: "📋 Waitlist / By Inquiry",
+    scarcityColor: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20",
     tagline: "Your Engineering Org",
     description: "A complete engineering organization built for your product.",
     color: "indigo",
@@ -89,6 +96,9 @@ const colorConfig = {
 };
 
 export default function EngineeringPlans() {
+  const quarter = getCurrentQuarter();
+  const plans = getPlans(quarter);
+
   return (
     <section id="engineering-subscription" className="py-20 md:py-32 bg-slate-950 border-t border-slate-800/50 relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-600/4 rounded-full blur-[120px] pointer-events-none" />
@@ -123,13 +133,18 @@ export default function EngineeringPlans() {
                   <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-3xl bg-gradient-to-r from-blue-400 to-indigo-500" />
                 )}
                 {plan.badge && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-[11px] font-bold px-4 py-1.5 rounded-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-[11px] font-bold px-4 py-1.5 rounded-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg">
                     {plan.badge}
                   </div>
                 )}
 
                 <div className="mb-5">
-                  <h3 className="text-2xl font-bold text-white mb-0.5">{plan.name}</h3>
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
+                    <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border ${plan.scarcityColor}`}>
+                      {plan.scarcity}
+                    </span>
+                  </div>
                   <p className={`text-sm font-semibold mb-2 ${c.accent}`}>{plan.tagline}</p>
                   <p className="text-sm text-slate-500">{plan.description}</p>
                 </div>

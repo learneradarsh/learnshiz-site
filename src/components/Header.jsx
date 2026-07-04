@@ -11,6 +11,7 @@ const navLinks = [
   { to: "/services", label: "Capabilities" },
   { to: "/industries", label: "Industries" },
   { to: "/pricing", label: "Pricing" },
+  { to: "/resources", label: "Resources" },
 ];
 
 export default function Header() {
@@ -63,7 +64,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
@@ -82,19 +83,19 @@ export default function Header() {
 
         {/* Desktop CTAs */}
         <div className="hidden lg:flex items-center gap-3">
-          <Link
-            to="/pricing"
-            className="text-sm font-medium text-slate-300 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-slate-800"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("openTechnicalAssessment", { detail: { source: "Header" } }))}
+            className="text-xs font-bold text-indigo-300 hover:text-white bg-indigo-500/15 hover:bg-indigo-500/25 border border-indigo-500/30 transition-colors px-3.5 py-2 rounded-lg"
           >
-            View Plans
-          </Link>
+            Free Assessment
+          </button>
           <a
             href={BOOK_CALL_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-blue-500 shadow-lg shadow-blue-600/20"
+            className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-blue-500 shadow-lg shadow-blue-600/20"
           >
-            Book a Discovery Call
+            Book Discovery Call
           </a>
         </div>
 
@@ -143,13 +144,15 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex flex-col gap-3 mt-auto border-t border-slate-800/80 pt-6">
-          <Link
-            to="/pricing"
-            onClick={() => setMobileMenuOpen(false)}
-            className="inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900/80 px-6 py-3.5 text-base font-semibold text-slate-200 w-full hover:bg-slate-800 transition-colors"
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              window.dispatchEvent(new CustomEvent("openTechnicalAssessment", { detail: { source: "MobileHeader" } }));
+            }}
+            className="inline-flex items-center justify-center rounded-xl border border-indigo-500/40 bg-indigo-950/40 px-6 py-3.5 text-base font-bold text-indigo-300 w-full hover:bg-indigo-900/50 transition-colors"
           >
-            View Engineering Plans
-          </Link>
+            Get Free Assessment Blueprint
+          </button>
           <a
             href={BOOK_CALL_URL}
             target="_blank"

@@ -1,61 +1,97 @@
 import React from "react";
+import { HiMiniShieldCheck, HiMiniLockClosed, HiMiniDocumentText, HiMiniUserCheck, HiMiniCheckBadge } from "react-icons/hi2";
 
 export default function TrustAndSecurity() {
   const features = [
     {
       title: "100% IP Ownership",
-      desc: "You retain full intellectual property rights to all code written. Strong, legally binding NDA and IP assignment agreements come standard.",
-      icon: (
-        <svg className="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-      )
+      desc: "You retain full intellectual property rights to all code written from line one. Strong, legally binding NDA and IP assignment agreements come standard.",
+      icon: <HiMiniShieldCheck className="w-6 h-6 text-emerald-400" />
+    },
+    {
+      title: "NDA-First Engagement",
+      desc: "We execute comprehensive non-disclosure agreements before reviewing a single line of your architecture or discussing your product roadmap.",
+      icon: <HiMiniDocumentText className="w-6 h-6 text-blue-400" />
     },
     {
       title: "Enterprise-Grade Security",
-      desc: "Our environments and operational workflows are designed to meet strict data privacy and enterprise security requirements from day one.",
-      icon: (
-        <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-        </svg>
-      )
+      desc: "Our environments and operational workflows are engineered with zero-trust principles to meet strict enterprise data privacy requirements.",
+      icon: <HiMiniLockClosed className="w-6 h-6 text-indigo-400" />
     },
     {
       title: "Rigorous Background Checks",
-      desc: "Every Forward Deployed Engineer undergoes extensive background, reference, and identity verification before writing a single line of code.",
-      icon: (
-        <svg className="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-      )
+      desc: "Every dedicated engineer undergoes extensive background, reference, and technical verification before writing code for your product.",
+      icon: <HiMiniUserCheck className="w-6 h-6 text-purple-400" />
+    }
+  ];
+
+  const complianceBadges = [
+    {
+      name: "SOC 2 Type II Ready",
+      desc: "Audited operational controls & access logging",
+      color: "border-blue-500/30 bg-blue-950/20 text-blue-400"
+    },
+    {
+      name: "ISO 27001 Certified Processes",
+      desc: "Enterprise information security management",
+      color: "border-emerald-500/30 bg-emerald-950/20 text-emerald-400"
+    },
+    {
+      name: "GDPR Compliant",
+      desc: "Strict EU data privacy & zero retention",
+      color: "border-purple-500/30 bg-purple-950/20 text-purple-400"
+    },
+    {
+      name: "HIPAA-Ready Workflows",
+      desc: "Protected PHI handling for Healthcare & FinTech",
+      color: "border-amber-500/30 bg-amber-950/20 text-amber-400"
     }
   ];
 
   return (
-    <section className="py-20 bg-slate-950 relative border-t border-slate-800/50 overflow-hidden">
+    <section className="py-20 md:py-28 bg-slate-950 relative border-t border-slate-800/50 overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-slate-900/50 rounded-[100%] blur-[120px] pointer-events-none"></div>
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="text-center mb-16">
-          <span className="text-emerald-500 font-semibold tracking-wider uppercase text-xs sm:text-sm mb-3 block">Enterprise Ready</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">
-            Built on Trust & Security
+        <div className="text-center mb-14">
+          <span className="text-emerald-500 font-semibold tracking-wider uppercase text-xs sm:text-sm mb-3 block flex items-center justify-center gap-1.5">
+            <HiMiniCheckBadge className="w-4 h-4" />
+            Enterprise Ready & Verified
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+            Built on Trust, Security & Compliance
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            We understand that your codebase is your most valuable asset. Our legal and security frameworks are designed to protect you completely.
+          <p className="text-slate-400 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
+            We understand that your codebase is your most valuable asset. Our legal, operational, and compliance frameworks are designed to protect you completely.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        {/* Compliance Badges Strip */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          {complianceBadges.map((badge, i) => (
+            <div
+              key={i}
+              className={`border rounded-2xl p-4 text-center transition-all hover:scale-[1.02] ${badge.color}`}
+            >
+              <div className="font-extrabold text-sm text-white mb-1">{badge.name}</div>
+              <div className="text-[11px] opacity-80 font-medium leading-tight">{badge.desc}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* 4-Card Feature Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, idx) => (
-            <div key={idx} className="bg-slate-900/40 border border-slate-800 rounded-2xl p-8 hover:-translate-y-1 transition-all duration-300 shadow-lg">
-              <div className="w-12 h-12 rounded-xl bg-slate-800/80 flex items-center justify-center mb-6 border border-slate-700/50 shadow-inner">
-                {feature.icon}
+            <div key={idx} className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 sm:p-7 hover:-translate-y-1 transition-all duration-300 shadow-lg flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-slate-800/80 flex items-center justify-center mb-5 border border-slate-700/50 shadow-inner">
+                  {feature.icon}
+                </div>
+                <h3 className="text-lg font-bold text-slate-200 mb-2.5">{feature.title}</h3>
+                <p className="text-slate-400 leading-relaxed text-xs sm:text-sm">
+                  {feature.desc}
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-slate-200 mb-3">{feature.title}</h3>
-              <p className="text-slate-400 leading-relaxed text-sm">
-                {feature.desc}
-              </p>
             </div>
           ))}
         </div>
