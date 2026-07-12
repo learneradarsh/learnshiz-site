@@ -12,53 +12,53 @@ const getPlans = (quarter) => [
     name: "Builder",
     badge: null,
     scarcity: `⚡ 2 onboarding slots left for ${quarter}`,
-    scarcityColor: "text-amber-400 bg-amber-500/10 border-amber-500/20",
+    scarcityColor: "text-[#00B2A9] bg-[#00B2A9]/10 border-[#00B2A9]/30",
     tagline: "Perfect for MVPs",
-    description: "Everything you need to launch your first product.",
+    description: "Everything you need to launch your first production product.",
     color: "slate",
     features: [
-      "Full Stack Engineer",
-      "Technical Lead",
+      "Dedicated Full Stack Engineer",
+      "Technical Lead Guidance",
       "Weekly Sprint Planning",
-      "CI/CD Setup",
-      "Production Deployment",
+      "CI/CD Pipeline Setup",
+      "Production Deployment & Hosting",
       "Daily Progress Updates",
     ],
     cta: "Get Started",
   },
   {
-    name: "Growth",
+    name: "Growth (AI & Product)",
     badge: "Most Popular",
     scarcity: "🔥 1 squad slot remaining",
-    scarcityColor: "text-rose-400 bg-rose-500/10 border-rose-500/20",
+    scarcityColor: "text-[#F8485E] bg-[#F8485E]/15 border-[#F8485E]/30",
     tagline: "Ideal for Seed & Series A",
-    description: "A full engineering squad to scale your product fast.",
+    description: "A complete engineering squad & AI capability to scale fast.",
     color: "blue",
     features: [
-      "2–4 Engineers",
-      "QA Engineer",
-      "DevOps Engineer",
-      "Engineering Manager",
-      "Product Planning",
-      "Performance Monitoring",
+      "2–4 Dedicated Product Engineers",
+      "AI Pod Support (LLM & RAG Pipelines)",
+      "QA & DevOps Automation",
+      "Dedicated Engineering Manager",
+      "Strategic Roadmap Planning",
+      "Production Performance Monitoring",
     ],
     cta: "Book a Discovery Call",
   },
   {
-    name: "Scale",
+    name: "Scale (Enterprise Pods)",
     badge: null,
     scarcity: "📋 Waitlist / By Inquiry",
-    scarcityColor: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20",
+    scarcityColor: "text-[#00B2A9] bg-[#00B2A9]/10 border-[#00B2A9]/30",
     tagline: "Your Engineering Org",
-    description: "A complete engineering organization built for your product.",
+    description: "A complete engineering organization built around your vision.",
     color: "indigo",
     features: [
-      "Frontend & Backend Teams",
-      "AI Engineers",
-      "DevOps & QA Automation",
-      "Technical Architect",
-      "Delivery Manager",
-      "Dedicated Product Team",
+      "Full Frontend & Backend Teams",
+      "Dedicated AI Pod (GenAI & Data Engineers)",
+      "DevOps, SRE & QA Infrastructure",
+      "Principal Technical Architect",
+      "Dedicated Delivery Manager",
+      "Custom SLA & Enterprise Security",
     ],
     cta: "Contact Us",
   },
@@ -66,32 +66,32 @@ const getPlans = (quarter) => [
 
 const colorConfig = {
   slate: {
-    border: "border-slate-700/80",
-    bg: "bg-slate-900/50",
-    accent: "text-slate-400",
-    check: "text-slate-400",
-    checkBg: "bg-slate-800/80",
-    btnBg: "bg-slate-800 hover:bg-slate-700 text-white border border-slate-700",
-    glow: "",
+    border: "border-slate-200",
+    bg: "bg-white",
+    accent: "text-slate-700 font-bold",
+    check: "text-[#00B2A9]",
+    checkBg: "bg-[#00B2A9]/15",
+    btnBg: "bg-white hover:bg-slate-50 text-[#0A1622] border border-slate-300 hover:border-[#00B2A9] shadow-sm",
+    glow: "shadow-sm hover:shadow-md",
   },
   blue: {
-    border: "border-blue-500/50",
-    bg: "bg-gradient-to-b from-blue-950/40 to-slate-900/60",
-    accent: "text-blue-300",
-    check: "text-blue-400",
-    checkBg: "bg-blue-500/15",
-    btnBg: "bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/30",
-    glow: "shadow-[0_0_60px_rgba(37,99,235,0.15)]",
+    border: "border-[#F8485E]/40",
+    bg: "bg-gradient-to-b from-white to-slate-50",
+    accent: "text-[#F8485E] font-bold",
+    check: "text-[#F8485E]",
+    checkBg: "bg-[#F8485E]/15",
+    btnBg: "bg-[#F8485E] hover:bg-[#E8236E] text-white shadow-lg shadow-[#F8485E]/25",
+    glow: "shadow-xl shadow-[#0A1622]/5",
     topBorder: true,
   },
   indigo: {
-    border: "border-indigo-700/40",
-    bg: "bg-gradient-to-b from-indigo-950/20 to-slate-900/50",
-    accent: "text-indigo-300",
-    check: "text-indigo-400",
-    checkBg: "bg-indigo-500/15",
-    btnBg: "bg-slate-800 hover:bg-slate-700 text-white border border-slate-700",
-    glow: "",
+    border: "border-slate-200",
+    bg: "bg-white",
+    accent: "text-slate-700 font-bold",
+    check: "text-[#00B2A9]",
+    checkBg: "bg-[#00B2A9]/15",
+    btnBg: "bg-white hover:bg-slate-50 text-[#0A1622] border border-slate-300 hover:border-[#00B2A9] shadow-sm",
+    glow: "shadow-sm hover:shadow-md",
   },
 };
 
@@ -100,22 +100,22 @@ export default function EngineeringPlans() {
   const plans = getPlans(quarter);
 
   return (
-    <section id="engineering-subscription" className="py-20 md:py-32 bg-slate-950 border-t border-slate-800/50 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-600/4 rounded-full blur-[120px] pointer-events-none" />
+    <section id="engineering-subscription" className="py-20 md:py-32 bg-[#F8F9FA] border-t border-slate-200 relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#F8485E]/5 rounded-full blur-[140px] pointer-events-none mix-blend-multiply" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-5">
-          <div className="inline-flex items-center gap-2 bg-slate-800/60 border border-slate-700/50 text-slate-400 text-xs font-semibold px-4 py-2 rounded-full mb-5">
-            Engineering Subscription
+          <div className="inline-flex items-center gap-2 bg-white border border-slate-200 text-[#00B2A9] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 shadow-sm">
+            Engineering Subscription & Turnkey Pods
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0A1622] mb-4 tracking-tight">
             One Subscription.{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#F8485E] via-[#FF6B81] to-[#00B2A9]">
               Complete Engineering Team.
             </span>
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
-            Subscribe to a complete engineering capability. Predictable monthly pricing. No surprises.
+          <p className="text-slate-600 font-normal max-w-xl mx-auto text-base">
+            Subscribe to a complete engineering capability—including dedicated AI Pods. Predictable monthly pricing. No surprises.
           </p>
         </div>
 
@@ -125,31 +125,31 @@ export default function EngineeringPlans() {
             return (
               <div
                 key={plan.name}
-                className={`relative rounded-3xl border ${c.border} ${c.bg} ${c.glow} p-7 md:p-8 flex flex-col transition-transform duration-300 hover:-translate-y-1 ${
+                className={`relative rounded-3xl border ${c.border} ${c.bg} ${c.glow} p-7 md:p-8 flex flex-col transition-all duration-300 hover:-translate-y-1 ${
                   plan.color === "blue" ? "lg:-translate-y-4 lg:scale-105" : ""
                 }`}
               >
                 {plan.color === "blue" && (
-                  <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-3xl bg-gradient-to-r from-blue-400 to-indigo-500" />
+                  <div className="absolute top-0 left-0 right-0 h-1 rounded-t-3xl bg-gradient-to-r from-[#F8485E] to-[#00B2A9]" />
                 )}
                 {plan.badge && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-[11px] font-bold px-4 py-1.5 rounded-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-[11px] font-bold px-4 py-1.5 rounded-full whitespace-nowrap bg-[#F8485E] text-white shadow-lg shadow-[#F8485E]/25 border border-[#F8485E]/40">
                     {plan.badge}
                   </div>
                 )}
 
                 <div className="mb-5">
                   <div className="flex items-center justify-between gap-2 mb-1">
-                    <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
+                    <h3 className="text-2xl font-bold text-[#0A1622]">{plan.name}</h3>
                     <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border ${plan.scarcityColor}`}>
                       {plan.scarcity}
                     </span>
                   </div>
                   <p className={`text-sm font-semibold mb-2 ${c.accent}`}>{plan.tagline}</p>
-                  <p className="text-sm text-slate-500">{plan.description}</p>
+                  <p className="text-sm text-slate-600 font-normal">{plan.description}</p>
                 </div>
 
-                <div className="h-px bg-slate-800/60 mb-5" />
+                <div className="h-px bg-slate-200 mb-5" />
 
                 <ul className="flex-1 space-y-2.5 mb-7">
                   {plan.features.map((feature) => (
@@ -157,7 +157,7 @@ export default function EngineeringPlans() {
                       <div className={`w-5 h-5 rounded-full ${c.checkBg} flex items-center justify-center shrink-0`}>
                         <HiMiniCheckCircle className={`w-3.5 h-3.5 ${c.check}`} />
                       </div>
-                      <span className="text-sm text-slate-300">{feature}</span>
+                      <span className="text-sm text-slate-600 font-normal">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -176,10 +176,10 @@ export default function EngineeringPlans() {
           })}
         </div>
 
-        <p className="text-center text-slate-500 text-sm mt-10">
+        <p className="text-center text-slate-600 font-normal text-sm mt-10">
           All plans include dedicated engineers, sprint planning, and continuous delivery.{" "}
-          <a href={BOOK_CALL_URL} target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">
-            Need a custom plan? →
+          <a href={BOOK_CALL_URL} target="_blank" rel="noreferrer" className="text-[#00B2A9] hover:underline font-medium underline underline-offset-4">
+            Need a custom plan or standalone AI Pod? →
           </a>
         </p>
       </div>

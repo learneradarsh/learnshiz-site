@@ -48,7 +48,7 @@ export default function Header() {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${
         scrolled || mobileMenuOpen
-          ? "bg-slate-900/95 backdrop-blur-md border-slate-800 py-3 shadow-lg"
+          ? "bg-white/95 backdrop-blur-md border-slate-200 py-3 shadow-sm"
           : "bg-transparent border-transparent py-5"
       }`}
     >
@@ -58,8 +58,8 @@ export default function Header() {
         <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-3 group relative z-50">
           <img src={logo} alt="Learnshiz Engineering Logo" className="w-10 h-10 rounded-lg object-contain" />
           <div className="flex flex-col">
-            <span className="text-white font-bold text-lg tracking-tight leading-none">Learnshiz</span>
-            <span className="text-blue-400 text-[10px] uppercase tracking-widest mt-0.5 font-bold">Engineering · EaaS</span>
+            <span className="text-[#0A1622] font-bold text-lg tracking-tight leading-none">Learnshiz</span>
+            <span className="text-[#F8485E] text-[10px] uppercase tracking-widest mt-0.5 font-bold">Engineering · EaaS</span>
           </div>
         </Link>
 
@@ -72,7 +72,7 @@ export default function Header() {
               end={link.exact}
               className={({ isActive }) =>
                 `text-sm font-medium transition-colors whitespace-nowrap ${
-                  isActive ? "text-blue-400" : "text-slate-300 hover:text-white"
+                  isActive ? "text-[#F8485E]" : "text-slate-600 hover:text-[#0A1622]"
                 }`
               }
             >
@@ -85,7 +85,7 @@ export default function Header() {
         <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={() => window.dispatchEvent(new CustomEvent("openTechnicalAssessment", { detail: { source: "Header" } }))}
-            className="text-xs font-bold text-indigo-300 hover:text-white bg-indigo-500/15 hover:bg-indigo-500/25 border border-indigo-500/30 transition-colors px-3.5 py-2 rounded-lg"
+            className="text-xs font-bold text-[#0A1622] hover:text-[#00B2A9] bg-white hover:bg-slate-50 border border-slate-300 hover:border-[#00B2A9] transition-all px-3.5 py-2 rounded-lg shadow-sm"
           >
             Free Assessment
           </button>
@@ -93,7 +93,7 @@ export default function Header() {
             href={BOOK_CALL_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-blue-500 shadow-lg shadow-blue-600/20"
+            className="inline-flex items-center justify-center rounded-lg bg-[#F8485E] px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-[#E8236E] shadow-lg shadow-[#F8485E]/25"
           >
             Book Discovery Call
           </a>
@@ -102,7 +102,7 @@ export default function Header() {
         {/* Mobile Menu Toggle */}
         <button
           id="mobile-menu-toggle"
-          className="lg:hidden relative z-50 p-2 text-slate-300 hover:text-white focus:outline-none"
+          className="lg:hidden relative z-50 p-2 text-slate-700 hover:text-[#0A1622] focus:outline-none"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle Menu"
         >
@@ -120,7 +120,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed inset-0 bg-slate-950 z-40 transition-all duration-300 flex flex-col justify-between pt-24 pb-8 px-6 overflow-y-auto h-[100dvh] w-screen ${
+        className={`lg:hidden fixed inset-0 bg-white z-40 transition-all duration-300 flex flex-col justify-between pt-24 pb-8 px-6 overflow-y-auto h-[100dvh] w-screen ${
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
@@ -134,8 +134,8 @@ export default function Header() {
               className={({ isActive }) =>
                 `block px-5 py-3.5 rounded-xl text-lg font-semibold transition-colors ${
                   isActive
-                    ? "bg-blue-600/20 text-blue-400 border border-blue-500/30"
-                    : "text-slate-300 hover:text-white hover:bg-slate-800/60"
+                    ? "bg-[#F8485E]/15 text-[#F8485E] border border-[#F8485E]/30"
+                    : "text-slate-700 hover:text-[#0A1622] hover:bg-slate-100"
                 }`
               }
             >
@@ -143,13 +143,13 @@ export default function Header() {
             </NavLink>
           ))}
         </nav>
-        <div className="flex flex-col gap-3 mt-auto border-t border-slate-800/80 pt-6">
+        <div className="flex flex-col gap-3 mt-auto border-t border-slate-200 pt-6">
           <button
             onClick={() => {
               setMobileMenuOpen(false);
               window.dispatchEvent(new CustomEvent("openTechnicalAssessment", { detail: { source: "MobileHeader" } }));
             }}
-            className="inline-flex items-center justify-center rounded-xl border border-indigo-500/40 bg-indigo-950/40 px-6 py-3.5 text-base font-bold text-indigo-300 w-full hover:bg-indigo-900/50 transition-colors"
+            className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-base font-bold text-[#0A1622] hover:border-[#00B2A9] hover:bg-slate-50 w-full transition-colors shadow-sm"
           >
             Get Free Assessment Blueprint
           </button>
@@ -158,7 +158,7 @@ export default function Header() {
             target="_blank"
             rel="noreferrer"
             onClick={() => setMobileMenuOpen(false)}
-            className="inline-flex items-center justify-center rounded-xl bg-blue-600 hover:bg-blue-500 px-6 py-4 text-base font-bold text-white w-full shadow-lg shadow-blue-600/30 transition-all"
+            className="inline-flex items-center justify-center rounded-xl bg-[#F8485E] hover:bg-[#E8236E] px-6 py-4 text-base font-bold text-white w-full shadow-lg shadow-[#F8485E]/25 transition-all"
           >
             Book a Discovery Call →
           </a>

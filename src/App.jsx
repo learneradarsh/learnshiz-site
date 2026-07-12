@@ -28,7 +28,7 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950 selection:bg-blue-500/30 font-sans text-slate-200">
+    <div className="min-h-screen bg-white selection:bg-[#00B2A9]/20 font-sans text-[#0A1622]">
       <Router>
         <ScrollToTop />
         <Header />

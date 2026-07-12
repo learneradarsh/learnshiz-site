@@ -16,23 +16,23 @@ export default function NewsletterBanner() {
   };
 
   return (
-    <section className="py-16 bg-slate-950 border-t border-slate-800/60 relative overflow-hidden">
+    <section className="py-16 bg-white border-t border-slate-200 relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gradient-to-r from-blue-600/10 via-indigo-600/10 to-purple-600/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gradient-to-r from-[#F8485E]/5 via-[#FF6B81]/5 to-[#00B2A9]/5 rounded-full blur-[100px] pointer-events-none mix-blend-multiply" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="bg-gradient-to-b from-slate-900/80 to-slate-900/40 border border-slate-800/80 rounded-3xl p-8 sm:p-10 shadow-2xl backdrop-blur-md">
+        <div className="bg-[#F8F9FA] border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-sm">
           <div className="grid md:grid-cols-12 gap-8 items-center">
             
             <div className="md:col-span-7 text-left">
-              <div className="inline-flex items-center gap-1.5 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
+              <div className="inline-flex items-center gap-1.5 bg-white border border-slate-200 text-[#00B2A9] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 shadow-sm">
                 <HiMiniSparkles className="w-3.5 h-3.5" />
                 The EaaS Dispatch
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug mb-2">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0A1622] tracking-tight leading-snug mb-2">
                 Join 2,500+ Tech Leaders Scaling Without Hiring Bloat.
               </h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <p className="text-slate-600 text-sm font-normal leading-relaxed">
                 Weekly engineering dispatches on AI-native product velocity, offshore vs. time-zone alignment strategies, and building high-output squads without a full-time CTO.
               </p>
             </div>
@@ -46,11 +46,11 @@ export default function NewsletterBanner() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="cto@company.com"
-                    className="w-full bg-slate-950/90 border border-slate-700/80 rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors shadow-inner"
+                    className="w-full bg-white border border-slate-300 rounded-xl px-4 py-3.5 text-sm text-[#0A1622] placeholder-slate-400 focus:outline-none focus:border-[#00B2A9] transition-colors shadow-sm"
                   />
                   <button
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-blue-600/25 transition-all text-sm flex items-center justify-center gap-2"
+                    className="w-full bg-[#F8485E] hover:bg-[#E8236E] text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-[#F8485E]/25 transition-all text-sm flex items-center justify-center gap-2"
                   >
                     Subscribe Free →
                   </button>
@@ -59,12 +59,12 @@ export default function NewsletterBanner() {
                   </span>
                 </form>
               ) : (
-                <div className="bg-emerald-950/30 border border-emerald-500/30 rounded-2xl p-6 text-center animate-fade-in">
-                  <div className="flex items-center justify-center gap-2 text-emerald-400 font-bold text-base mb-1">
+                <div className="bg-emerald-50/80 border border-emerald-200 rounded-2xl p-6 text-center animate-fade-in shadow-sm">
+                  <div className="flex items-center justify-center gap-2 text-emerald-700 font-bold text-base mb-1">
                     <HiMiniCheckCircle className="w-5 h-5" />
                     You're on the list!
                   </div>
-                  <p className="text-xs text-slate-300">
+                  <p className="text-xs text-slate-600">
                     Welcome aboard. Check your inbox for our latest engineering guide.
                   </p>
                 </div>

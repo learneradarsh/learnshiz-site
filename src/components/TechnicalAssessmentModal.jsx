@@ -92,31 +92,31 @@ export default function TechnicalAssessmentModal() {
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-slate-950/80 backdrop-blur-md transition-opacity animate-fade-in"
+        className="fixed inset-0 bg-[#0A1622]/60 backdrop-blur-md transition-opacity animate-fade-in"
         onClick={() => setIsOpen(false)}
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-xl bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl shadow-blue-500/10 overflow-hidden z-10 animate-scale-up my-auto">
+      <div className="relative w-full max-w-xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden z-10 animate-scale-up my-auto">
         
         {/* Header Ribbon */}
-        <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 p-6 sm:p-7 text-white relative">
+        <div className="bg-gradient-to-r from-[#0A1622] via-[#142C44] to-[#0A1622] p-6 sm:p-7 text-white relative">
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute top-5 right-5 w-8 h-8 rounded-full bg-black/20 hover:bg-black/40 flex items-center justify-center text-white transition-colors"
+            className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
             aria-label="Close modal"
           >
             <HiMiniXMark className="w-5 h-5" />
           </button>
 
-          <div className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
-            <HiMiniSparkles className="w-3.5 h-3.5 text-blue-200" />
+          <div className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 text-[#00B2A9]">
+            <HiMiniSparkles className="w-3.5 h-3.5 text-[#00B2A9]" />
             Lower Commitment · Fast Turnaround
           </div>
-          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
             Free Technical Assessment
           </h3>
-          <p className="text-blue-100 text-sm mt-1 max-w-md">
+          <p className="text-slate-300 text-sm mt-1 max-w-md">
             Tell us about your product roadmap. We'll analyze your tech stack and provide a custom dedicated team blueprint within 24 hours.
           </p>
         </div>
@@ -127,7 +127,7 @@ export default function TechnicalAssessmentModal() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">
                     Your Name *
                   </label>
                   <input
@@ -137,11 +137,11 @@ export default function TechnicalAssessmentModal() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Alex Morgan"
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-[#F8F9FA] border border-slate-200 rounded-xl px-4 py-3 text-sm text-[#0A1622] placeholder-slate-400 focus:outline-none focus:border-[#00B2A9] transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">
                     Work Email *
                   </label>
                   <input
@@ -151,14 +151,14 @@ export default function TechnicalAssessmentModal() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="alex@company.com"
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-[#F8F9FA] border border-slate-200 rounded-xl px-4 py-3 text-sm text-[#0A1622] placeholder-slate-400 focus:outline-none focus:border-[#00B2A9] transition-colors"
                   />
                 </div>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">
                     Company / Product *
                   </label>
                   <input
@@ -168,18 +168,18 @@ export default function TechnicalAssessmentModal() {
                     value={formData.company}
                     onChange={handleChange}
                     placeholder="Acme AI / Next.js SaaS"
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-[#F8F9FA] border border-slate-200 rounded-xl px-4 py-3 text-sm text-[#0A1622] placeholder-slate-400 focus:outline-none focus:border-[#00B2A9] transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">
                     Team Structure Needed
                   </label>
                   <select
                     name="teamSize"
                     value={formData.teamSize}
                     onChange={handleChange}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-[#F8F9FA] border border-slate-200 rounded-xl px-4 py-3 text-sm text-[#0A1622] focus:outline-none focus:border-[#00B2A9] transition-colors"
                   >
                     <option value="Builder Plan (1-2 Engineers)">Builder Plan (1-2 Engineers)</option>
                     <option value="Growth Plan (Dedicated Squad)">Growth Plan (Dedicated Squad)</option>
@@ -190,7 +190,7 @@ export default function TechnicalAssessmentModal() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">
                   What are you building or scaling right now? *
                 </label>
                 <textarea
@@ -200,18 +200,18 @@ export default function TechnicalAssessmentModal() {
                   value={formData.challenge}
                   onChange={handleChange}
                   placeholder="e.g., We need to accelerate our AI feature releases, refactor a Python backend, and need engineers working in EST hours..."
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                  className="w-full bg-[#F8F9FA] border border-slate-200 rounded-xl px-4 py-3 text-sm text-[#0A1622] placeholder-slate-400 focus:outline-none focus:border-[#00B2A9] transition-colors resize-none"
                 />
               </div>
 
               {/* Trust badges inside form */}
-              <div className="flex items-center gap-4 py-2 border-t border-slate-800/60 text-xs text-slate-400">
+              <div className="flex items-center gap-4 py-2 border-t border-slate-200 text-xs text-slate-600">
                 <span className="flex items-center gap-1.5">
-                  <HiMiniShieldCheck className="w-4 h-4 text-emerald-400" />
+                  <HiMiniShieldCheck className="w-4 h-4 text-[#00B2A9]" />
                   100% IP Ownership
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00B2A9] animate-pulse" />
                   NDA-Protected
                 </span>
                 <span className="flex items-center gap-1.5 ml-auto text-slate-500">
@@ -222,7 +222,7 @@ export default function TechnicalAssessmentModal() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-600/30 transition-all transform active:scale-[0.99] flex items-center justify-center gap-2"
+                className="w-full bg-[#F8485E] hover:bg-[#E8236E] text-white font-bold py-4 rounded-xl shadow-lg shadow-[#F8485E]/25 transition-all transform active:scale-[0.99] flex items-center justify-center gap-2"
               >
                 {loading ? (
                   <>
@@ -242,22 +242,22 @@ export default function TechnicalAssessmentModal() {
           ) : (
             /* Success Screen */
             <div className="text-center py-6 px-2 animate-fade-in">
-              <div className="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mx-auto mb-4 text-emerald-400 shadow-lg shadow-emerald-500/10">
+              <div className="w-16 h-16 rounded-full bg-[#00B2A9]/15 border border-[#00B2A9]/30 flex items-center justify-center mx-auto mb-4 text-[#00B2A9] shadow-sm">
                 <HiMiniCheckCircle className="w-10 h-10" />
               </div>
-              <h4 className="text-2xl font-bold text-white mb-2">
+              <h4 className="text-2xl font-bold text-[#0A1622] mb-2">
                 Assessment Request Received!
               </h4>
-              <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed mb-6">
-                Thank you, <span className="font-semibold text-white">{formData.name}</span>. Our Principal Engineering Architect is reviewing <span className="text-blue-400 font-medium">{formData.company}</span>'s requirements. We will deliver your custom team structure & delivery timeline within 24 hours.
+              <p className="text-slate-600 text-sm max-w-md mx-auto leading-relaxed mb-6">
+                Thank you, <span className="font-semibold text-[#0A1622]">{formData.name}</span>. Our Principal Engineering Architect is reviewing <span className="text-[#00B2A9] font-medium">{formData.company}</span>'s requirements. We will deliver your custom team structure & delivery timeline within 24 hours.
               </p>
 
-              <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-5 mb-6 text-left">
-                <div className="flex items-center gap-2 text-xs font-bold text-blue-400 uppercase tracking-wider mb-1">
+              <div className="bg-[#F8F9FA] border border-slate-200 rounded-2xl p-5 mb-6 text-left shadow-sm">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#00B2A9] uppercase tracking-wider mb-1">
                   <HiMiniCalendar className="w-4 h-4" />
                   Want to skip the wait?
                 </div>
-                <p className="text-xs text-slate-400 mb-3">
+                <p className="text-xs text-slate-600 mb-3">
                   You can lock in your Q3 onboarding slot immediately by speaking with our engineering leadership directly today.
                 </p>
                 <a
@@ -265,7 +265,7 @@ export default function TechnicalAssessmentModal() {
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => trackCTAClick("Book Call From Assessment Success", "Modal")}
-                  className="block w-full text-center bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold py-3 rounded-xl border border-slate-700 transition-colors"
+                  className="block w-full text-center bg-[#F8485E] hover:bg-[#E8236E] text-white text-xs font-bold py-3 rounded-xl shadow-md shadow-[#F8485E]/25 transition-colors"
                 >
                   Book 30-Min Discovery Call Now →
                 </a>
@@ -273,7 +273,7 @@ export default function TechnicalAssessmentModal() {
 
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-slate-500 hover:text-slate-400 text-xs font-semibold transition-colors"
+                className="text-slate-500 hover:text-slate-700 text-xs font-semibold transition-colors"
               >
                 Close Window
               </button>

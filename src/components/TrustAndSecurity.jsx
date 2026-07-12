@@ -49,19 +49,19 @@ export default function TrustAndSecurity() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-slate-950 relative border-t border-slate-800/50 overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-slate-900/50 rounded-[100%] blur-[120px] pointer-events-none"></div>
+    <section className="py-20 md:py-28 bg-[#F8F9FA] relative border-t border-slate-200 overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-[#00B2A9]/5 rounded-[100%] blur-[120px] pointer-events-none"></div>
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-14">
-          <span className="text-emerald-500 font-semibold tracking-wider uppercase text-xs sm:text-sm mb-3 block flex items-center justify-center gap-1.5">
+          <span className="text-[#00B2A9] font-semibold tracking-wider uppercase text-xs sm:text-sm mb-3 flex items-center justify-center gap-1.5">
             <HiMiniCheckBadge className="w-4 h-4" />
             Enterprise Ready & Verified
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0A1622] mb-4 tracking-tight">
             Built on Trust, Security & Compliance
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
+          <p className="text-slate-600 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
             We understand that your codebase is your most valuable asset. Our legal, operational, and compliance frameworks are designed to protect you completely.
           </p>
         </div>
@@ -71,10 +71,10 @@ export default function TrustAndSecurity() {
           {complianceBadges.map((badge, i) => (
             <div
               key={i}
-              className={`border rounded-2xl p-4 text-center transition-all hover:scale-[1.02] ${badge.color}`}
+              className={`border rounded-2xl p-4 text-center transition-all hover:scale-[1.02] bg-white border-slate-200 shadow-sm`}
             >
-              <div className="font-extrabold text-sm text-white mb-1">{badge.name}</div>
-              <div className="text-[11px] opacity-80 font-medium leading-tight">{badge.desc}</div>
+              <div className="font-extrabold text-sm text-[#0A1622] mb-1">{badge.name}</div>
+              <div className="text-[11px] text-slate-600 font-medium leading-tight">{badge.desc}</div>
             </div>
           ))}
         </div>
@@ -82,13 +82,13 @@ export default function TrustAndSecurity() {
         {/* 4-Card Feature Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, idx) => (
-            <div key={idx} className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 sm:p-7 hover:-translate-y-1 transition-all duration-300 shadow-lg flex flex-col justify-between">
+            <div key={idx} className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 hover:-translate-y-1 transition-all duration-300 shadow-sm flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-slate-800/80 flex items-center justify-center mb-5 border border-slate-700/50 shadow-inner">
+                <div className="w-12 h-12 rounded-xl bg-[#F8F9FA] flex items-center justify-center mb-5 border border-slate-200 shadow-sm">
                   {feature.icon}
                 </div>
-                <h3 className="text-lg font-bold text-slate-200 mb-2.5">{feature.title}</h3>
-                <p className="text-slate-400 leading-relaxed text-xs sm:text-sm">
+                <h3 className="text-lg font-bold text-[#0A1622] mb-2.5">{feature.title}</h3>
+                <p className="text-slate-600 leading-relaxed text-xs sm:text-sm">
                   {feature.desc}
                 </p>
               </div>

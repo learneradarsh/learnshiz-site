@@ -48,26 +48,26 @@ export default function FAQSection() {
   const [openIdx, setOpenIdx] = useState(null);
 
   return (
-    <section id="faq" className="py-20 md:py-32 bg-slate-950 border-t border-slate-800/50">
+    <section id="faq" className="py-20 md:py-32 bg-[#F8F9FA] border-t border-slate-200">
       <div className="max-w-2xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-slate-800/60 border border-slate-700/50 text-slate-400 text-xs font-semibold px-4 py-2 rounded-full mb-5">
+          <div className="inline-flex items-center gap-2 bg-white border border-slate-200 text-[#00B2A9] text-xs font-semibold px-4 py-2 rounded-full mb-5 shadow-sm">
             FAQ
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1622] mb-3 tracking-tight">
             Got Questions?
           </h2>
-          <p className="text-slate-400 text-sm">Everything you need to know about working with us.</p>
+          <p className="text-slate-600 text-sm">Everything you need to know about working with us.</p>
         </div>
 
         <div className="space-y-2">
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className={`border rounded-2xl overflow-hidden transition-all duration-300 ${
+              className={`border rounded-2xl overflow-hidden transition-all duration-300 shadow-sm ${
                 openIdx === i
-                  ? "border-blue-500/40 bg-blue-950/10"
-                  : "border-slate-800/70 bg-slate-900/30 hover:border-slate-700"
+                  ? "border-[#00B2A9]/40 bg-[#00B2A9]/5"
+                  : "border-slate-200 bg-white hover:border-slate-300"
               }`}
             >
               <button
@@ -75,27 +75,27 @@ export default function FAQSection() {
                 className="w-full flex items-center justify-between px-5 py-4 text-left gap-4"
                 onClick={() => setOpenIdx(openIdx === i ? null : i)}
               >
-                <span className={`font-semibold text-sm pr-2 ${openIdx === i ? "text-white" : "text-slate-200"}`}>
+                <span className={`font-semibold text-sm pr-2 ${openIdx === i ? "text-[#0A1622]" : "text-slate-700"}`}>
                   {faq.q}
                 </span>
-                <HiMiniChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${openIdx === i ? "rotate-180 text-blue-400" : "text-slate-500"}`} />
+                <HiMiniChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-300 ${openIdx === i ? "rotate-180 text-[#00B2A9]" : "text-slate-400"}`} />
               </button>
               {openIdx === i && (
                 <div className="px-5 pb-4">
-                  <p className="text-sm text-slate-400 leading-relaxed">{faq.a}</p>
+                  <p className="text-sm text-slate-600 font-normal leading-relaxed">{faq.a}</p>
                 </div>
               )}
             </div>
           ))}
         </div>
 
-        <div className="mt-8 text-center bg-slate-900/40 border border-slate-800/60 rounded-2xl p-5">
-          <p className="text-slate-500 text-sm mb-2">Still have questions?</p>
+        <div className="mt-8 text-center bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+          <p className="text-slate-600 text-sm mb-2">Still have questions?</p>
           <a
             href="https://cal.com/learnshiz-techies-ll1gn1/30min"
             target="_blank"
             rel="noreferrer"
-            className="text-blue-400 hover:text-blue-300 font-semibold text-sm transition-colors"
+            className="text-[#00B2A9] hover:underline font-semibold text-sm transition-colors"
           >
             Book a 30-Min Call with Our Team →
           </a>

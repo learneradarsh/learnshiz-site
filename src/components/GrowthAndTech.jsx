@@ -42,32 +42,32 @@ export default function GrowthAndTech() {
   ];
 
   return (
-    <section className="py-24 bg-slate-950 relative border-t border-slate-800/50 overflow-hidden">
+    <section className="py-24 bg-white relative border-t border-slate-200 overflow-hidden">
       {/* Background gradients */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00B2A9]/5 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#F8485E]/5 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16 md:mb-20">
-          <span className="text-blue-500 font-semibold tracking-wider uppercase text-xs sm:text-sm mb-3 block">Growth & Engineering</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-            How We Grow Clients & <span className="text-gradient">Handle Tech</span>
+          <span className="text-[#00B2A9] font-semibold tracking-wider uppercase text-xs sm:text-sm mb-3 block">Growth & Engineering</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0A1622] mb-6 tracking-tight">
+            How We Grow Clients & <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#F8485E] via-[#FF6B81] to-[#00B2A9]">Handle Tech</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             We don't just write code; we engineer scalable solutions that directly drive your business growth, ensuring your tech stack becomes your greatest competitive advantage.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {pillars.map((pillar, idx) => (
-            <div key={idx} className="glass-dark rounded-2xl p-8 hover:-translate-y-1 transition-transform duration-300 group">
+            <div key={idx} className="bg-[#F8F9FA] border border-slate-200 shadow-sm rounded-2xl p-8 hover:-translate-y-1 transition-transform duration-300 group">
               <div className="flex flex-col sm:flex-row items-start gap-5">
-                <div className="w-14 h-14 rounded-xl bg-slate-800/50 flex items-center justify-center shrink-0 border border-slate-700/50 group-hover:scale-110 group-hover:bg-slate-800 transition-all duration-300 shadow-lg">
+                <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 border border-slate-200 group-hover:scale-110 transition-all duration-300 shadow-sm">
                   {pillar.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-200 mb-3 group-hover:text-white transition-colors">{pillar.title}</h3>
-                  <p className="text-slate-400 leading-relaxed text-sm sm:text-base">
+                  <h3 className="text-xl font-bold text-[#0A1622] mb-3 transition-colors">{pillar.title}</h3>
+                  <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
                     {pillar.description}
                   </p>
                 </div>

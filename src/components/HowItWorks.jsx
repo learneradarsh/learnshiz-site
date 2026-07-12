@@ -35,32 +35,32 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-slate-950 relative border-t border-slate-800/50">
+    <section className="py-20 md:py-32 bg-white relative border-t border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16 md:mb-20">
-          <span className="text-blue-500 font-semibold tracking-wider uppercase text-xs sm:text-sm mb-3 block">Our Process</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 tracking-tight">
+          <span className="text-[#00B2A9] font-semibold tracking-wider uppercase text-xs sm:text-sm mb-3 block">Our Process</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0A1622] mb-4 sm:mb-6 tracking-tight">
             How It Works
           </h2>
-          <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed px-2">
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed px-2">
             A streamlined, high-velocity onboarding process designed to eliminate friction and get code shipped faster.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 md:gap-12 relative">
           {/* Connecting line for desktop */}
-          <div className="hidden md:block absolute top-12 left-1/6 right-1/6 h-[1px] bg-gradient-to-r from-transparent via-slate-700 to-transparent z-0"></div>
+          <div className="hidden md:block absolute top-12 left-1/6 right-1/6 h-[1px] bg-slate-200 z-0"></div>
 
           {steps.map((step, index) => (
             <div key={index} className="relative z-10 flex flex-col items-center text-center">
-              <div className="w-24 h-24 rounded-full bg-slate-900 border-4 border-slate-950 flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(37,99,235,0.1)] relative">
-                <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-blue-600 border-2 border-slate-950 flex items-center justify-center">
+              <div className="w-24 h-24 rounded-full bg-[#F8F9FA] border-4 border-white flex items-center justify-center mb-6 shadow-md relative">
+                <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-[#F8485E] border-2 border-white flex items-center justify-center shadow-sm">
                   <span className="text-white text-xs font-bold">{step.number}</span>
                 </div>
                 {step.icon}
               </div>
-              <h3 className="text-xl font-bold text-slate-200 mb-3">{step.title}</h3>
-              <p className="text-slate-500 leading-relaxed text-sm md:text-base">
+              <h3 className="text-xl font-bold text-[#0A1622] mb-3">{step.title}</h3>
+              <p className="text-slate-600 leading-relaxed text-sm md:text-base font-normal">
                 {step.desc}
               </p>
             </div>

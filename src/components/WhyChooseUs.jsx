@@ -51,19 +51,19 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-learnshiz" className="py-20 md:py-32 bg-slate-950 border-t border-slate-800/50">
+    <section id="why-learnshiz" className="py-20 md:py-32 bg-[#F8F9FA] border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 bg-slate-800/60 border border-slate-700/50 text-slate-400 text-xs font-semibold px-4 py-2 rounded-full mb-5">
+          <div className="inline-flex items-center gap-2 bg-white border border-slate-200 text-[#00B2A9] text-xs font-semibold px-4 py-2 rounded-full mb-5 shadow-sm">
             Why Learnshiz Engineering
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0A1622] mb-4 tracking-tight">
             Built Different.{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#F8485E] via-[#FF6B81] to-[#00B2A9]">
               Engineered Better.
             </span>
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
+          <p className="text-slate-600 max-w-xl mx-auto">
             Not a staffing agency. Not outsourcing. Your product engineering partner.
           </p>
         </div>
@@ -74,20 +74,20 @@ export default function WhyChooseUs() {
               key={r.title}
               className={`relative rounded-2xl p-6 md:p-7 transition-all duration-300 hover:-translate-y-1 ${
                 r.highlight
-                  ? "bg-gradient-to-b from-blue-950/40 to-slate-900/60 border border-blue-500/40 shadow-[0_0_40px_rgba(37,99,235,0.1)]"
-                  : "bg-slate-900/40 border border-slate-800/70 hover:border-slate-700"
+                  ? "bg-gradient-to-b from-white to-slate-50 border border-[#00B2A9]/40 shadow-md"
+                  : "bg-white border border-slate-200 hover:border-[#00B2A9] shadow-sm hover:shadow-md"
               }`}
             >
               {r.badge && (
-                <div className="absolute -top-3 left-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wider">
+                <div className="absolute -top-3 left-6 bg-[#00B2A9] text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg shadow-[#00B2A9]/25 uppercase tracking-wider border border-[#00B2A9]/40">
                   {r.badge}
                 </div>
               )}
-              <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-5 ${r.highlight ? "bg-blue-500/15 border border-blue-500/30" : "bg-slate-800 border border-slate-700/60"}`}>
-                <r.Icon className={`w-5 h-5 ${r.highlight ? "text-blue-400" : "text-slate-400"}`} />
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-5 ${r.highlight ? "bg-[#00B2A9]/15 border border-[#00B2A9]/30 shadow-sm" : "bg-[#F8F9FA] border border-slate-200 shadow-sm"}`}>
+                <r.Icon className={`w-5 h-5 ${r.highlight ? "text-[#00B2A9]" : "text-[#F8485E]"}`} />
               </div>
-              <h3 className="text-base font-bold text-white mb-2">{r.title}</h3>
-              <p className={`text-sm leading-relaxed ${r.highlight ? "text-slate-300" : "text-slate-500"}`}>
+              <h3 className="text-base font-bold text-[#0A1622] mb-2">{r.title}</h3>
+              <p className="text-sm leading-relaxed text-slate-600 font-normal">
                 {r.desc}
               </p>
             </div>

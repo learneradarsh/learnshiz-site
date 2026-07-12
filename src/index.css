@@ -27,11 +27,11 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 220 38% 5%;
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --card: 220 38% 5%;
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
+    --popover: 220 38% 5%;
     --popover-foreground: 210 40% 98%;
     --primary: 217.2 91.2% 59.8%;
     --primary-foreground: 222.2 47.4% 11.2%;
@@ -54,7 +54,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground antialiased selection:bg-primary/30;
+    @apply bg-white text-[#0A1622] antialiased selection:bg-[#F8485E]/20;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   html {
@@ -64,23 +64,27 @@
 
 @layer components {
   .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+    @apply bg-white/80 backdrop-blur-md border border-slate-200 shadow-[0_4px_30px_rgba(0,0,0,0.05)];
   }
   
   .glass-dark {
-    @apply bg-slate-900/50 backdrop-blur-xl border border-slate-700/50 shadow-2xl;
+    @apply bg-white backdrop-blur-xl border border-slate-200 shadow-lg;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0A1622] via-[#1E293B] to-[#475569];
+  }
+
+  .text-gradient-blue {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#F8485E] via-[#FF6B81] to-[#00B2A9];
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-blue-600 px-8 py-3.5 text-sm font-medium text-white transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/25 active:scale-95 disabled:pointer-events-none disabled:opacity-50;
+    @apply inline-flex items-center justify-center rounded-xl bg-[#F8485E] px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-[#E8236E] hover:shadow-lg hover:shadow-[#F8485E]/25 active:scale-95 disabled:pointer-events-none disabled:opacity-50;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/50 backdrop-blur-md px-8 py-3.5 text-sm font-medium text-white transition-all hover:bg-slate-800 hover:text-blue-400 active:scale-95 disabled:pointer-events-none disabled:opacity-50;
+    @apply inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-8 py-3.5 text-sm font-semibold text-[#0A1622] transition-all hover:bg-slate-50 hover:border-[#00B2A9] active:scale-95 disabled:pointer-events-none disabled:opacity-50 shadow-sm;
   }
 }
 

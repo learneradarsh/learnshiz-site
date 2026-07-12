@@ -89,7 +89,7 @@ export default function Resources() {
   const [selectedArticle, setSelectedArticle] = useState(null);
 
   return (
-    <main className="pt-24 min-h-screen bg-slate-950 text-slate-200">
+    <main className="pt-24 min-h-screen bg-white text-slate-600">
       <SEO
         title="Engineering Resources & Founder Guides | Learnshiz Engineering"
         description="Explore expert dispatches on EaaS, AI engineering velocity, time-zone alignment, and scaling startup product teams without hiring bloat."
@@ -97,20 +97,20 @@ export default function Resources() {
       />
 
       {/* Hero */}
-      <section className="py-16 md:py-24 bg-slate-950 text-center relative overflow-hidden border-b border-slate-800/60">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(37,99,235,0.08)_0%,transparent_70%)] pointer-events-none" />
+      <section className="py-16 md:py-24 bg-white text-center relative overflow-hidden border-b border-slate-200">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,178,169,0.05)_0%,transparent_70%)] pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold px-4 py-2 rounded-full mb-5 uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 bg-[#F8F9FA] border border-slate-200 text-[#00B2A9] text-xs font-bold px-4 py-2 rounded-full mb-5 uppercase tracking-wider shadow-sm">
             <HiMiniBookOpen className="w-4 h-4" />
             The Engineering Dispatch
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-5">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#0A1622] tracking-tight mb-5">
             Insights for{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#F8485E] via-[#FF6B81] to-[#00B2A9]">
               Modern Tech Leaders
             </span>
           </h1>
-          <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Proven strategies on EaaS subscription models, AI-native product velocity, and eliminating offshore communication delays.
           </p>
         </div>
@@ -123,11 +123,11 @@ export default function Resources() {
             <div
               key={art.id}
               onClick={() => setSelectedArticle(art)}
-              className="bg-slate-900/40 border border-slate-800 rounded-3xl p-7 flex flex-col justify-between hover:border-blue-500/50 hover:-translate-y-1.5 transition-all duration-300 cursor-pointer group shadow-xl"
+              className="bg-[#F8F9FA] border border-slate-200 rounded-3xl p-7 flex flex-col justify-between hover:border-[#00B2A9] hover:-translate-y-1.5 transition-all duration-300 cursor-pointer group shadow-sm"
             >
               <div>
-                <div className="flex items-center justify-between gap-2 text-xs text-slate-400 mb-4">
-                  <span className="bg-blue-500/10 text-blue-400 font-bold px-3 py-1 rounded-full border border-blue-500/20">
+                <div className="flex items-center justify-between gap-2 text-xs text-slate-500 mb-4">
+                  <span className="bg-white text-[#00B2A9] font-bold px-3 py-1 rounded-full border border-slate-200 shadow-sm">
                     {art.category}
                   </span>
                   <span className="flex items-center gap-1">
@@ -135,15 +135,15 @@ export default function Resources() {
                     {art.readTime}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors leading-snug">
+                <h3 className="text-xl font-bold text-[#0A1622] mb-3 group-hover:text-[#00B2A9] transition-colors leading-snug">
                   {art.title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
                   {art.summary}
                 </p>
               </div>
 
-              <div className="pt-5 border-t border-slate-800/60 flex items-center justify-between text-xs font-bold text-blue-400 group-hover:text-blue-300">
+              <div className="pt-5 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-[#00B2A9] group-hover:text-[#008E87]">
                 <span>Read Full Guide</span>
                 <HiMiniArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
@@ -152,17 +152,17 @@ export default function Resources() {
         </div>
 
         {/* Lead Capture Banner inside Resources */}
-        <div className="mt-16 bg-gradient-to-r from-blue-950/60 via-indigo-950/60 to-slate-900 border border-blue-500/30 rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden shadow-2xl">
+        <div className="mt-16 bg-white border border-slate-200 rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden shadow-sm">
           <div className="max-w-2xl mx-auto relative z-10">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#0A1622] mb-3">
               Want We To Evaluate Your Product Architecture?
             </h3>
-            <p className="text-slate-300 text-sm mb-6 leading-relaxed">
+            <p className="text-slate-600 text-sm mb-6 leading-relaxed">
               Get a free 24-hour dedicated team blueprint and technical assessment from our Principal Architects — tailored to your exact roadmap.
             </p>
             <button
               onClick={() => window.dispatchEvent(new CustomEvent("openTechnicalAssessment", { detail: { source: "ResourcesPage" } }))}
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-blue-600/30 transition-all text-sm uppercase tracking-wider"
+              className="inline-flex items-center gap-2 bg-[#F8485E] hover:bg-[#E8236E] text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-[#F8485E]/25 transition-all text-sm uppercase tracking-wider"
             >
               Get Free Assessment Blueprint →
             </button>
@@ -176,51 +176,51 @@ export default function Resources() {
       {selectedArticle && (
         <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
           <div
-            className="fixed inset-0 bg-slate-950/85 backdrop-blur-md transition-opacity"
+            className="fixed inset-0 bg-[#0A1622]/60 backdrop-blur-md transition-opacity"
             onClick={() => setSelectedArticle(null)}
           />
-          <div className="relative w-full max-w-3xl bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl overflow-hidden z-10 my-auto max-h-[90vh] flex flex-col animate-scale-up">
+          <div className="relative w-full max-w-3xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden z-10 my-auto max-h-[90vh] flex flex-col animate-scale-up">
             
-            <div className="p-6 sm:p-8 border-b border-slate-800 flex items-center justify-between bg-slate-950/50 sticky top-0 z-20 backdrop-blur-md">
+            <div className="p-6 sm:p-8 border-b border-slate-200 flex items-center justify-between bg-white/90 sticky top-0 z-20 backdrop-blur-md">
               <div className="flex items-center gap-2">
-                <span className="text-xs bg-blue-500/15 text-blue-400 font-bold px-3 py-1 rounded-full border border-blue-500/30">
+                <span className="text-xs bg-[#F8F9FA] text-[#00B2A9] font-bold px-3 py-1 rounded-full border border-slate-200 shadow-sm">
                   {selectedArticle.category}
                 </span>
-                <span className="text-xs text-slate-400">{selectedArticle.readTime}</span>
+                <span className="text-xs text-slate-500">{selectedArticle.readTime}</span>
               </div>
               <button
                 onClick={() => setSelectedArticle(null)}
-                className="w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-white transition-colors"
+                className="w-9 h-9 rounded-full bg-[#F8F9FA] hover:bg-slate-200 flex items-center justify-center text-[#0A1622] transition-colors"
               >
                 <HiMiniXMark className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="p-6 sm:p-10 overflow-y-auto space-y-6 text-slate-300 leading-relaxed text-sm sm:text-base">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+            <div className="p-6 sm:p-10 overflow-y-auto space-y-6 text-slate-600 leading-relaxed text-sm sm:text-base">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0A1622] leading-tight">
                 {selectedArticle.title}
               </h2>
               <div
-                className="prose prose-invert max-w-none space-y-4 prose-headings:text-white prose-headings:font-bold prose-a:text-blue-400"
+                className="prose max-w-none space-y-4 prose-headings:text-[#0A1622] prose-headings:font-bold prose-a:text-[#00B2A9]"
                 dangerouslySetInnerHTML={{
                   __html: selectedArticle.content
-                    .replace(/### (.*)/g, '<h3 className="text-xl font-bold text-white mt-6 mb-3">$1</h3>')
-                    .replace(/\* \*\*(.*?)\*\*: (.*)/g, '<li className="ml-4 list-disc mb-2"><strong className="text-blue-300">$1</strong>: $2</li>')
-                    .replace(/1\. \*\*(.*?)\*\*: (.*)/g, '<li className="ml-4 list-decimal mb-2"><strong className="text-white">$1</strong>: $2</li>')
+                    .replace(/### (.*)/g, '<h3 className="text-xl font-bold text-[#0A1622] mt-6 mb-3">$1</h3>')
+                    .replace(/\* \*\*(.*?)\*\*: (.*)/g, '<li className="ml-4 list-disc mb-2"><strong className="text-[#00B2A9]">$1</strong>: $2</li>')
+                    .replace(/1\. \*\*(.*?)\*\*: (.*)/g, '<li className="ml-4 list-decimal mb-2"><strong className="text-[#0A1622]">$1</strong>: $2</li>')
                     .replace(/\n\n/g, '<br />')
                 }}
               />
 
-              <div className="mt-10 pt-8 border-t border-slate-800/80 bg-slate-950/60 p-6 rounded-2xl">
-                <h4 className="text-lg font-bold text-white mb-2">Ready to put these EaaS principles into practice?</h4>
-                <p className="text-xs text-slate-400 mb-4">Speak directly with our engineering leadership or get your custom team blueprint today.</p>
+              <div className="mt-10 pt-8 border-t border-slate-200 bg-[#F8F9FA] p-6 rounded-2xl shadow-sm">
+                <h4 className="text-lg font-bold text-[#0A1622] mb-2">Ready to put these EaaS principles into practice?</h4>
+                <p className="text-xs text-slate-600 mb-4">Speak directly with our engineering leadership or get your custom team blueprint today.</p>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button
                     onClick={() => {
                       setSelectedArticle(null);
                       window.dispatchEvent(new CustomEvent("openTechnicalAssessment", { detail: { source: "ArticleModal" } }));
                     }}
-                    className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-6 rounded-xl text-xs uppercase tracking-wider transition-all shadow-md"
+                    className="bg-[#F8485E] hover:bg-[#E8236E] text-white font-bold py-3 px-6 rounded-xl text-xs uppercase tracking-wider transition-all shadow-md shadow-[#F8485E]/25"
                   >
                     Request Free Assessment →
                   </button>
@@ -228,7 +228,7 @@ export default function Resources() {
                     href="https://cal.com/learnshiz-techies-ll1gn1/30min"
                     target="_blank"
                     rel="noreferrer"
-                    className="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-3 px-6 rounded-xl text-xs text-center border border-slate-700 transition-colors"
+                    className="bg-white hover:bg-slate-100 text-[#0A1622] font-semibold py-3 px-6 rounded-xl text-xs text-center border border-slate-200 shadow-sm transition-colors"
                   >
                     Book 30-Min Discovery Call
                   </a>

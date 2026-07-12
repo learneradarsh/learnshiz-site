@@ -8,7 +8,6 @@ import EngineeringPlans from "../components/EngineeringPlans";
 import CapabilitiesGrid from "../components/CapabilitiesGrid";
 import ForwardDeploymentSection from "../components/ForwardDeploymentSection";
 import IndustriesSection from "../components/IndustriesSection";
-import TechStackSection from "../components/TechStackSection";
 import EngagementModel from "../components/EngagementModel";
 import WhyChooseUs from "../components/WhyChooseUs";
 import ResourcesSection from "../components/ResourcesSection";
@@ -33,7 +32,6 @@ export default function Home() {
       <CapabilitiesGrid />
       <ForwardDeploymentSection />
       <IndustriesSection />
-      <TechStackSection />
       <EngagementModel />
       <WhyChooseUs />
       <ResourcesSection />

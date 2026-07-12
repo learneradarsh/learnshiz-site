@@ -6,7 +6,7 @@ const BOOK_CALL_URL = "https://cal.com/learnshiz-techies-ll1gn1/30min";
 
 export default function EngineeringSubscription() {
   return (
-    <main className="pt-24">
+    <main className="pt-24 bg-white text-slate-600">
       <SEO
         title="Engineering Subscription | Learnshiz Engineering"
         description="Subscribe to a complete dedicated engineering team. Builder for MVPs, Growth for scaling startups, Scale for full engineering organizations. Flat monthly pricing."
@@ -14,26 +14,26 @@ export default function EngineeringSubscription() {
       />
 
       {/* Hero */}
-      <section className="py-14 md:py-20 bg-slate-950 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(37,99,235,0.05)_0%,transparent_60%)] pointer-events-none" />
+      <section className="py-14 md:py-20 bg-white text-center relative overflow-hidden border-b border-slate-200">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,178,169,0.05)_0%,transparent_60%)] pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/25 text-blue-400 text-xs font-semibold px-4 py-2 rounded-full mb-5">
+          <div className="inline-flex items-center gap-2 bg-[#F8F9FA] border border-slate-200 text-[#00B2A9] text-xs font-semibold px-4 py-2 rounded-full mb-5 shadow-sm">
             Engineering Subscription
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#0A1622] tracking-tight mb-4">
             Your Dedicated Team.{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#F8485E] via-[#FF6B81] to-[#00B2A9]">
               On Subscription.
             </span>
           </h1>
-          <p className="text-slate-400 leading-relaxed max-w-xl mx-auto mb-7">
+          <p className="text-slate-600 leading-relaxed max-w-xl mx-auto mb-7">
             Stop hiring. Start building. Subscribe to a complete engineering capability that scales with you.
           </p>
           <a
             href={BOOK_CALL_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-7 py-3.5 rounded-xl transition-all shadow-xl shadow-blue-600/25 text-sm"
+            className="inline-flex items-center gap-2 bg-[#F8485E] hover:bg-[#E8236E] text-white font-semibold px-7 py-3.5 rounded-xl transition-all shadow-lg shadow-[#F8485E]/25 text-sm"
           >
             Book a Discovery Call →
           </a>

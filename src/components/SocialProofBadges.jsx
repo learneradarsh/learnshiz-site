@@ -8,7 +8,7 @@ export default function SocialProofBadges() {
       rating: "5.0",
       stars: 5,
       badge: "Top EaaS & Custom Dev Company",
-      color: "from-blue-500/20 to-indigo-500/20 border-blue-500/30 text-blue-400",
+      color: "from-[#F8485E]/10 to-white border-[#F8485E]/30 text-[#F8485E]",
       verifiedText: "Verified Client Reviews",
     },
     {
@@ -16,7 +16,7 @@ export default function SocialProofBadges() {
       rating: "4.9",
       stars: 5,
       badge: "Top Software Developers 2025",
-      color: "from-purple-500/20 to-pink-500/20 border-purple-500/30 text-purple-400",
+      color: "from-[#00B2A9]/10 to-white border-[#00B2A9]/30 text-[#00B2A9]",
       verifiedText: "Enterprise Leader",
     },
     {
@@ -24,24 +24,24 @@ export default function SocialProofBadges() {
       rating: "4.9",
       stars: 5,
       badge: "High Performer Spring 2026",
-      color: "from-orange-500/20 to-red-500/20 border-orange-500/30 text-orange-400",
+      color: "from-slate-50 to-white border-slate-300 text-slate-700",
       verifiedText: "Engineering-as-a-Service",
     },
   ];
 
   return (
-    <section className="py-8 bg-slate-950/80 border-b border-slate-800/60 relative z-20">
+    <section className="py-8 bg-white border-b border-slate-200 relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
           
           {/* Label */}
           <div className="flex items-center gap-2 text-center lg:text-left shrink-0">
-            <HiMiniCheckBadge className="w-5 h-5 text-blue-400 shrink-0" />
+            <HiMiniCheckBadge className="w-5 h-5 text-[#F8485E] shrink-0" />
             <div>
-              <span className="text-xs font-bold text-white uppercase tracking-wider block">
+              <span className="text-xs font-bold text-[#0A1622] uppercase tracking-wider block">
                 3rd-Party Validated
               </span>
-              <span className="text-[11px] text-slate-400">
+              <span className="text-[11px] text-slate-600">
                 Recognized across global tech directories
               </span>
             </div>
@@ -52,13 +52,13 @@ export default function SocialProofBadges() {
             {platforms.map((p) => (
               <div
                 key={p.name}
-                className={`flex items-center gap-3 bg-gradient-to-r ${p.color} border rounded-2xl px-4 py-3 backdrop-blur-sm shadow-sm hover:scale-[1.02] transition-transform`}
+                className={`flex items-center gap-3 bg-gradient-to-r ${p.color} border rounded-2xl px-4 py-3 shadow-sm hover:scale-[1.02] transition-transform`}
               >
-                <div className="flex flex-col items-center justify-center bg-slate-950/80 rounded-xl px-2.5 py-1.5 border border-slate-800 shrink-0">
-                  <span className="text-base font-extrabold text-white leading-none">
+                <div className="flex flex-col items-center justify-center bg-[#F8F9FA] rounded-xl px-2.5 py-1.5 border border-slate-200 shrink-0 shadow-sm">
+                  <span className="text-base font-extrabold text-[#0A1622] leading-none">
                     {p.rating}
                   </span>
-                  <div className="flex text-amber-400 text-[9px] mt-0.5">
+                  <div className="flex text-[#F8485E] text-[9px] mt-0.5">
                     {[...Array(p.stars)].map((_, i) => (
                       <HiMiniStar key={i} />
                     ))}
@@ -67,12 +67,12 @@ export default function SocialProofBadges() {
 
                 <div className="flex flex-col min-w-0">
                   <div className="flex items-center gap-1.5">
-                    <span className="font-bold text-sm text-white truncate">{p.name}</span>
-                    <span className="text-[10px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded font-medium">
+                    <span className="font-bold text-sm text-[#0A1622] truncate">{p.name}</span>
+                    <span className="text-[10px] bg-slate-100 text-slate-700 border border-slate-200 px-1.5 py-0.5 rounded font-medium">
                       {p.verifiedText}
                     </span>
                   </div>
-                  <span className="text-xs text-slate-300 font-medium truncate mt-0.5">
+                  <span className="text-xs text-slate-600 font-medium truncate mt-0.5">
                     {p.badge}
                   </span>
                 </div>
