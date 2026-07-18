@@ -1,28 +1,28 @@
 export const caseStudies = [
   {
-    slug: "leakypockets",
-    title: "LeakyPockets",
-    subtitle: "Tax-Leak Diagnostic for Canadian Investors",
+    slug: "dulcia",
+    title: "Dulcia",
+    subtitle: "The Offline Book Discovery Network",
     description:
-      "A privacy-first FinTech diagnostic tool that ingests complex brokerage CSVs entirely on the client side. It identifies asset-location mistakes, unharvested losses, and withholding drag to deliver actionable financial insights ranked in dollars, in under a minute.",
+      "A marketplace connecting authors with curated offline venues (cafés, coworking spaces) for physical book discovery. Features an integrated system tracking QR engagements from physical placement to online purchase.",
     extendedDescription: 
-      "LeakyPockets was conceived as a privacy-first FinTech solution for DIY Canadian investors. The core challenge was parsing and normalizing massive brokerage CSV exports containing complex transaction histories, without ever sending sensitive financial data to a backend server. We architected a robust client-side processing pipeline leveraging Web Workers and React. By offloading the heavy computational load of tax-leak diagnostics (like withholding drag and unharvested capital losses) to the client, we ensured zero server-side data retention while processing tens of thousands of rows in milliseconds.",
-    teamSize: "3 Engineers (1 Lead Frontend, 1 FinTech Domain Specialist, 1 QA)",
-    architecture: ["React", "Client-Side Processing", "Web Workers", "TailwindCSS"],
+      "Dulcia aimed to reinvent book discovery by placing physical copies in curated offline venues like cafés and coworking spaces. The technical challenge was bridging the gap between a physical interaction and an online conversion. We developed a comprehensive marketplace platform that connects authors and venues, driven by a sophisticated QR analytics engine. Each physical book placement is tracked in real-time, allowing authors to see exactly when and where their books are being scanned, read, and subsequently purchased online, creating a measurable offline-to-online marketing funnel.",
+    teamSize: "3 Engineers (1 Full Stack Node.js, 1 React Developer, 1 Data Engineer)",
+    architecture: ["React", "Node.js", "QR Analytics", "TailwindCSS"],
     outcomes: [
-      "Zero server-side data retention, ensuring total user privacy.",
-      "Processes tens of thousands of transaction rows in milliseconds.",
-      "Delivers immediate, actionable ROI insights to DIY investors.",
+      "Bridged offline discovery with online conversion tracking.",
+      "Created a scalable marketplace model for authors and venues.",
+      "Real-time analytics for offline book placement engagement.",
     ],
-    graphTitle: "Processing Speed (Rows per Millisecond)",
+    graphTitle: "Offline QR Scan to Online Conversion Rate (%)",
     graphData: [
-      { name: "Week 1", value: 1200 },
-      { name: "Week 2", value: 3000 },
-      { name: "Week 3", value: 8500 },
-      { name: "Week 4", value: 15000 },
-      { name: "Week 5", value: 24000 }
+      { name: "Month 1", value: 2.1 },
+      { name: "Month 2", value: 3.5 },
+      { name: "Month 3", value: 5.8 },
+      { name: "Month 4", value: 8.2 },
+      { name: "Month 5", value: 11.4 }
     ],
-    link: "https://www.leakypockets.ca/",
+    link: "https://www.dulcia.in/",
     color: "teal",
   },
   {
@@ -52,32 +52,6 @@ export const caseStudies = [
     color: "coral",
   },
   {
-    slug: "dulcia",
-    title: "Dulcia",
-    subtitle: "The Offline Book Discovery Network",
-    description:
-      "A marketplace connecting authors with curated offline venues (cafés, coworking spaces) for physical book discovery. Features an integrated system tracking QR engagements from physical placement to online purchase.",
-    extendedDescription: 
-      "Dulcia aimed to reinvent book discovery by placing physical copies in curated offline venues like cafés and coworking spaces. The technical challenge was bridging the gap between a physical interaction and an online conversion. We developed a comprehensive marketplace platform that connects authors and venues, driven by a sophisticated QR analytics engine. Each physical book placement is tracked in real-time, allowing authors to see exactly when and where their books are being scanned, read, and subsequently purchased online, creating a measurable offline-to-online marketing funnel.",
-    teamSize: "3 Engineers (1 Full Stack Node.js, 1 React Developer, 1 Data Engineer)",
-    architecture: ["React", "Node.js", "QR Analytics", "TailwindCSS"],
-    outcomes: [
-      "Bridged offline discovery with online conversion tracking.",
-      "Created a scalable marketplace model for authors and venues.",
-      "Real-time analytics for offline book placement engagement.",
-    ],
-    graphTitle: "Offline QR Scan to Online Conversion Rate (%)",
-    graphData: [
-      { name: "Month 1", value: 2.1 },
-      { name: "Month 2", value: 3.5 },
-      { name: "Month 3", value: 5.8 },
-      { name: "Month 4", value: 8.2 },
-      { name: "Month 5", value: 11.4 }
-    ],
-    link: "https://www.dulcia.in/",
-    color: "teal",
-  },
-  {
     slug: "datewell",
     title: "DateWell",
     subtitle: "Structured Knowledge Platform for Decision-Driven Dating",
@@ -100,6 +74,32 @@ export const caseStudies = [
       { name: "Vector Opt.", value: 85 }
     ],
     link: "https://datewell.org/",
+    color: "coral",
+  },
+  {
+    slug: "xullox",
+    title: "Xullox",
+    subtitle: "Edge Device Management & OTA Delivery System",
+    description:
+      "A robust IoT management system designed to orchestrate fleets of digital signage and edge devices. Features a reliable Over-The-Air (OTA) update delivery pipeline and real-time health monitoring to ensure high availability.",
+    extendedDescription: 
+      "Xullox needed a reliable way to manage a distributed fleet of digital signage and edge devices built on Raspberry Pi hardware. The primary challenge was ensuring consistent, fail-safe Over-The-Air (OTA) firmware and media updates across varied network conditions. We engineered a lightweight Node.js/NestJS control plane communicating via MQTT for low-latency, resilient telemetry. This allowed the central dashboard to provide real-time health monitoring, automated deployment rollbacks, and centralized fleet management, practically eliminating the need for expensive on-site physical maintenance.",
+    teamSize: "3 Engineers (1 IoT Architect, 1 Backend NestJS, 1 React Developer)",
+    architecture: ["Raspberry Pi", "NestJS", "Node.js", "MQTT"],
+    outcomes: [
+      "Reduced on-site physical maintenance costs by 80%.",
+      "Achieved 99.9% uptime across distributed hardware fleets.",
+      "Enabled seamless, centralized deployment of new media and firmware.",
+    ],
+    graphTitle: "Fleet Uptime %",
+    graphData: [
+      { name: "Jan", value: 85.0 },
+      { name: "Feb", value: 92.5 },
+      { name: "Mar", value: 98.1 },
+      { name: "Apr", value: 99.5 },
+      { name: "May", value: 99.9 }
+    ],
+    link: "https://xullox.com/",
     color: "coral",
   },
   {
@@ -129,29 +129,29 @@ export const caseStudies = [
     color: "teal",
   },
   {
-    slug: "xullox",
-    title: "Xullox",
-    subtitle: "Edge Device Management & OTA Delivery System",
+    slug: "leakypockets",
+    title: "LeakyPockets",
+    subtitle: "Tax-Leak Diagnostic for Canadian Investors",
     description:
-      "A robust IoT management system designed to orchestrate fleets of digital signage and edge devices. Features a reliable Over-The-Air (OTA) update delivery pipeline and real-time health monitoring to ensure high availability.",
+      "A privacy-first FinTech diagnostic tool that ingests complex brokerage CSVs entirely on the client side. It identifies asset-location mistakes, unharvested losses, and withholding drag to deliver actionable financial insights ranked in dollars, in under a minute.",
     extendedDescription: 
-      "Xullox needed a reliable way to manage a distributed fleet of digital signage and edge devices built on Raspberry Pi hardware. The primary challenge was ensuring consistent, fail-safe Over-The-Air (OTA) firmware and media updates across varied network conditions. We engineered a lightweight Node.js/NestJS control plane communicating via MQTT for low-latency, resilient telemetry. This allowed the central dashboard to provide real-time health monitoring, automated deployment rollbacks, and centralized fleet management, practically eliminating the need for expensive on-site physical maintenance.",
-    teamSize: "3 Engineers (1 IoT Architect, 1 Backend NestJS, 1 React Developer)",
-    architecture: ["Raspberry Pi", "NestJS", "Node.js", "MQTT"],
+      "LeakyPockets was conceived as a privacy-first FinTech solution for DIY Canadian investors. The core challenge was parsing and normalizing massive brokerage CSV exports containing complex transaction histories, without ever sending sensitive financial data to a backend server. We architected a robust client-side processing pipeline leveraging Web Workers and React. By offloading the heavy computational load of tax-leak diagnostics (like withholding drag and unharvested capital losses) to the client, we ensured zero server-side data retention while processing tens of thousands of rows in milliseconds.",
+    teamSize: "3 Engineers (1 Lead Frontend, 1 FinTech Domain Specialist, 1 QA)",
+    architecture: ["React", "Client-Side Processing", "Web Workers", "TailwindCSS"],
     outcomes: [
-      "Reduced on-site physical maintenance costs by 80%.",
-      "Achieved 99.9% uptime across distributed hardware fleets.",
-      "Enabled seamless, centralized deployment of new media and firmware.",
+      "Zero server-side data retention, ensuring total user privacy.",
+      "Processes tens of thousands of transaction rows in milliseconds.",
+      "Delivers immediate, actionable ROI insights to DIY investors.",
     ],
-    graphTitle: "Fleet Uptime %",
+    graphTitle: "Processing Speed (Rows per Millisecond)",
     graphData: [
-      { name: "Jan", value: 85.0 },
-      { name: "Feb", value: 92.5 },
-      { name: "Mar", value: 98.1 },
-      { name: "Apr", value: 99.5 },
-      { name: "May", value: 99.9 }
+      { name: "Week 1", value: 1200 },
+      { name: "Week 2", value: 3000 },
+      { name: "Week 3", value: 8500 },
+      { name: "Week 4", value: 15000 },
+      { name: "Week 5", value: 24000 }
     ],
-    link: "#",
-    color: "coral",
+    link: "https://www.leakypockets.ca/",
+    color: "teal",
   },
 ];
