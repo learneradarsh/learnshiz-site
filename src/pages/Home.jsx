@@ -7,7 +7,7 @@ import WhoThisIsNotFor from "../components/WhoThisIsNotFor";
 import EngineeringPlans from "../components/EngineeringPlans";
 import CapabilitiesGrid from "../components/CapabilitiesGrid";
 import ForwardDeploymentSection from "../components/ForwardDeploymentSection";
-import IndustriesSection from "../components/IndustriesSection";
+import CaseStudiesSection from "../components/CaseStudiesSection";
 import EngagementModel from "../components/EngagementModel";
 import WhyChooseUs from "../components/WhyChooseUs";
 import ResourcesSection from "../components/ResourcesSection";
@@ -31,7 +31,7 @@ export default function Home() {
       <EngineeringPlans />
       <CapabilitiesGrid />
       <ForwardDeploymentSection />
-      <IndustriesSection />
+      <CaseStudiesSection />
       <EngagementModel />
       <WhyChooseUs />
       <ResourcesSection />

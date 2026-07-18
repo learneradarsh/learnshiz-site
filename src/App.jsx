@@ -9,7 +9,8 @@ import Careers from "./pages/Careers";
 import OurAim from "./pages/OurAim";
 import Pricing from "./pages/Pricing";
 import ForwardDeployment from "./pages/ForwardDeployment";
-import Industries from "./pages/Industries";
+import CaseStudies from "./pages/CaseStudies";
+import CaseStudyDetail from "./pages/CaseStudyDetail";
 import EngineeringSubscription from "./pages/EngineeringSubscription";
 import Resources from "./pages/Resources";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -37,7 +38,8 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/engineering-subscription" element={<EngineeringSubscription />} />
           <Route path="/forward-deployment" element={<ForwardDeployment />} />
-          <Route path="/industries" element={<Industries />} />
+          <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/how-it-works" element={<HowItWorksPage />} />
           <Route path="/careers" element={<Careers />} />

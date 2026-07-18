@@ -18,7 +18,7 @@ const navGroups = [
   {
     title: "Company",
     links: [
-      { label: "Industries", to: "/industries" },
+      { label: "Case Studies", to: "/case-studies" },
       { label: "Pricing", to: "/pricing" },
       { label: "Resources & Guides", to: "/resources" },
       { label: "Security & Compliance", to: "/security" },

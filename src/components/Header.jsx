@@ -9,7 +9,7 @@ const navLinks = [
   { to: "/engineering-subscription", label: "Subscription" },
   { to: "/forward-deployment", label: "Forward Deployment" },
   { to: "/services", label: "Capabilities" },
-  { to: "/industries", label: "Industries" },
+  { to: "/case-studies", label: "Case Studies" },
   { to: "/pricing", label: "Pricing" },
   { to: "/resources", label: "Resources" },
 ];
