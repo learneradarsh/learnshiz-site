@@ -24,6 +24,7 @@ const navGroups = [
       { label: "Security & Compliance", to: "/security" },
       { label: "How It Works", to: "/how-it-works" },
       { label: "Careers", to: "/careers" },
+      { label: "Recruitment Partners", to: "/recruitment-partners" },
     ],
   },
 ];

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import { FiPhoneCall, FiCode, FiCheckCircle, FiGlobe, FiBook, FiCoffee, FiTrendingUp, FiShield, FiUsers } from "react-icons/fi";
 
@@ -107,6 +108,31 @@ export default function Careers() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Recruitment Agency & Vendor Partner Callout */}
+      <section className="py-16 bg-[#F8F9FA] border-t border-slate-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-10 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 hover:border-[#00B2A9]/50 transition-all">
+            <div className="max-w-xl">
+              <span className="text-[#00B2A9] font-bold text-xs uppercase tracking-widest block mb-2">
+                Talent Agencies & Vendors
+              </span>
+              <h3 className="text-2xl font-bold text-[#0A1622] mb-2">
+                Are You a Recruitment Partner or Staffing Agency?
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                We partner with specialized headhunters and tech recruitment consultancies to source top-tier engineering talent. Enjoy transparent Net-15 payouts, &lt;48hr CV feedback, and high-volume demand.
+              </p>
+            </div>
+            <Link
+              to="/recruitment-partners"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0A1622] hover:bg-slate-800 text-white font-bold text-sm px-6 py-3.5 transition-all shadow-md shrink-0 whitespace-nowrap"
+            >
+              Vendor Onboarding Portal →
+            </Link>
           </div>
         </div>
       </section>
