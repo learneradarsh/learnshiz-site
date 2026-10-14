@@ -37,8 +37,9 @@ export default function RecruitmentVendors() {
     contactEmail: "",
     contactPhone: "",
     specializations: ["AI & Machine Learning", "Fullstack (React/Node)"],
-    talentGeos: ["India", "US & Canada"],
+    talentGeos: ["Bangalore (Bengaluru)", "Hyderabad"],
     engagementModels: ["Contract / Staff Augmentation", "Full-Time Placement"],
+    pfDeduction: "Yes",
     avgTurnaround: "24 - 48 hours",
     taxId: "",
     benchAvailability: "",
@@ -63,12 +64,29 @@ export default function RecruitmentVendors() {
   ];
 
   const geoOptions = [
-    "India",
-    "US & Canada",
-    "Europe & United Kingdom",
-    "Latin America (LATAM)",
-    "Southeast Asia (SEA)",
-    "Middle East / UAE",
+    "Bangalore (Bengaluru)",
+    "Hyderabad",
+    "Pune",
+    "Mumbai",
+    "Chennai",
+    "Delhi NCR",
+    "Gurugram",
+    "Noida",
+    "Kochi (Cochin)",
+    "Kolkata",
+    "Ahmedabad",
+    "Chandigarh / Mohali",
+    "Indore",
+    "Coimbatore",
+    "Thiruvananthapuram",
+    "Bhubaneswar",
+    "Pan-India / Remote",
+  ];
+
+  const pfOptions = [
+    "Yes",
+    "No",
+    "Depends on Engagement",
   ];
 
   const engagementModelOptions = [
@@ -160,6 +178,7 @@ export default function RecruitmentVendors() {
           "Primary Domains": formData.specializations.join(", "),
           "Talent Geographies": formData.talentGeos.join(", "),
           "Engagement Models": formData.engagementModels.join(", "),
+          "Candidate PF Deduction": formData.pfDeduction,
           "Average Turnaround": formData.avgTurnaround,
           "Tax / Registration ID": formData.taxId || "Not provided",
           "Bench Notes": formData.benchAvailability || "None",
@@ -172,6 +191,7 @@ export default function RecruitmentVendors() {
         agency_name: formData.agencyName,
         team_size: formData.teamSize,
         specializations: formData.specializations.join(", "),
+        pf_deduction: formData.pfDeduction,
       });
 
       setSubmitted(true);
@@ -846,11 +866,10 @@ export default function RecruitmentVendors() {
                               type="button"
                               key={item}
                               onClick={() => toggleSpecialization(item)}
-                              className={`text-xs font-semibold px-3.5 py-2 rounded-xl border transition-all flex items-center gap-2 ${
-                                isSelected
+                              className={`text-xs font-semibold px-3.5 py-2 rounded-xl border transition-all flex items-center gap-2 ${isSelected
                                   ? "bg-[#00B2A9] text-white border-[#00B2A9] shadow-sm"
                                   : "bg-white text-slate-700 border-slate-300 hover:border-slate-400"
-                              }`}
+                                }`}
                             >
                               {isSelected ? <FiCheck className="w-3.5 h-3.5" /> : null}
                               {item}
@@ -872,11 +891,10 @@ export default function RecruitmentVendors() {
                               type="button"
                               key={geo}
                               onClick={() => toggleGeo(geo)}
-                              className={`text-xs font-semibold px-3.5 py-2 rounded-xl border transition-all flex items-center gap-2 ${
-                                isSelected
+                              className={`text-xs font-semibold px-3.5 py-2 rounded-xl border transition-all flex items-center gap-2 ${isSelected
                                   ? "bg-[#0A1622] text-white border-[#0A1622] shadow-sm"
                                   : "bg-white text-slate-700 border-slate-300 hover:border-slate-400"
-                              }`}
+                                }`}
                             >
                               {isSelected ? <FiCheck className="w-3.5 h-3.5" /> : null}
                               {geo}
@@ -899,17 +917,42 @@ export default function RecruitmentVendors() {
                                 type="button"
                                 key={model}
                                 onClick={() => toggleEngagementModel(model)}
-                                className={`w-full text-left text-xs font-medium px-3.5 py-2 rounded-xl border transition-all flex items-center justify-between ${
-                                  isSelected
+                                className={`w-full text-left text-xs font-medium px-3.5 py-2 rounded-xl border transition-all flex items-center justify-between ${isSelected
                                     ? "bg-slate-100 text-[#0A1622] border-slate-400 font-semibold"
                                     : "bg-white text-slate-600 border-slate-200 hover:border-slate-300"
-                                }`}
+                                  }`}
                               >
                                 <span>{model}</span>
                                 {isSelected ? <FiCheck className="w-4 h-4 text-[#00B2A9]" /> : null}
                               </button>
                             );
                           })}
+                        </div>
+
+                        <div className="mt-5">
+                          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                            Do You Deduct Candidate PF (Provident Fund)? *
+                          </label>
+                          <div className="flex flex-wrap gap-2">
+                            {pfOptions.map((opt) => {
+                              const isSelected = formData.pfDeduction === opt;
+                              return (
+                                <button
+                                  type="button"
+                                  key={opt}
+                                  onClick={() => setFormData((prev) => ({ ...prev, pfDeduction: opt }))}
+                                  className={`text-xs font-semibold px-3.5 py-2 rounded-xl border transition-all flex items-center gap-2 ${
+                                    isSelected
+                                      ? "bg-[#0A1622] text-white border-[#0A1622] shadow-sm"
+                                      : "bg-white text-slate-700 border-slate-300 hover:border-slate-400"
+                                  }`}
+                                >
+                                  {isSelected ? <FiCheck className="w-3.5 h-3.5 text-[#00B2A9]" /> : null}
+                                  {opt}
+                                </button>
+                              );
+                            })}
+                          </div>
                         </div>
                       </div>
 
