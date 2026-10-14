@@ -16,6 +16,7 @@ import Resources from "./pages/Resources";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import SecurityCompliance from "./pages/SecurityCompliance";
+import RecruitmentVendors from "./pages/RecruitmentVendors";
 import FloatingCTA from "./components/FloatingCTA";
 import TechnicalAssessmentModal from "./components/TechnicalAssessmentModal";
 
@@ -48,6 +49,8 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/security" element={<SecurityCompliance />} />
+          <Route path="/recruitment-partners" element={<RecruitmentVendors />} />
+          <Route path="/vendor-onboarding" element={<RecruitmentVendors />} />
         </Routes>
         <FloatingCTA />
         <TechnicalAssessmentModal />
